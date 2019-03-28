@@ -1,0 +1,14 @@
+# Unity build file - sHTiF 01.03.2019
+
+-cp src
+
+-net-lib c:\Program Files\Unity\Hub\Editor\2018.3.10f1\Editor\Data\Managed\UnityEngine.dll
+-net-lib Assets\UnityTestLibrary.dll
+# -net-lib /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll 
+
+# Crosscompile to assets folder
+-cs Assets/Code
+-D net-ver=40
+-D no-compilation
+
+GUnityContext
