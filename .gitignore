@@ -1,18 +1,19 @@
 
-plugin/\.idea/\.idea\.UnityTestLibrary/\.idea/
+/plugin/\.idea/\.idea\.UnityTestLibrary/\.idea/
 
-plugin\.DotSettings\.user
+/plugin\.DotSettings\.user
 
-plugin/\bin/
+/plugin/\bin/
 
-plugin/\obj/
+/plugin/\obj/
 
-TestBed/\Assets/\Code/
+/TestBed/\Assets/\Code/
 
-TestBed/\Library/
+/TestBed/\Library/
 
-TestBed/\Temp/
+/TestBed/\Temp/
 
 *.iml
 
 
+/TestBed/Assets/Code.meta
