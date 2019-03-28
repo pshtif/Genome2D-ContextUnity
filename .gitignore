@@ -1,0 +1,12 @@
+
+plugin/\.idea/\.idea\.UnityTestLibrary/\.idea/
+
+plugin\.DotSettings\.user
+
+plugin/\bin/
+
+plugin/\obj/
+
+*.iml
+
+
