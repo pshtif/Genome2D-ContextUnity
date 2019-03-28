@@ -7,6 +7,12 @@ plugin/\bin/
 
 plugin/\obj/
 
+TestBed/\Assets/\Code/
+
+TestBed/\Library/
+
+TestBed/\Temp/
+
 *.iml
 
 
