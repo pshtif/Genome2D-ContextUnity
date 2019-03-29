@@ -1,5 +1,7 @@
 # Unity build file - sHTiF 01.03.2019
 
+-cp ../Genome2D-ContextCommon/src
+-cp ../Genome2D-Core/src
 -cp src
 
 # Cross
@@ -11,8 +13,11 @@
 # Mac
 # -net-lib /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll 
 
+-lib hscript
+
 -D net-ver=40
 -D no-compilation
+-D no-inline
 
 # Compile to assets folder
 -cs TestBed/Assets/Code

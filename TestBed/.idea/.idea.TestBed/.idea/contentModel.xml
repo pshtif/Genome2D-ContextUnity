@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\pstefcek\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pstefcek\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
+    <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Code" t="Include">
+          <e p="hxcs_build.txt" t="Include" />
+          <e p="src" t="Include">
+            <e p="Array.cs" t="Include" />
+            <e p="com" t="Include">
+              <e p="Genome2D" t="Include">
+                <e p="animation" t="Include">
+                  <e p="GAnimatorController.cs" t="Include" />
+                  <e p="GFrameAnimation.cs" t="Include" />
+                </e>
+                <e p="Assets" t="Include">
+                  <e p="GAsset.cs" t="Include" />
+                  <e p="GAssetManager.cs" t="Include" />
+                  <e p="GBinaryAsset.cs" t="Include" />
+                  <e p="GImageAsset.cs" t="Include" />
+                  <e p="GImageAssetType.cs" t="Include" />
+                  <e p="GStaticAssetManager.cs" t="Include" />
+                  <e p="GTextAsset.cs" t="Include" />
+                  <e p="GXmlAsset.cs" t="Include" />
+                </e>
+                <e p="callbacks" t="Include">
+                  <e p="GCallback.cs" t="Include" />
+                </e>
+                <e p="components" t="Include">
+                  <e p="GAnimator.cs" t="Include" />
+                  <e p="GCameraController.cs" t="Include" />
+                  <e p="GComponent.cs" t="Include" />
+                  <e p="GFrameAnimator.cs" t="Include" />
+                  <e p="GLevel.cs" t="Include" />
+                  <e p="GScriptComponent.cs" t="Include" />
+                  <e p="renderable" t="Include">
+                    <e p="GShape.cs" t="Include" />
+                    <e p="GSlice3Sprite.cs" t="Include" />
+                    <e p="GSliceSprite.cs" t="Include" />
+                    <e p="GSprite.cs" t="Include" />
+                    <e p="GTexturedQuad.cs" t="Include" />
+                    <e p="GTiledSprite.cs" t="Include" />
+                    <e p="IGInteractive.cs" t="Include" />
+                    <e p="IGRenderable.cs" t="Include" />
+                    <e p="particles" t="Include">
+                      <e p="GParticleSystemComponent.cs" t="Include" />
+                    </e>
+                    <e p="text" t="Include">
+                      <e p="GText.cs" t="Include" />
+                    </e>
+                    <e p="tilemap" t="Include">
+                      <e p="GTileMap.cs" t="Include" />
+                    </e>
+                    <e p="ui" t="Include">
+                      <e p="GUI.cs" t="Include" />
+                    </e>
+                  </e>
+                </e>
+                <e p="context" t="Include">
+                  <e p="filters" t="Include">
+                    <e p="GFilter.cs" t="Include" />
+                  </e>
+                  <e p="GBlendMode.cs" t="Include" />
+                  <e p="GCamera.cs" t="Include" />
+                  <e p="GContextConfig.cs" t="Include" />
+                  <e p="GContextFeature.cs" t="Include" />
+                  <e p="GCulling.cs" t="Include" />
+                  <e p="GDepthFunc.cs" t="Include" />
+                  <e p="GProjectionMatrix.cs" t="Include" />
+                  <e p="GUnityContext.cs" t="Include" />
+                  <e p="GViewport.cs" t="Include" />
+                  <e p="IGContext.cs" t="Include" />
+                  <e p="IGRenderer.cs" t="Include" />
+                  <e p="renderers" t="Include">
+                    <e p="G3DRenderer.cs" t="Include" />
+                    <e p="GRendererCommon.cs" t="Include" />
+                  </e>
+                  <e p="stats" t="Include">
+                    <e p="GStats.cs" t="Include" />
+                    <e p="IGStats.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="debug" t="Include">
+                  <e p="GDebug.cs" t="Include" />
+                  <e p="GDebugPriority.cs" t="Include" />
+                  <e p="GProfiler.cs" t="Include" />
+                  <e p="IGDebuggable.cs" t="Include" />
+                  <e p="IGDebuggableInternal.cs" t="Include" />
+                  <e p="IGProfilable.cs" t="Include" />
+                </e>
+                <e p="deprecated" t="Include">
+                  <e p="components" t="Include">
+                    <e p="renderable" t="Include">
+                      <e p="particles" t="Include">
+                        <e p="GParticleSystemD.cs" t="Include" />
+                        <e p="GSimpleParticleSystemD.cs" t="Include" />
+                      </e>
+                    </e>
+                  </e>
+                  <e p="particles" t="Include">
+                    <e p="GParticleD.cs" t="Include" />
+                    <e p="GParticlePoolD.cs" t="Include" />
+                    <e p="GSimpleParticleD.cs" t="Include" />
+                    <e p="IGAffectorD.cs" t="Include" />
+                    <e p="IGInitializerD.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="fbx" t="Include">
+                  <e p="GFbxGeometry.cs" t="Include" />
+                  <e p="GFbxMaterial.cs" t="Include" />
+                  <e p="GFbxMatrixInheritMode.cs" t="Include" />
+                  <e p="GFbxModel.cs" t="Include" />
+                  <e p="GFbxNode.cs" t="Include" />
+                  <e p="GFbxParser.cs" t="Include" />
+                  <e p="GFbxScene.cs" t="Include" />
+                  <e p="GFbxTexture.cs" t="Include" />
+                  <e p="GFbxTools.cs" t="Include" />
+                </e>
+                <e p="g3d" t="Include">
+                  <e p="G3DFactory.cs" t="Include" />
+                  <e p="G3DGeometry.cs" t="Include" />
+                  <e p="G3DMaterial.cs" t="Include" />
+                  <e p="G3DMatrixInheritMode.cs" t="Include" />
+                  <e p="G3DModel.cs" t="Include" />
+                  <e p="G3DNode.cs" t="Include" />
+                  <e p="G3DScene.cs" t="Include" />
+                  <e p="G3DTexture.cs" t="Include" />
+                  <e p="importers" t="Include">
+                    <e p="G3DAbstractImporter.cs" t="Include" />
+                    <e p="G3DFbxImporter.cs" t="Include" />
+                    <e p="G3DImporter.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="g3d2" t="Include">
+                  <e p="G3DBase.cs" t="Include" />
+                  <e p="G3DEdge.cs" t="Include" />
+                  <e p="G3DGeometry.cs" t="Include" />
+                  <e p="G3DPoly.cs" t="Include" />
+                  <e p="G3DRenderGeometry.cs" t="Include" />
+                  <e p="G3DVertex.cs" t="Include" />
+                </e>
+                <e p="Genome2D.cs" t="Include" />
+                <e p="geom" t="Include">
+                  <e p="GCurve.cs" t="Include" />
+                  <e p="GFloat4.cs" t="Include" />
+                  <e p="GIntPoint.cs" t="Include" />
+                  <e p="GIntRectangle.cs" t="Include" />
+                  <e p="GLine.cs" t="Include" />
+                  <e p="GMatrix.cs" t="Include" />
+                  <e p="GMatrix3D.cs" t="Include" />
+                  <e p="GMatrixUtils.cs" t="Include" />
+                  <e p="GPoint.cs" t="Include" />
+                  <e p="GRectangle.cs" t="Include" />
+                  <e p="GVector2.cs" t="Include" />
+                  <e p="GVector3D.cs" t="Include" />
+                </e>
+                <e p="globals" t="Include">
+                  <e p="GParameters.cs" t="Include" />
+                </e>
+                <e p="input" t="Include">
+                  <e p="GFocusManager.cs" t="Include" />
+                  <e p="GKeyboardInput.cs" t="Include" />
+                  <e p="GKeyboardInputType.cs" t="Include" />
+                  <e p="GMouseInput.cs" t="Include" />
+                  <e p="GMouseInputType.cs" t="Include" />
+                  <e p="IGFocusable.cs" t="Include" />
+                </e>
+                <e p="macros" t="Include">
+                  <e p="MGBuild.cs" t="Include" />
+                  <e p="MGDebug.cs" t="Include" />
+                  <e p="MGDebugProcessor.cs" t="Include" />
+                </e>
+                <e p="node" t="Include">
+                  <e p="GNode.cs" t="Include" />
+                  <e p="GNodePool.cs" t="Include" />
+                  <e p="IGNodeSorter.cs" t="Include" />
+                </e>
+                <e p="particles" t="Include">
+                  <e p="GParticle.cs" t="Include" />
+                  <e p="GParticleEmitter.cs" t="Include" />
+                  <e p="GParticleGroup.cs" t="Include" />
+                  <e p="GParticlePool.cs" t="Include" />
+                  <e p="GParticleSystem.cs" t="Include" />
+                  <e p="modules" t="Include">
+                    <e p="GParticleEmitterModule.cs" t="Include" />
+                    <e p="GScriptModule.cs" t="Include" />
+                    <e p="GSPHVelocityModule.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="postprocess" t="Include">
+                  <e p="GBloomPP.cs" t="Include" />
+                  <e p="GFilterPP.cs" t="Include" />
+                  <e p="GPostProcess.cs" t="Include" />
+                </e>
+                <e p="project" t="Include">
+                  <e p="GProject.cs" t="Include" />
+                  <e p="GProjectConfig.cs" t="Include" />
+                </e>
+                <e p="proto" t="Include">
+                  <e p="GPropertyState.cs" t="Include" />
+                  <e p="GPrototype.cs" t="Include" />
+                  <e p="GPrototypeExtras.cs" t="Include" />
+                  <e p="GPrototypeFactory.cs" t="Include" />
+                  <e p="GPrototypeHelper.cs" t="Include" />
+                  <e p="GPrototypeSpecs.cs" t="Include" />
+                  <e p="GPrototypeStates.cs" t="Include" />
+                  <e p="IGPrototypable.cs" t="Include" />
+                  <e p="parsers" t="Include">
+                    <e p="GXmlPrototypeParser.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="scripts" t="Include">
+                  <e p="GScript.cs" t="Include" />
+                  <e p="GScriptManager.cs" t="Include" />
+                </e>
+                <e p="text" t="Include">
+                  <e p="GFont.cs" t="Include" />
+                  <e p="GFontManager.cs" t="Include" />
+                  <e p="GTextFormat.cs" t="Include" />
+                  <e p="GTextRenderer.cs" t="Include" />
+                  <e p="GTextureChar.cs" t="Include" />
+                  <e p="GTextureFont.cs" t="Include" />
+                  <e p="GTextureTextAccuracy.cs" t="Include" />
+                  <e p="GTextureTextRenderer.cs" t="Include" />
+                  <e p="IGFontManager.cs" t="Include" />
+                </e>
+                <e p="textures" t="Include">
+                  <e p="GTexture.cs" t="Include" />
+                  <e p="GTextureAtlas.cs" t="Include" />
+                  <e p="GTextureBase.cs" t="Include" />
+                  <e p="GTextureFilteringType.cs" t="Include" />
+                  <e p="GTextureManager.cs" t="Include" />
+                  <e p="GTextureSettings.cs" t="Include" />
+                  <e p="GTextureSourceType.cs" t="Include" />
+                </e>
+                <e p="tilemap" t="Include">
+                  <e p="GTile.cs" t="Include" />
+                </e>
+                <e p="transitions" t="Include">
+                  <e p="GTransition.cs" t="Include" />
+                  <e p="GTransitionManager.cs" t="Include" />
+                  <e p="IGTransition.cs" t="Include" />
+                </e>
+                <e p="tween" t="Include">
+                  <e p="easing" t="Include">
+                    <e p="GBack.cs" t="Include" />
+                    <e p="GBounce.cs" t="Include" />
+                    <e p="GCubic.cs" t="Include" />
+                    <e p="GEaseEnum.cs" t="Include" />
+                    <e p="GExpo.cs" t="Include" />
+                    <e p="GLinear.cs" t="Include" />
+                    <e p="GQuad.cs" t="Include" />
+                    <e p="GQuart.cs" t="Include" />
+                    <e p="GQuint.cs" t="Include" />
+                    <e p="GSine.cs" t="Include" />
+                  </e>
+                  <e p="GTween.cs" t="Include" />
+                  <e p="GTweenSequence.cs" t="Include" />
+                  <e p="GTweenStep.cs" t="Include" />
+                  <e p="GTweenTimeline.cs" t="Include" />
+                  <e p="IGInterp.cs" t="Include" />
+                  <e p="interp" t="Include">
+                    <e p="GCurveInterp.cs" t="Include" />
+                    <e p="GFloatInterp.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="ui" t="Include">
+                  <e p="element" t="Include">
+                    <e p="GUIElement.cs" t="Include" />
+                    <e p="GUIInputField.cs" t="Include" />
+                  </e>
+                  <e p="GUIAlignType.cs" t="Include" />
+                  <e p="layout" t="Include">
+                    <e p="GUIHorizontalLayout.cs" t="Include" />
+                    <e p="GUILayout.cs" t="Include" />
+                    <e p="GUILayoutType.cs" t="Include" />
+                    <e p="GUIVerticalLayout.cs" t="Include" />
+                  </e>
+                  <e p="skin" t="Include">
+                    <e p="GUIFontSkin.cs" t="Include" />
+                    <e p="GUIParticleSkin.cs" t="Include" />
+                    <e p="GUIShapeSkin.cs" t="Include" />
+                    <e p="GUISkin.cs" t="Include" />
+                    <e p="GUISkinManager.cs" t="Include" />
+                    <e p="GUISkinSheet.cs" t="Include" />
+                    <e p="GUISkinType.cs" t="Include" />
+                    <e p="GUITextureSkin.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="utils" t="Include">
+                  <e p="astar" t="Include">
+                    <e p="GAStar.cs" t="Include" />
+                    <e p="GAStarNode.cs" t="Include" />
+                    <e p="heuristics" t="Include">
+                      <e p="GAStarDiagonal.cs" t="Include" />
+                      <e p="GAStarManhattan.cs" t="Include" />
+                      <e p="IGAStarHeuristic.cs" t="Include" />
+                    </e>
+                    <e p="IGAStarClient.cs" t="Include" />
+                  </e>
+                  <e p="GBytes.cs" t="Include" />
+                  <e p="GHAlignType.cs" t="Include" />
+                  <e p="GQuadTree.cs" t="Include" />
+                  <e p="GQuadTreeNode.cs" t="Include" />
+                  <e p="GRenderTargetStack.cs" t="Include" />
+                  <e p="GVAlignType.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="cs" t="Include">
+              <e p="Boot.cs" t="Include" />
+              <e p="internal" t="Include">
+                <e p="Exceptions.cs" t="Include" />
+                <e p="FieldLookup.cs" t="Include" />
+                <e p="Function.cs" t="Include" />
+                <e p="HxObject.cs" t="Include" />
+                <e p="Runtime.cs" t="Include" />
+                <e p="StringExt.cs" t="Include" />
+              </e>
+              <e p="io" t="Include">
+                <e p="NativeInput.cs" t="Include" />
+                <e p="NativeOutput.cs" t="Include" />
+              </e>
+              <e p="Lib.cs" t="Include" />
+            </e>
+            <e p="EReg.cs" t="Include" />
+            <e p="Haxe" t="Include">
+              <e p="Constraints.cs" t="Include" />
+              <e p="ds" t="Include">
+                <e p="BalancedTree.cs" t="Include" />
+                <e p="EnumValueMap.cs" t="Include" />
+                <e p="GenericStack.cs" t="Include" />
+                <e p="IntMap.cs" t="Include" />
+                <e p="Map.cs" t="Include" />
+                <e p="ObjectMap.cs" t="Include" />
+                <e p="StringMap.cs" t="Include" />
+              </e>
+              <e p="EntryPoint.cs" t="Include" />
+              <e p="http" t="Include">
+                <e p="HttpBase.cs" t="Include" />
+              </e>
+              <e p="io" t="Include">
+                <e p="Bytes.cs" t="Include" />
+                <e p="BytesBuffer.cs" t="Include" />
+                <e p="BytesInput.cs" t="Include" />
+                <e p="BytesOutput.cs" t="Include" />
+                <e p="Encoding.cs" t="Include" />
+                <e p="Eof.cs" t="Include" />
+                <e p="Error.cs" t="Include" />
+                <e p="FPHelper.cs" t="Include" />
+                <e p="Input.cs" t="Include" />
+                <e p="Output.cs" t="Include" />
+                <e p="StringInput.cs" t="Include" />
+              </e>
+              <e p="lang" t="Include">
+                <e p="Null.cs" t="Include" />
+              </e>
+              <e p="Log.cs" t="Include" />
+              <e p="MainLoop.cs" t="Include" />
+              <e p="rtti" t="Include">
+                <e p="Meta.cs" t="Include" />
+              </e>
+              <e p="xml" t="Include">
+                <e p="Parser.cs" t="Include" />
+                <e p="Printer.cs" t="Include" />
+              </e>
+            </e>
+            <e p="hscript" t="Include">
+              <e p="Expr.cs" t="Include" />
+              <e p="Interp.cs" t="Include" />
+              <e p="Parser.cs" t="Include" />
+              <e p="Tools.cs" t="Include" />
+            </e>
+            <e p="IntIterator.cs" t="Include" />
+            <e p="Lambda.cs" t="Include" />
+            <e p="Math.cs" t="Include" />
+            <e p="Reflect.cs" t="Include" />
+            <e p="Std.cs" t="Include" />
+            <e p="StringBuf.cs" t="Include" />
+            <e p="StringTools.cs" t="Include" />
+            <e p="sys" t="Include">
+              <e p="Http.cs" t="Include" />
+              <e p="net" t="Include">
+                <e p="Host.cs" t="Include" />
+                <e p="Socket.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Sys.cs" t="Include" />
+            <e p="Type.cs" t="Include" />
+            <e p="Xml.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="TestBed.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
