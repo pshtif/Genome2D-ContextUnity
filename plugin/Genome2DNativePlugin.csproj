@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UnityTestLibrary</RootNamespace>
-    <AssemblyName>UnityTestLibrary</AssemblyName>
+    <AssemblyName>Genome2DNativePlugin</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
