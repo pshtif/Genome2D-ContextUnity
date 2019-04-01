@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\pstefcek\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\pstefcek\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
     <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
@@ -225,7 +227,6 @@
                   <e p="GTextureFont.cs" t="Include" />
                   <e p="GTextureTextAccuracy.cs" t="Include" />
                   <e p="GTextureTextRenderer.cs" t="Include" />
-                  <e p="IGFontManager.cs" t="Include" />
                 </e>
                 <e p="textures" t="Include">
                   <e p="GTexture.cs" t="Include" />
@@ -309,6 +310,9 @@
                   <e p="GVAlignType.cs" t="Include" />
                 </e>
               </e>
+              <e p="pixel" t="Include">
+                <e p="UnityTestProject.cs" t="Include" />
+              </e>
             </e>
             <e p="cs" t="Include">
               <e p="Boot.cs" t="Include" />
@@ -325,7 +329,9 @@
                 <e p="NativeOutput.cs" t="Include" />
               </e>
               <e p="Lib.cs" t="Include" />
+              <e p="NativeArray.cs" t="Include" />
             </e>
+            <e p="Date.cs" t="Include" />
             <e p="EReg.cs" t="Include" />
             <e p="Haxe" t="Include">
               <e p="Constraints.cs" t="Include" />
@@ -334,7 +340,6 @@
                 <e p="EnumValueMap.cs" t="Include" />
                 <e p="GenericStack.cs" t="Include" />
                 <e p="IntMap.cs" t="Include" />
-                <e p="Map.cs" t="Include" />
                 <e p="ObjectMap.cs" t="Include" />
                 <e p="StringMap.cs" t="Include" />
               </e>
@@ -355,6 +360,9 @@
                 <e p="Output.cs" t="Include" />
                 <e p="StringInput.cs" t="Include" />
               </e>
+              <e p="iterators" t="Include">
+                <e p="StringIteratorUnicode.cs" t="Include" />
+              </e>
               <e p="lang" t="Include">
                 <e p="Null.cs" t="Include" />
               </e>
@@ -363,6 +371,7 @@
               <e p="rtti" t="Include">
                 <e p="Meta.cs" t="Include" />
               </e>
+              <e p="Timer.cs" t="Include" />
               <e p="xml" t="Include">
                 <e p="Parser.cs" t="Include" />
                 <e p="Printer.cs" t="Include" />
@@ -391,6 +400,60 @@
             <e p="Sys.cs" t="Include" />
             <e p="Type.cs" t="Include" />
             <e p="Xml.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Plugins" t="Include">
+          <e p="CodeStage" t="Include">
+            <e p="AdvancedFPSCounter" t="Include">
+              <e p="API.txt" t="Include" />
+              <e p="Changelog.txt" t="Include" />
+              <e p="Examples" t="Include">
+                <e p="APITester.cs" t="Include" />
+              </e>
+              <e p="Legacy" t="Include">
+                <e p="readme.txt" t="Include" />
+              </e>
+              <e p="scripts" t="Include">
+                <e p="AFPSCounter.cs" t="Include" />
+                <e p="CountersData" t="Include">
+                  <e p="Abstract" t="Include">
+                    <e p="BaseCounterData.cs" t="Include" />
+                    <e p="UpdatebleCounterData.cs" t="Include" />
+                  </e>
+                  <e p="DeviceInfoCounterData.cs" t="Include" />
+                  <e p="FPSCounterData.cs" t="Include" />
+                  <e p="MemoryCounterData.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="AFPSCounterEditor.cs" t="Include" />
+                  <e p="AFPSRenderRecorderEditor.cs" t="Include" />
+                  <e p="EditorUIUtils.cs" t="Include" />
+                </e>
+                <e p="Enums" t="Include">
+                  <e p="FPSLevel.cs" t="Include" />
+                  <e p="OperationMode.cs" t="Include" />
+                </e>
+                <e p="Label" t="Include">
+                  <e p="DrawableLabel.cs" t="Include" />
+                  <e p="LabelAnchor.cs" t="Include" />
+                  <e p="LabelEffect.cs" t="Include" />
+                </e>
+                <e p="utils" t="Include">
+                  <e p="AFPSRenderRecorder.cs" t="Include" />
+                  <e p="UIUtils.cs" t="Include" />
+                  <e p="WaitForSecondsUnscaled.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Resources" t="Include">
+          <e p="Assets" t="Include">
+            <e p="atlas.xml" t="Include" />
+            <e p="font.fnt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="UnlitShader.shader" t="Include" />
           </e>
         </e>
       </e>

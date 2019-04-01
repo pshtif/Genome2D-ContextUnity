@@ -1,7 +1,8 @@
 package com.genome2d.context;
 
 import unityengine.*;
-import unitytestlibrary.*;
+import unityengine.rendering.*;
+import genome2dnativeplugin.*;
 import com.genome2d.callbacks.GCallback.GCallback0;
 import com.genome2d.callbacks.GCallback.GCallback1;
 import com.genome2d.callbacks.GCallback.GCallback2;
@@ -19,6 +20,7 @@ import com.genome2d.input.GMouseInput;
 import com.genome2d.input.GMouseInputType;
 import com.genome2d.context.filters.GFilter;
 import com.genome2d.macros.MGDebug;
+import com.genome2d.project.GProject;
 
 @:nativeGen
 class GUnityContext implements IGContext {
@@ -33,6 +35,14 @@ class GUnityContext implements IGContext {
 
 	public var g2d_onMouseInputInternal:GMouseInput->Void;
 
+    private var g2d_currentDeltaTime:Float;
+    private var g2d_currentTime:Float;
+
+    private var g2d_nextFrameCallback:Void->Void;
+    public function callNextFrame(p_callback:Void->Void):Void {
+        g2d_nextFrameCallback = p_callback;
+    }
+
 	private var g2d_stageViewRect:GRectangle;
     inline public function getStageViewRect():GRectangle {
         return g2d_stageViewRect;
@@ -43,10 +53,12 @@ class GUnityContext implements IGContext {
         return g2d_defaultCamera;
     }
     
-	private var g2d_nativeStage:MonoBehaviour;
-    public function getNativeStage():MonoBehaviour {
+	private var g2d_nativeStage:GProject;
+    public function getNativeStage():GProject {
 		return g2d_nativeStage;
 	}
+
+    private var g2d_nativeContext:GNativeUnityContext;
     public function getNativeContext():GRectangle {
 		return null;
 	}
@@ -69,11 +81,9 @@ class GUnityContext implements IGContext {
 		if (p_config.nativeStage == null) MGDebug.ERROR("You need to specify nativeStage in the config.");
 
 		g2d_nativeStage = p_config.nativeStage;
-		g2d_stageViewRect = new GRectangle(0,0,100,100); // Default so far
+		g2d_stageViewRect = p_config.viewRect;
 
 		g2d_defaultCamera = new GCamera(this);
-        g2d_defaultCamera.x = g2d_stageViewRect.width / 2;
-        g2d_defaultCamera.y = g2d_stageViewRect.height / 2;
 
 		onInitialized = new GCallback0();
         onFailed = new GCallback1<String>();
@@ -85,8 +95,24 @@ class GUnityContext implements IGContext {
 	}
 
     public function init():Void {
+        g2d_currentTime = Date.now().getTime();
+
+        g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage);
+        g2d_nativeStage.onFrame.add(g2d_enterFrameHandler);
 		onInitialized.dispatch();
 	}
+
+    private function g2d_enterFrameHandler():Void {
+        var currentTime:Float = Date.now().getTime();
+        g2d_currentDeltaTime = currentTime - g2d_currentTime;
+        g2d_currentTime = currentTime;
+        if (g2d_nextFrameCallback != null) {
+            var callback:Void->Void = g2d_nextFrameCallback;
+            g2d_nextFrameCallback = null;
+            callback();
+        }
+        onFrame.dispatch(g2d_currentDeltaTime);
+    }
 
     public function dispose():Void {
 
@@ -94,12 +120,17 @@ class GUnityContext implements IGContext {
 
     public function setBackgroundColor(p_color:Int, p_alpha:Float = 1):Void {}
     public function begin():Bool {
+        g2d_nativeContext.Begin();
 		return true;
 	}
 
-    public function end():Void {}
+    public function end():Void {
+        flushRenderer();
+    }
 
-    public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {}
+    public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
+        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, null);
+    }
 
     public function drawSource(p_texture:GTexture, p_blendMode:GBlendMode, p_sourceX:Float, p_sourceY:Float, p_sourceWidth:Float, p_sourceHeight:Float, p_sourcePivotX:Float, p_sourcePivotY:Float, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {}
 
@@ -109,10 +140,12 @@ class GUnityContext implements IGContext {
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}
 
-    public function callNextFrame(p_callback:Void->Void):Void {}
-
     public function setRenderer(p_renderer:IGRenderer):Void {}
-	public function flushRenderer():Void {}
+
+	public function flushRenderer():Void {
+        g2d_nativeContext.FlushRenderer();
+    }
+
 	public function getRenderer():IGRenderer {
 		return null;
 	}

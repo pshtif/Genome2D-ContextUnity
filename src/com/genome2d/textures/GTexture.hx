@@ -31,6 +31,7 @@ class GTexture extends GTextureBase
             if (Std.is(g2d_source, Texture)) {
 				// Implement source of native Unity texture;
                 g2d_sourceType = GTextureSourceType.IMAGE;
+				g2d_nativeTexture = g2d_source;
                 //g2d_nativeWidth = imageElement.width;
                 //g2d_nativeHeight = imageElement.height;
                 premultiplied = true;
@@ -88,9 +89,7 @@ class GTexture extends GTextureBase
 	/**
 	 * 	Native texture reference
 	 */
-    #if swc @:extern #end
     public var nativeTexture(get,never):Texture;
-    #if swc @:getter(nativeTexture) #end
     inline private function get_nativeTexture():Texture {
         return g2d_nativeTexture;
     }

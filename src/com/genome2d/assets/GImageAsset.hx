@@ -1,6 +1,7 @@
 package com.genome2d.assets;
 
-import unitytestlibrary.*;
+import genome2dnativeplugin.*;
+import unityengine.*;
 import com.genome2d.assets.GAsset;
 import com.genome2d.debug.GDebug;
 
@@ -8,13 +9,13 @@ import com.genome2d.debug.GDebug;
 class GImageAsset extends GAsset {
     private var _nativeAsset:GNativeUnityAsset;
 
-    private var g2d_type:GImageAssetType;
-    #if swc @:extern #end
-    public var type(get,never):GImageAssetType;
-    #if swc @:getter(type) #end
-    inline private function get_type():GImageAssetType {
-        return g2d_type;
+    public var nativeTexture(get,never):Texture;
+    public function get_nativeTexture():Texture {
+        return _nativeAsset.texture;
     }
+
+    private var g2d_type:GImageAssetType;
+    public var type(default,null):GImageAssetType;
 
     override public function load():Void {
         if (!g2d_loaded &&  !g2d_loading && g2d_url != null) {
@@ -27,6 +28,8 @@ class GImageAsset extends GAsset {
     }
 
     private function g2d_complete_handler(p_url:String):Void {
+        type = GImageAssetType.UNITY;
+
         g2d_loading = false;
         g2d_loaded = true;
         onLoaded.dispatch(this);

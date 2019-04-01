@@ -2,6 +2,7 @@ package com.genome2d.context;
 
 import com.genome2d.context.GProjectionMatrix;
 import unityengine.*;
+import com.genome2d.debug.GDebug;
 
 class GCamera 
 {
@@ -42,8 +43,13 @@ class GCamera
 
         var gameObject:GameObject = new GameObject("camera");
         _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
-        Debug.Log(gameObject.transform);
-        Debug.Log(p_context.getNativeStage().gameObject);
+
+        _nativeCamera.orthographic = true;
+        _nativeCamera.orthographicSize = p_context.getStageViewRect().height/2;
+        _nativeCamera.gameObject.transform.position = new Vector3(0,0,-1);
+        _nativeCamera.clearFlags = CameraClearFlags.SolidColor;
+        _nativeCamera.backgroundColor = new Color(0,0,0,1);
+
         gameObject.transform.parent = p_context.getNativeStage().gameObject.transform;
     }
 }

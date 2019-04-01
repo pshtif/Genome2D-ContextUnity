@@ -1,0 +1,13 @@
+import com.genome2d.geom.GCurve;
+
+function init() {
+    trace("fuck this shit");
+}
+
+function update(p_deltaTime:Float) {
+    node.rotation += p_deltaTime/100;
+}
+
+function dispose() {
+    trace("and this too");
+}

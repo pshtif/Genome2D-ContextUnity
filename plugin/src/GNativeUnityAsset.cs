@@ -3,12 +3,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace UnityTestLibrary
+namespace Genome2DNativePlugin
 {
     public class GNativeUnityAsset
     {
         protected MonoBehaviour _wrapper;
         protected Action<string> _loaded;
+
+        public Texture texture;
         
         public GNativeUnityAsset(MonoBehaviour p_wrapper, Action<string> p_loaded)
         {
@@ -18,7 +20,17 @@ namespace UnityTestLibrary
         
         public void Load(string p_url)
         {
-            _wrapper.StartCoroutine(GetTexture(p_url));
+            if (p_url.IndexOf("Resources/") == 0)
+            {
+                Debug.Log(p_url.Substring(10, p_url.Length-14));
+                texture = Resources.Load<Texture2D>(p_url.Substring(10, p_url.Length-14));
+                Debug.Log(texture);
+                _loaded(p_url);
+            }    
+            else
+            {
+                _wrapper.StartCoroutine(GetTexture(p_url));   
+            }
         }
         
         IEnumerator GetTexture(string p_url)
@@ -34,11 +46,12 @@ namespace UnityTestLibrary
                 else
                 {
                     Debug.Log("Loaded");
+                    texture = DownloadHandlerTexture.GetContent(uwr);
                     _loaded(p_url);
-                    // Get downloaded asset bundle
-                    //texture = DownloadHandlerTexture.GetContent(uwr);
-                    MeshRenderer mr = _wrapper.GetComponentInChildren<MeshRenderer>();
-                    mr.sharedMaterials[0].mainTexture = DownloadHandlerTexture.GetContent(uwr);
+                    
+                    // This was just direct texture test
+                    //MeshRenderer mr = _wrapper.GetComponentInChildren<MeshRenderer>();
+                    //mr.sharedMaterials[0].mainTexture = DownloadHandlerTexture.GetContent(uwr);
                 }
             }
         }

@@ -5,7 +5,7 @@
 -cp src
 
 # Cross
--net-lib TestBed\Assets\UnityTestLibrary.dll
+-net-lib TestBed\Assets\Genome2DNativePlugin.dll
 
 # PC
 -net-lib c:\Program Files\Unity\Hub\Editor\2018.3.11f1\Editor\Data\Managed\UnityEngine.dll
