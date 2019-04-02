@@ -15,7 +15,8 @@ class UnityTestProject extends GProject {
 	private var _texture:GTexture;
 
     override private function init():Void {
-        GStaticAssetManager.addFromUrl("Resources/Assets/ball.png", "test");
+        GStaticAssetManager.addFromUrl("assets/atlas.png");
+		GStaticAssetManager.addFromUrl("assets/atlas.xml");
         GStaticAssetManager.loadQueue(assetsLoaded_handler, assetsFailed_handler);
     }
 
@@ -27,18 +28,21 @@ class UnityTestProject extends GProject {
 	 * 	Asset loading completed
 	 */
 	private function assetsLoaded_handler():Void {
-		//GStaticAssetManager.generate();
-        GDebug.info("assetsLoaded");
-		var imageAsset:GImageAsset = GStaticAssetManager.getImageAssetById("test");
-		GDebug.info(imageAsset.nativeTexture);
-		_texture = GTextureManager.createTexture("test", imageAsset);
-		GDebug.info(_texture.nativeTexture);
+		GDebug.info("assetsLoaded");
+
+		GStaticAssetManager.generate();
+
+		_texture = GTextureManager.getTexture("assets/atlas.png_0");
+		
 		getGenome().onPreRender.add(render_handler);
 	}
 
 	private function render_handler():Void {
+		getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
+		/*
 		for (i in 0...10000) {
 			getGenome().getContext().draw(_texture, GBlendMode.NONE, Math.random()*800-400, Math.random()*600-300);
 		}
+	 	*/
 	}
 }

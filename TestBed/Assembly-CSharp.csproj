@@ -264,6 +264,8 @@
     <Compile Include="Assets\Code\src\com\genome2d\utils\GQuadTreeNode.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\utils\GRenderTargetStack.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\utils\GVAlignType.cs" />
+    <Compile Include="Assets\Code\src\com\pixel\examples\AbstractExample.cs" />
+    <Compile Include="Assets\Code\src\com\pixel\examples\SpriteExample.cs" />
     <Compile Include="Assets\Code\src\com\pixel\UnityTestProject.cs" />
     <Compile Include="Assets\Code\src\cs\Boot.cs" />
     <Compile Include="Assets\Code\src\cs\internal\Exceptions.cs" />
@@ -272,8 +274,6 @@
     <Compile Include="Assets\Code\src\cs\internal\HxObject.cs" />
     <Compile Include="Assets\Code\src\cs\internal\Runtime.cs" />
     <Compile Include="Assets\Code\src\cs\internal\StringExt.cs" />
-    <Compile Include="Assets\Code\src\cs\io\NativeInput.cs" />
-    <Compile Include="Assets\Code\src\cs\io\NativeOutput.cs" />
     <Compile Include="Assets\Code\src\cs\Lib.cs" />
     <Compile Include="Assets\Code\src\cs\NativeArray.cs" />
     <Compile Include="Assets\Code\src\Date.cs" />
@@ -286,7 +286,6 @@
     <Compile Include="Assets\Code\src\haxe\ds\ObjectMap.cs" />
     <Compile Include="Assets\Code\src\haxe\ds\StringMap.cs" />
     <Compile Include="Assets\Code\src\haxe\EntryPoint.cs" />
-    <Compile Include="Assets\Code\src\haxe\http\HttpBase.cs" />
     <Compile Include="Assets\Code\src\haxe\io\Bytes.cs" />
     <Compile Include="Assets\Code\src\haxe\io\BytesBuffer.cs" />
     <Compile Include="Assets\Code\src\haxe\io\BytesInput.cs" />
@@ -318,15 +317,12 @@
     <Compile Include="Assets\Code\src\StringBuf.cs" />
     <Compile Include="Assets\Code\src\StringTools.cs" />
     <Compile Include="Assets\Code\src\Sys.cs" />
-    <Compile Include="Assets\Code\src\sys\Http.cs" />
-    <Compile Include="Assets\Code\src\sys\net\Host.cs" />
-    <Compile Include="Assets\Code\src\sys\net\Socket.cs" />
     <Compile Include="Assets\Code\src\Type.cs" />
     <Compile Include="Assets\Code\src\Xml.cs" />
     <None Include="Assets\Resources\Shaders\UnlitShader.shader" />
     <None Include="Assets\Code\hxcs_build.txt" />
-    <None Include="Assets\Resources\Assets\font.fnt" />
-    <None Include="Assets\Resources\Assets\atlas.xml" />
+    <None Include="Assets\Resources\assets\font.fnt" />
+    <None Include="Assets\Resources\assets\atlas.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/WORKSPACE/Haxe/Genome2D/Genome2D-ContextUnity/TestBed/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

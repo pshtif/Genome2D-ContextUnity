@@ -5,14 +5,14 @@ using UnityEngine.Networking;
 
 namespace Genome2DNativePlugin
 {
-    public class GNativeUnityAsset
+    public class GNativeUnityImageAsset
     {
         protected MonoBehaviour _wrapper;
         protected Action<string> _loaded;
 
-        public string text;
+        public Texture texture;
         
-        public GNativeUnityAsset(MonoBehaviour p_wrapper, Action<string> p_loaded)
+        public GNativeUnityImageAsset(MonoBehaviour p_wrapper, Action<string> p_loaded)
         {
             _wrapper = p_wrapper;
             _loaded = p_loaded;
@@ -22,19 +22,20 @@ namespace Genome2DNativePlugin
         {
             if (p_url.IndexOf("http") != 0)
             {
-                TextAsset ta = Resources.Load<TextAsset>(p_url.Substring(0, p_url.LastIndexOf(".")));
-                text = ta.text;
+                Debug.Log(p_url.Substring(0, p_url.LastIndexOf(".")));
+                texture = Resources.Load<Texture2D>(p_url.Substring(0, p_url.LastIndexOf(".")));
+                Debug.Log(texture);
                 _loaded(p_url);
             }    
             else
             {
-                _wrapper.StartCoroutine(GetData(p_url));   
+                _wrapper.StartCoroutine(GetTexture(p_url));   
             }
         }
         
-        IEnumerator GetData(string p_url)
+        IEnumerator GetTexture(string p_url)
         {
-            using (UnityWebRequest uwr = UnityWebRequest.Get(p_url))
+            using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(p_url))
             {
                 yield return uwr.SendWebRequest();
 
@@ -45,7 +46,7 @@ namespace Genome2DNativePlugin
                 else
                 {
                     Debug.Log("Loaded");
-                    text = uwr.downloadHandler.text;
+                    texture = DownloadHandlerTexture.GetContent(uwr);
                     _loaded(p_url);
                 }
             }

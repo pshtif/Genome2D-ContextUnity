@@ -168,7 +168,7 @@ MonoBehaviour:
     colorCritical: {r: 0.9764706, g: 0.35686275, b: 0.35686275, a: 1}
     colorRender: {r: 0.654902, g: 0.43137255, b: 0.81960785, a: 1}
   memoryCounter:
-    enabled: 1
+    enabled: 0
     anchor: 0
     color: {r: 0.91764706, g: 0.93333334, b: 0.39607844, a: 1}
     style: 1
@@ -178,7 +178,7 @@ MonoBehaviour:
     allocated: 1
     monoUsage: 0
   deviceInfoCounter:
-    enabled: 1
+    enabled: 0
     anchor: 2
     color: {r: 0.6745098, g: 0.6745098, b: 0.6745098, a: 1}
     style: 0
@@ -250,6 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1243784902}
   - component: {fileID: 1243784901}
+  - component: {fileID: 1243784903}
   m_Layer: 0
   m_Name: Genome2DContext
   m_TagString: Untagged
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243784900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23f279e711f94cf4d8d75876372fd282, type: 3}
   m_Name: 
@@ -283,3 +284,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1243784903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243784900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ad362ff08beab54a85770b7e7b05930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initType: 0
+  title: 
+  detail: 

@@ -10,6 +10,8 @@
         LOD 100
         
         ZWrite Off
+        // No reason just for Genome2D other contexts consistency, may rewrite later
+        Cull Front
         Blend SrcAlpha OneMinusSrcAlpha
 
         Pass

@@ -311,6 +311,10 @@
                 </e>
               </e>
               <e p="pixel" t="Include">
+                <e p="Examples" t="Include">
+                  <e p="AbstractExample.cs" t="Include" />
+                  <e p="SpriteExample.cs" t="Include" />
+                </e>
                 <e p="UnityTestProject.cs" t="Include" />
               </e>
             </e>
@@ -323,10 +327,6 @@
                 <e p="HxObject.cs" t="Include" />
                 <e p="Runtime.cs" t="Include" />
                 <e p="StringExt.cs" t="Include" />
-              </e>
-              <e p="io" t="Include">
-                <e p="NativeInput.cs" t="Include" />
-                <e p="NativeOutput.cs" t="Include" />
               </e>
               <e p="Lib.cs" t="Include" />
               <e p="NativeArray.cs" t="Include" />
@@ -344,9 +344,6 @@
                 <e p="StringMap.cs" t="Include" />
               </e>
               <e p="EntryPoint.cs" t="Include" />
-              <e p="http" t="Include">
-                <e p="HttpBase.cs" t="Include" />
-              </e>
               <e p="io" t="Include">
                 <e p="Bytes.cs" t="Include" />
                 <e p="BytesBuffer.cs" t="Include" />
@@ -390,13 +387,6 @@
             <e p="Std.cs" t="Include" />
             <e p="StringBuf.cs" t="Include" />
             <e p="StringTools.cs" t="Include" />
-            <e p="sys" t="Include">
-              <e p="Http.cs" t="Include" />
-              <e p="net" t="Include">
-                <e p="Host.cs" t="Include" />
-                <e p="Socket.cs" t="Include" />
-              </e>
-            </e>
             <e p="Sys.cs" t="Include" />
             <e p="Type.cs" t="Include" />
             <e p="Xml.cs" t="Include" />

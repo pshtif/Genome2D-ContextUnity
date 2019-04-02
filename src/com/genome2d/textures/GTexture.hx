@@ -32,8 +32,8 @@ class GTexture extends GTextureBase
 				// Implement source of native Unity texture;
                 g2d_sourceType = GTextureSourceType.IMAGE;
 				g2d_nativeTexture = g2d_source;
-                //g2d_nativeWidth = imageElement.width;
-                //g2d_nativeHeight = imageElement.height;
+                g2d_gpuWidth = g2d_nativeWidth = g2d_nativeTexture.width;
+                g2d_gpuHeight = g2d_nativeHeight = g2d_nativeTexture.height;
                 premultiplied = true;
             } else if (Std.is(g2d_source,GRectangle)) {
                 g2d_sourceType = GTextureSourceType.RENDER_TARGET;
