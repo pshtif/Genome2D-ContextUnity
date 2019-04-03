@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e286c335-8f1c-4caa-8314-a7f732416e4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Resources/Shaders/UnlitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Resources/Shaders/UnlitShader.shader" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityImageAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityImageAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/pixel/examples/SpriteExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/pixel/examples/SpriteExample.hx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,10 +12,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="542">
+            <state relative-caret-position="1190">
               <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
               <folding>
                 <marker date="1554323086432" expanded="false" signature="6:151" ph="..." />
@@ -65,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GNativeUnityImageAsset.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="340">
               <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
               <folding>
                 <marker date="1554323173506" expanded="false" signature="6:88" ph="..." />
@@ -133,10 +122,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-2568" />
     <option name="y" value="-8" />
     <option name="width" value="2576" />
-    <option name="height" value="1576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -198,12 +187,12 @@
       <workItem from="1554143686257" duration="4248000" />
       <workItem from="1554216132261" duration="413000" />
       <workItem from="1554216594078" duration="12479000" />
-      <workItem from="1554317096005" duration="5464000" />
+      <workItem from="1554317096005" duration="6705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22604000" />
+    <option name="totallyTimeSpent" value="23845000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -215,7 +204,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1576" extended-state="6" />
+    <frame x="-2568" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25596184" />
@@ -238,7 +227,7 @@
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.32917532" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.5146262" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -265,31 +254,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../TestBed/Assets/Resources/Shaders/NewUnlitShader.shader" />
-    <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
-          <folding>
-            <marker date="1554323086432" expanded="false" signature="6:151" ph="..." />
-            <marker date="1554323086432" expanded="true" signature="183:6265" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="222:6263" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="689:2253" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="1036:1799" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="1857:2243" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="2282:2338" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="2726:5632" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="2803:2864" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="3257:3375" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="3521:3687" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="3938:4104" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="4361:4527" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="4803:4969" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="5677:6257" ph="{...}" />
-            <marker date="1554323086432" expanded="true" signature="5719:6179" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NativeArrayExtension.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -325,7 +289,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GNativeUnityImageAsset.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="340">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
           <folding>
             <marker date="1554323173506" expanded="false" signature="6:88" ph="..." />
@@ -339,6 +303,31 @@
             <marker date="1554323173506" expanded="true" signature="996:1417" ph="{...}" />
             <marker date="1554323173506" expanded="true" signature="1121:1199" ph="{...}" />
             <marker date="1554323173506" expanded="true" signature="1220:1403" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="90" column="37" selection-start-line="90" selection-start-column="37" selection-end-line="90" selection-end-column="37" />
+          <folding>
+            <marker date="1554323086432" expanded="false" signature="6:151" ph="..." />
+            <marker date="1554323086432" expanded="true" signature="183:6265" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="222:6263" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="689:2253" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="1036:1799" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="1857:2243" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="2282:2338" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="2726:5632" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="2803:2864" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="3257:3375" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="3521:3687" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="3938:4104" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="4361:4527" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="4803:4969" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="5677:6257" ph="{...}" />
+            <marker date="1554323086432" expanded="true" signature="5719:6179" ph="{...}" />
           </folding>
         </state>
       </provider>

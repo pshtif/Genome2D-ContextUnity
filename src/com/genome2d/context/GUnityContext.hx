@@ -98,11 +98,13 @@ class GUnityContext implements IGContext {
         g2d_currentTime = Date.now().getTime();
 
         g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage);
-        g2d_nativeStage.onFrame.add(g2d_enterFrameHandler);
+        g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
+        g2d_nativeStage.onMouseButton.add(g2d_mouseButton_handler);
+        g2d_nativeStage.onMouseMove.add(g2d_mouseMove_handler);
 		onInitialized.dispatch();
 	}
 
-    private function g2d_enterFrameHandler():Void {
+    private function g2d_enterFrame_handler():Void {
         var currentTime:Float = Date.now().getTime();
         g2d_currentDeltaTime = currentTime - g2d_currentTime;
         g2d_currentTime = currentTime;
@@ -113,6 +115,20 @@ class GUnityContext implements IGContext {
         }
         onFrame.dispatch(g2d_currentDeltaTime);
     }
+
+    private function g2d_mouseButton_handler(p_button:Int, p_state:Bool):Void {
+        var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
+        var my:Float = Input.mousePosition.y - g2d_stageViewRect.y;
+    }
+
+    private function g2d_mouseMove_handler():Void {
+        var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
+        var my:Float = Input.mousePosition.y - g2d_stageViewRect.y;
+
+        Debug.Log(Input.mousePosition.x +" : "+Input.mousePosition.y);
+        Debug.Log(mx +" : "+my);
+    }
+
 
     public function dispose():Void {
 

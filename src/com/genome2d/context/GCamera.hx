@@ -44,10 +44,10 @@ class GCamera
         var gameObject:GameObject = new GameObject("camera");
         _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
 
-        var aspectRatio:Float = p_context.getStageViewRect().width/p_context.getStageViewRect().height;
+        var aspectRatio:Float = Screen.height/p_context.getStageViewRect().height;
         _nativeCamera.orthographic = true;
         _nativeCamera.orthographicSize = p_context.getStageViewRect().height/2;
-        _nativeCamera.gameObject.transform.position = new Vector3(aspectRatio*p_context.getStageViewRect().height/2, p_context.getStageViewRect().height/2,1);
+        _nativeCamera.gameObject.transform.position = new Vector3(Screen.width/(2*aspectRatio), p_context.getStageViewRect().height/2,1);
         _nativeCamera.gameObject.transform.Rotate(0,180,180);
         _nativeCamera.clearFlags = CameraClearFlags.SolidColor;
         _nativeCamera.backgroundColor = new Color(0,0,0,1);
