@@ -21,6 +21,8 @@ namespace Genome2DNativePlugin
         protected int _currentBatchIndex = 0;
         protected int _quadIndex = 0;
 
+        protected Texture _lastTexture;
+
         public GNativeUnityContext(MonoBehaviour p_wrapper)
         {
             _wrapper = p_wrapper;
@@ -75,20 +77,87 @@ namespace Genome2DNativePlugin
         }
 
         public void Draw(Texture p_texture, BlendMode p_blendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
-            float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale, float p_vScale, float p_width, float p_height)
+            float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,
+            float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, float p_screenHeight)
         {
+            if (_lastTexture != null && _lastTexture != p_texture)
+            {
+                FlushRenderer();
+            }
+            
             Mesh mesh = _meshes[_currentBatchIndex];
             Material material = _materials[_currentBatchIndex];
             material.mainTexture = p_texture;
+            _lastTexture = p_texture;
 
-            _vertices[_quadIndex * 4].x = p_x - p_scaleX * p_width / 2;
-            _vertices[_quadIndex * 4].y = p_y + p_scaleY * p_height / 2;
-            _vertices[_quadIndex * 4 + 1].x = p_x - p_scaleX * p_width / 2;
-            _vertices[_quadIndex * 4 + 1].y = p_y - p_scaleY * p_height / 2;
-            _vertices[_quadIndex * 4 + 2].x = p_x + p_scaleX * p_width / 2;
-            _vertices[_quadIndex * 4 + 2].y = p_y - p_scaleY * p_height / 2;
-            _vertices[_quadIndex * 4 + 3].x = p_x + p_scaleX * p_width / 2;
-            _vertices[_quadIndex * 4 + 3].y = p_y + p_scaleY * p_height / 2;
+            float tx;
+            float rtx;
+            float ty;
+            float rty;
+            float cos = 1;
+            float sin = 0;
+
+            if (p_rotation != 0)
+            {
+                cos = Mathf.Cos(p_rotation);
+                sin = Mathf.Sin(p_rotation);
+            }
+
+            tx = -p_scaleX * p_textureWidth / 2;
+            ty = -p_scaleY * p_textureHeight / 2;
+            
+            if (p_rotation != 0)
+            {
+                rtx = cos * tx - sin * ty;
+                rty = sin * tx + cos * ty;
+                tx = rtx;
+                ty = rty;
+            }
+
+            _vertices[_quadIndex * 4].x = p_x + tx;
+            _vertices[_quadIndex * 4].y = p_y + ty;
+
+            tx = - p_scaleX * p_textureWidth / 2;
+            ty = p_scaleY * p_textureHeight / 2;
+            
+            if (p_rotation != 0)
+            {
+                rtx = cos * tx - sin * ty;
+                rty = sin * tx + cos * ty;
+                tx = rtx;
+                ty = rty;
+            }
+
+            _vertices[_quadIndex * 4 + 1].x = p_x + tx;
+            _vertices[_quadIndex * 4 + 1].y = p_y + ty;
+
+            tx = p_scaleX * p_textureWidth / 2;
+            ty = p_scaleY * p_textureHeight / 2;
+            
+            if (p_rotation != 0)
+            {
+                rtx = cos * tx - sin * ty;
+                rty = sin * tx + cos * ty;
+                tx = rtx;
+                ty = rty;
+            }
+                 
+            _vertices[_quadIndex * 4 + 2].x = p_x + tx;
+            _vertices[_quadIndex * 4 + 2].y = p_y + ty;
+
+            tx = p_scaleX * p_textureWidth / 2;
+            ty = - p_scaleY * p_textureHeight / 2;
+            
+            if (p_rotation != 0)
+            {
+                rtx = cos * tx - sin * ty;
+                rty = sin * tx + cos * ty;
+                tx = rtx;
+                ty = rty;
+            }
+            
+            _vertices[_quadIndex * 4 + 3].x = p_x + tx;
+            _vertices[_quadIndex * 4 + 3].y = p_y + ty;
 
             _uvs[_quadIndex * 4].x = p_u;
             _uvs[_quadIndex * 4].y = 1 - p_v;
@@ -121,6 +190,7 @@ namespace Genome2DNativePlugin
             }
 
             _currentBatchIndex++;
+            _lastTexture = null;
         }
     }
 }

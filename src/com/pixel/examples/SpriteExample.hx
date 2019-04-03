@@ -22,6 +22,7 @@ import com.pixel.examples.AbstractExample;
 @:nativeGen
 class SpriteExample extends AbstractExample
 {
+    private var test:GNode;
     /**
         Initialize Example code
      **/
@@ -32,8 +33,22 @@ class SpriteExample extends AbstractExample
         var sprite:GSprite;
 		
 		// Create a sprite
-        sprite = createSprite(100, 200, "assets/atlas.png_0");
+        sprite = createSprite(0, 0, "assets/atlas.png_0");
+        sprite = createSprite(800, 0, "assets/atlas.png_0");
+        sprite = createSprite(0, 600, "assets/atlas.png_0");
+        sprite = createSprite(800, 600, "assets/atlas.png_0");
 
+        test = new GNode();
+        sprite = createSprite(0, 200, "assets/texture.png");
+        test.addChild(sprite.node);
+        sprite = createSprite(0, -200, "assets/texture.png");
+        test.addChild(sprite.node);
+        container.addChild(test);
+        test.x = 400;
+        test.y = 300;
+        
+        getGenome().onUpdate.add(update_handler);
+        return;
 		// Create a sprite with scaling
         sprite = createSprite(300, 200, "assets/atlas.png_0");
         sprite.node.setScale(2,2);
@@ -81,6 +96,10 @@ class SpriteExample extends AbstractExample
         sprite.node.mouseEnabled = true;
 
         new GTweenTest();
+    }
+
+    private function update_handler(p_delta:Float):Void {
+        test.rotation += 0.01;
     }
 
     private function mouseclick_handler(p_input:GMouseInput):Void {

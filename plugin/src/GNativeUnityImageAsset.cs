@@ -22,9 +22,7 @@ namespace Genome2DNativePlugin
         {
             if (p_url.IndexOf("http") != 0)
             {
-                Debug.Log(p_url.Substring(0, p_url.LastIndexOf(".")));
                 texture = Resources.Load<Texture2D>(p_url.Substring(0, p_url.LastIndexOf(".")));
-                Debug.Log(texture);
                 _loaded(p_url);
             }    
             else

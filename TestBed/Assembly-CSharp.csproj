@@ -266,6 +266,7 @@
     <Compile Include="Assets\Code\src\com\genome2d\utils\GVAlignType.cs" />
     <Compile Include="Assets\Code\src\com\pixel\examples\AbstractExample.cs" />
     <Compile Include="Assets\Code\src\com\pixel\examples\SpriteExample.cs" />
+    <Compile Include="Assets\Code\src\com\pixel\examples\TextureTextExample.cs" />
     <Compile Include="Assets\Code\src\com\pixel\UnityTestProject.cs" />
     <Compile Include="Assets\Code\src\cs\Boot.cs" />
     <Compile Include="Assets\Code\src\cs\internal\Exceptions.cs" />

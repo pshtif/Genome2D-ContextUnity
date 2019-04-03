@@ -10,7 +10,7 @@
         LOD 100
         
         ZWrite Off
-        // No reason just for Genome2D other contexts consistency, may rewrite later
+        // No reason just for Genome2D other contexts consistency, inverted axes
         Cull Front
         Blend SrcAlpha OneMinusSrcAlpha
 

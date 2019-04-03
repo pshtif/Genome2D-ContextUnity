@@ -314,6 +314,7 @@
                 <e p="Examples" t="Include">
                   <e p="AbstractExample.cs" t="Include" />
                   <e p="SpriteExample.cs" t="Include" />
+                  <e p="TextureTextExample.cs" t="Include" />
                 </e>
                 <e p="UnityTestProject.cs" t="Include" />
               </e>

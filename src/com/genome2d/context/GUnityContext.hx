@@ -129,7 +129,7 @@ class GUnityContext implements IGContext {
     }
 
     public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
-        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY, g2d_stageViewRect.height);
         //g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, 0, 0, .5, .5, p_texture.nativeTexture.width, p_texture.nativeTexture.height);
     }
 

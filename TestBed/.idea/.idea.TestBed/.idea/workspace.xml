@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628c424f-a7a9-4221-a349-3c33b7542192" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Genome2DNativePlugin.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Genome2DNativePlugin.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestBed.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plugin/Genome2DNativePlugin.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/Genome2DNativePlugin.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plugin/src/GNativeUnityAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/src/GNativeUnityImageAsset.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plugin/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/src/GNativeUnityContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plugin/src/NativeArrayExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/src/NativeArrayExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/assets/GImageAsset.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/assets/GImageAsset.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/assets/GXmlAsset.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/assets/GXmlAsset.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/pixel/UnityTestProject.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/pixel/UnityTestProject.hx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../plugin/src/GNativeUnityImageAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/src/GNativeUnityImageAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/com/pixel/examples/SpriteExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/pixel/examples/SpriteExample.hx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,13 +27,13 @@
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
-              <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
+              <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
               <folding>
-                <marker date="1554239998704" expanded="true" signature="30:1297" ph="{...}" />
-                <marker date="1554239998704" expanded="true" signature="51:104" ph="{...}" />
-                <marker date="1554239998704" expanded="true" signature="123:1295" ph="{...}" />
-                <marker date="1554239998704" expanded="true" signature="379:1289" ph="{...}" />
-                <marker date="1554239998704" expanded="true" signature="402:1274" ph="{...}" />
+                <marker date="1554322882168" expanded="true" signature="30:1293" ph="{...}" />
+                <marker date="1554322882168" expanded="true" signature="51:104" ph="{...}" />
+                <marker date="1554322882168" expanded="true" signature="123:1291" ph="{...}" />
+                <marker date="1554322882168" expanded="true" signature="375:1285" ph="{...}" />
+                <marker date="1554322882168" expanded="true" signature="398:1270" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -43,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Code/src/com/genome2d/assets/GStaticAssetManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="642">
+            <state relative-caret-position="901">
               <caret line="61" column="92" selection-start-line="61" selection-start-column="92" selection-end-line="61" selection-end-column="92" />
               <folding>
                 <marker date="1554238174027" expanded="true" signature="126:12392" ph="{...}" />
@@ -115,14 +114,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AssemblyExplorer" />
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
       <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
+      </pane>
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
       </pane>
     </panes>
   </component>
@@ -175,11 +174,12 @@
       <workItem from="1554143135145" duration="501000" />
       <workItem from="1554146665030" duration="806000" />
       <workItem from="1554231158548" duration="2406000" />
+      <workItem from="1554321479944" duration="1469000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4154000" />
+    <option name="totallyTimeSpent" value="5623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -192,13 +192,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1576" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2579491" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2599364" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" visible="true" weight="0.32986832" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -215,6 +215,7 @@
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
       <window_info anchor="bottom" id="Unity" order="15" />
+      <window_info active="true" anchor="bottom" id="Build" order="16" visible="true" weight="0.32986832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -287,9 +288,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Shaders/NewUnlitShader.shader" />
+    <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="80" selection-start-line="12" selection-start-column="80" selection-end-line="12" selection-end-column="80" />
+          <folding>
+            <marker date="1554322882168" expanded="true" signature="30:1293" ph="{...}" />
+            <marker date="1554322882168" expanded="true" signature="51:104" ph="{...}" />
+            <marker date="1554322882168" expanded="true" signature="123:1291" ph="{...}" />
+            <marker date="1554322882168" expanded="true" signature="375:1285" ph="{...}" />
+            <marker date="1554322882168" expanded="true" signature="398:1270" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/src/com/genome2d/assets/GStaticAssetManager.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
+        <state relative-caret-position="901">
           <caret line="61" column="92" selection-start-line="61" selection-start-column="92" selection-end-line="61" selection-end-column="92" />
           <folding>
             <marker date="1554238174027" expanded="true" signature="126:12392" ph="{...}" />
@@ -326,20 +341,6 @@
             <marker date="1554238174027" expanded="true" signature="11313:12381" ph="{...}" />
             <marker date="1554238174027" expanded="true" signature="11328:12360" ph="{...}" />
             <marker date="1554238174027" expanded="true" signature="11533:12147" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="53" selection-start-line="12" selection-start-column="53" selection-end-line="12" selection-end-column="53" />
-          <folding>
-            <marker date="1554239998704" expanded="true" signature="30:1297" ph="{...}" />
-            <marker date="1554239998704" expanded="true" signature="51:104" ph="{...}" />
-            <marker date="1554239998704" expanded="true" signature="123:1295" ph="{...}" />
-            <marker date="1554239998704" expanded="true" signature="379:1289" ph="{...}" />
-            <marker date="1554239998704" expanded="true" signature="402:1274" ph="{...}" />
           </folding>
         </state>
       </provider>

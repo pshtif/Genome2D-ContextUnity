@@ -47,7 +47,8 @@ class GCamera
         var aspectRatio:Float = p_context.getStageViewRect().width/p_context.getStageViewRect().height;
         _nativeCamera.orthographic = true;
         _nativeCamera.orthographicSize = p_context.getStageViewRect().height/2;
-        _nativeCamera.gameObject.transform.position = new Vector3(aspectRatio*p_context.getStageViewRect().height/2, p_context.getStageViewRect().height/2,-1);
+        _nativeCamera.gameObject.transform.position = new Vector3(aspectRatio*p_context.getStageViewRect().height/2, p_context.getStageViewRect().height/2,1);
+        _nativeCamera.gameObject.transform.Rotate(0,180,180);
         _nativeCamera.clearFlags = CameraClearFlags.SolidColor;
         _nativeCamera.backgroundColor = new Color(0,0,0,1);
 
