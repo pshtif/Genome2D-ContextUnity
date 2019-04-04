@@ -17,7 +17,7 @@
 
 -D net-ver=40
 -D no-compilation
--D no-inline
+#-D no-inline
 
 # Compile to assets folder
 -cs TestBed/Assets/Code

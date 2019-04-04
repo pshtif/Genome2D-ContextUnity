@@ -1,5 +1,6 @@
 package com.pixel;
 
+import unityengine.*;
 import com.genome2d.project.GProject;
 import com.genome2d.assets.GAsset;
 import com.genome2d.assets.GStaticAssetManager;
@@ -15,6 +16,7 @@ class UnityTestProject extends GProject {
 	private var _texture:GTexture;
 
     override private function init():Void {
+		GStaticAssetManager.addFromUrl("assets/ball.png");
         GStaticAssetManager.addFromUrl("assets/atlas.png");
 		GStaticAssetManager.addFromUrl("assets/atlas.xml");
         GStaticAssetManager.loadQueue(assetsLoaded_handler, assetsFailed_handler);
@@ -32,17 +34,16 @@ class UnityTestProject extends GProject {
 
 		GStaticAssetManager.generate();
 
-		_texture = GTextureManager.getTexture("assets/atlas.png_0");
+		_texture = GTextureManager.getTexture("assets/ball.png");
 		
 		getGenome().onPreRender.add(render_handler);
 	}
 
 	private function render_handler():Void {
-		getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
-		/*
+		//getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
+		
 		for (i in 0...10000) {
-			getGenome().getContext().draw(_texture, GBlendMode.NONE, Math.random()*800-400, Math.random()*600-300);
+			getGenome().getContext().draw(_texture, GBlendMode.NONE, Math.random()*Screen.width, Math.random()*Screen.height);
 		}
-	 	*/
 	}
 }
