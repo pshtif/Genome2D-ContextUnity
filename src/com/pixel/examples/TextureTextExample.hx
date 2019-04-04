@@ -47,7 +47,7 @@ class TextureTextExample extends AbstractExample
         text.vAlign = p_vAlign;
         text.hAlign = p_hAlign;
         text.node.setPosition(p_x, p_y);
-
+        text.node.rotation = Math.PI/8;
         container.addChild(text.node);
 
         return text;

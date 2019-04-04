@@ -21,6 +21,7 @@ import com.genome2d.input.GMouseInputType;
 import com.genome2d.context.filters.GFilter;
 import com.genome2d.macros.MGDebug;
 import com.genome2d.project.GProject;
+import com.genome2d.debug.GDebug;
 
 @:nativeGen
 class GUnityContext implements IGContext {
@@ -99,8 +100,7 @@ class GUnityContext implements IGContext {
 
         g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage);
         g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
-        g2d_nativeStage.onMouseButton.add(g2d_mouseButton_handler);
-        g2d_nativeStage.onMouseMove.add(g2d_mouseMove_handler);
+        g2d_nativeStage.onMouse.add(g2d_mouse_handler);
 		onInitialized.dispatch();
 	}
 
@@ -116,17 +116,22 @@ class GUnityContext implements IGContext {
         onFrame.dispatch(g2d_currentDeltaTime);
     }
 
-    private function g2d_mouseButton_handler(p_button:Int, p_state:Bool):Void {
+    private function g2d_mouse_handler(p_type:String, p_data:Int):Void {
         var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
-        var my:Float = Input.mousePosition.y - g2d_stageViewRect.y;
-    }
+        var my:Float = Screen.height - Input.mousePosition.y - g2d_stageViewRect.y;
 
-    private function g2d_mouseMove_handler():Void {
-        var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
-        var my:Float = Input.mousePosition.y - g2d_stageViewRect.y;
+        var input:GMouseInput = new GMouseInput(this, this, p_type, mx, my);
+		input.worldX = input.contextX = mx;
+		input.worldY = input.contextY = my;
+        input.buttonDown = p_data>=0;
+        input.ctrlKey = false;
+        input.altKey = false;
+        input.shiftKey = false;
+        input.delta = 0; // Need to add support for wheel later
+		input.nativeCaptured = false;
 
-        Debug.Log(Input.mousePosition.x +" : "+Input.mousePosition.y);
-        Debug.Log(mx +" : "+my);
+        onMouseInput.dispatch(input);
+        if (!input.captured) g2d_onMouseInputInternal(input);
     }
 
 
@@ -145,11 +150,19 @@ class GUnityContext implements IGContext {
     }
 
     public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
-        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY, g2d_stageViewRect.height);
-        //g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, 0, 0, .5, .5, p_texture.nativeTexture.width, p_texture.nativeTexture.height);
+        GDebug.info(p_red, p_green, p_blue, p_alpha);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
     }
 
-    public function drawSource(p_texture:GTexture, p_blendMode:GBlendMode, p_sourceX:Float, p_sourceY:Float, p_sourceWidth:Float, p_sourceHeight:Float, p_sourcePivotX:Float, p_sourcePivotY:Float, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {}
+    @:access(com.genome2d.textures.GTexture)
+    public function drawSource(p_texture:GTexture, p_blendMode:GBlendMode, p_sourceX:Float, p_sourceY:Float, p_sourceWidth:Float, p_sourceHeight:Float, p_sourcePivotX:Float, p_sourcePivotY:Float, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
+        GDebug.info();
+        var u:Float = p_sourceX / p_texture.g2d_gpuWidth;
+		var v:Float = p_sourceY / p_texture.g2d_gpuHeight;
+        var uScale:Float = p_sourceWidth / p_texture.g2d_gpuWidth;
+		var vScale:Float = p_sourceHeight / p_texture.g2d_gpuHeight;
+        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, u, v, uScale, vScale, p_sourceWidth, p_sourceHeight, p_sourcePivotX, p_sourcePivotY);
+    }
 
     public function drawMatrix(p_texture:GTexture, p_blendMode:GBlendMode, p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float=1, p_filter:GFilter = null):Void {}
 

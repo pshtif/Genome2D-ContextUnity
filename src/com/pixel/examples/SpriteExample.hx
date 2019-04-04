@@ -16,6 +16,7 @@ import com.genome2d.animation.GFrameAnimation;
 import com.genome2d.components.renderable.GSprite;
 import com.genome2d.node.GNode;
 import com.genome2d.textures.GTextureManager;
+import com.genome2d.textures.GTexture;
 
 import com.pixel.examples.AbstractExample;
 
@@ -38,11 +39,13 @@ class SpriteExample extends AbstractExample
         sprite = createSprite(0, 600, "assets/atlas.png_0");
         sprite = createSprite(800, 600, "assets/atlas.png_0");
 
+        var texture:GTexture = GTextureManager.getTexture("assets/texture.png");
+        texture.pivotX = texture.pivotY = 64;
         test = new GNode();
-        sprite = createSprite(0, 200, "assets/texture.png");
+        sprite = createSprite(0, 0, "assets/texture.png");
         test.addChild(sprite.node);
-        sprite = createSprite(0, -200, "assets/texture.png");
-        test.addChild(sprite.node);
+        //sprite = createSprite(0, -200, "assets/texture.png");
+        //test.addChild(sprite.node);
         container.addChild(test);
         test.x = 400;
         test.y = 300;
