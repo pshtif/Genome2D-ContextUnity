@@ -1,4 +1,4 @@
-package com.pixel;
+package com.genome2d.examples;
 
 import unityengine.*;
 import com.genome2d.project.GProject;
@@ -42,7 +42,7 @@ class UnityTestProject extends GProject {
 	private function render_handler():Void {
 		//getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
 		
-		for (i in 0...10000) {
+		for (i in 0...30000) {
 			getGenome().getContext().draw(_texture, GBlendMode.NONE, Math.random()*Screen.width, Math.random()*Screen.height);
 		}
 	}

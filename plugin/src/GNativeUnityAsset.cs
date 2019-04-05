@@ -22,9 +22,21 @@ namespace Genome2DNativePlugin
         {
             if (p_url.IndexOf("http") != 0)
             {
-                TextAsset ta = Resources.Load<TextAsset>(p_url.Substring(0, p_url.LastIndexOf(".")));
-                text = ta.text;
-                _loaded(p_url);
+                TextAsset ta = Resources.Load<TextAsset>(p_url);
+                if (ta == null)
+                {
+                    ta = Resources.Load<TextAsset>(p_url.Substring(0, p_url.LastIndexOf(".")));
+                }
+
+                if (ta != null)
+                {
+                    text = ta.text;
+                    _loaded(p_url);
+                }
+                else
+                {
+                    Debug.Log("Asset "+ p_url +" not found.");
+                }
             }    
             else
             {
@@ -44,7 +56,6 @@ namespace Genome2DNativePlugin
                 }
                 else
                 {
-                    Debug.Log("Loaded");
                     text = uwr.downloadHandler.text;
                     _loaded(p_url);
                 }

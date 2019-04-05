@@ -2,7 +2,11 @@
 
 -cp ../Genome2D-ContextCommon/src
 -cp ../Genome2D-Core/src
+-cp ../Genome2D-Spine/src
 -cp src
+
+#examples
+-cp examples
 
 # Cross
 -net-lib TestBed\Assets\Genome2DNativePlugin.dll

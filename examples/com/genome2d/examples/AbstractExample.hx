@@ -6,7 +6,7 @@
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
-package com.pixel.examples;
+package com.genome2d.examples;
 
 import com.genome2d.assets.GStaticAssetManager;
 import com.genome2d.textures.GTextureManager;
@@ -50,6 +50,9 @@ class AbstractExample extends GProject
 
 	override private function init():Void {
 		if (initType != 2) {
+			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old-skeleton.json");
+			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old.txt");
+			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old.png", "spineboy");
 			GStaticAssetManager.addFromUrl("assets/logo_white.png");
 			GStaticAssetManager.addFromUrl("assets/atlas.png");
 			GStaticAssetManager.addFromUrl("assets/atlas.xml");

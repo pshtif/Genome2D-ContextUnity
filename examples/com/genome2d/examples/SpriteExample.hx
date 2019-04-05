@@ -6,7 +6,7 @@
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
-package com.pixel.examples;
+package com.genome2d.examples;
 
 import com.genome2d.debug.GDebug;
 import com.genome2d.input.GMouseInput;
@@ -17,8 +17,6 @@ import com.genome2d.components.renderable.GSprite;
 import com.genome2d.node.GNode;
 import com.genome2d.textures.GTextureManager;
 import com.genome2d.textures.GTexture;
-
-import com.pixel.examples.AbstractExample;
 
 @:nativeGen
 class SpriteExample extends AbstractExample

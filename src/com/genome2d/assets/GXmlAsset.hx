@@ -35,7 +35,6 @@ class GXmlAsset extends GAsset
     private function g2d_complete_handler(p_url:String):Void {
         g2d_loading = false;
         xml = Xml.parse(_nativeAsset.text);
-        GDebug.info(xml);
         g2d_loaded = true;
         onLoaded.dispatch(this);
     }

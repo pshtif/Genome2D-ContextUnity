@@ -51,7 +51,7 @@ class GCamera
             _nativeCamera.gameObject.transform.position = new Vector3(Screen.width/(2*aspectRatio), p_context.getStageViewRect().height/2,1);
             _nativeCamera.gameObject.transform.Rotate(0,180,180);
             _nativeCamera.clearFlags = CameraClearFlags.SolidColor;
-            _nativeCamera.backgroundColor = new Color(1,0,0,1);
+            _nativeCamera.backgroundColor = new Color(0,0,0,1);
 
             //gameObject.transform.parent = p_context.getNativeStage().gameObject.transform;
         }

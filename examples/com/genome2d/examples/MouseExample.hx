@@ -6,7 +6,7 @@
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
-package com.pixel.examples;
+package com.genome2d.examples;
 
 import com.genome2d.components.renderable.GSprite;
 import com.genome2d.input.GMouseInput;

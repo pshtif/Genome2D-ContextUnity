@@ -116,7 +116,24 @@ class GUnityContext implements IGContext {
         onFrame.dispatch(g2d_currentDeltaTime);
     }
 
+    private var g2d_mouseInitialized = false;
+    private var g2d_lastMouseX:Float;
+    private var g2d_lastMouseY:Float;
+
     private function g2d_mouse_handler(p_type:String, p_data:Int):Void {
+        // Since we are sending mouse move per update call it's not always moving
+        if (p_type == GMouseInputType.MOUSE_MOVE) {
+            if (!g2d_mouseInitialized) {
+                g2d_mouseInitialized = true;
+            } else {
+                if (g2d_lastMouseX == Input.mousePosition.x && g2d_lastMouseY == Input.mousePosition.y) {
+                    return;
+                }
+            }
+            g2d_lastMouseX = Input.mousePosition.x;
+            g2d_lastMouseY = Input.mousePosition.y;
+        }
+
         var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
         var my:Float = Screen.height - Input.mousePosition.y - g2d_stageViewRect.y;
 
