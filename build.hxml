@@ -5,7 +5,7 @@
 -cp ../Genome2D-Spine/src
 -cp src
 
-#examples
+# Include examples
 -cp examples
 
 # Cross
@@ -19,11 +19,18 @@
 
 -lib hscript
 
+-D no-root
 -D net-ver=40
--D no-compilation
+-D real-position
+#-D erase-generics
 #-D no-inline
 
 # Compile to assets folder
+-D no-compilation
 -cs TestBed/Assets/Code
+
+# Compile to DLL
+#-D dll
+#-cs bin
 
 --macro include('com')

@@ -2,7 +2,7 @@
  * 	Genome2D - 2D GPU Framework
  * 	http://www.genome2d.com
  *
- *	Copyright 2011-2014 Peter Stefcek. All rights reserved.
+ *	Copyright 2011-2019 Peter Stefcek. All rights reserved.
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
@@ -53,6 +53,12 @@ class AbstractExample extends GProject
 			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old-skeleton.json");
 			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old.txt");
 			GStaticAssetManager.addFromUrl("assets/spine/spineboy/spineboy-old.png", "spineboy");
+
+			GStaticAssetManager.addFromUrl("assets/spine/diggy/chodza_vpred.json");
+			GStaticAssetManager.addFromUrl("assets/spine/diggy/stastny.json");
+			GStaticAssetManager.addFromUrl("assets/spine/diggy/diggy.txt");
+			GStaticAssetManager.addFromUrl("assets/spine/diggy/diggy.png", "diggy");
+
 			GStaticAssetManager.addFromUrl("assets/logo_white.png");
 			GStaticAssetManager.addFromUrl("assets/atlas.png");
 			GStaticAssetManager.addFromUrl("assets/atlas.xml");

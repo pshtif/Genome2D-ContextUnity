@@ -1,0 +1,215 @@
+diggy.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bok_praca_hlava
+  rotate: false
+  xy: 409, 79
+  size: 31, 44
+  orig: 31, 44
+  offset: 0, 0
+  index: -1
+helma_bok
+  rotate: false
+  xy: 41, 51
+  size: 37, 26
+  orig: 37, 26
+  offset: 0, 0
+  index: -1
+helma_vpred
+  rotate: false
+  xy: 475, 95
+  size: 32, 28
+  orig: 32, 28
+  offset: 0, 0
+  index: -1
+helma_vzad
+  rotate: false
+  xy: 375, 77
+  size: 32, 46
+  orig: 32, 46
+  offset: 0, 0
+  index: -1
+hlava_bok
+  rotate: false
+  xy: 442, 79
+  size: 31, 44
+  orig: 31, 44
+  offset: 0, 0
+  index: -1
+hlava_down
+  rotate: false
+  xy: 337, 81
+  size: 36, 42
+  orig: 36, 42
+  offset: 0, 0
+  index: -1
+hlava_praca_vpred1
+  rotate: false
+  xy: 41, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+hlava_stastny
+  rotate: false
+  xy: 78, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+hlava_unaveny
+  rotate: false
+  xy: 115, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+hlava_vpred
+  rotate: false
+  xy: 152, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+hlava_vzad1
+  rotate: false
+  xy: 2, 2
+  size: 29, 38
+  orig: 29, 38
+  offset: 0, 0
+  index: -1
+hlava_zniceny
+  rotate: false
+  xy: 189, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+krompac
+  rotate: false
+  xy: 259, 56
+  size: 21, 21
+  orig: 21, 21
+  offset: 0, 0
+  index: -1
+lopata
+  rotate: false
+  xy: 63, 23
+  size: 10, 26
+  orig: 10, 26
+  offset: 0, 0
+  index: -1
+narodeniny
+  rotate: false
+  xy: 2, 42
+  size: 37, 81
+  orig: 37, 81
+  offset: 0, 0
+  index: -1
+noha
+  rotate: false
+  xy: 302, 57
+  size: 16, 20
+  orig: 16, 20
+  offset: 0, 0
+  index: -1
+praca_hlava_vpred
+  rotate: false
+  xy: 226, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+rovna_ruka
+  rotate: false
+  xy: 33, 12
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+ruka
+  rotate: false
+  xy: 241, 50
+  size: 16, 27
+  orig: 16, 27
+  offset: 0, 0
+  index: -1
+ruka_tlacenie_bok
+  rotate: false
+  xy: 320, 49
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+ruka_tlacenie_boka
+  rotate: false
+  xy: 48, 21
+  size: 13, 28
+  orig: 13, 28
+  offset: 0, 0
+  index: -1
+telo
+  rotate: false
+  xy: 172, 52
+  size: 23, 25
+  orig: 23, 25
+  offset: 0, 0
+  index: -1
+telo_vzad
+  rotate: false
+  xy: 197, 52
+  size: 22, 25
+  orig: 22, 25
+  offset: 0, 0
+  index: -1
+telo_vzad3
+  rotate: false
+  xy: 282, 56
+  size: 18, 21
+  orig: 18, 21
+  offset: 0, 0
+  index: -1
+usta
+  rotate: false
+  xy: 263, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+usta_unaveny
+  rotate: false
+  xy: 300, 79
+  size: 35, 44
+  orig: 35, 44
+  offset: 0, 0
+  index: -1
+vlasy_bok
+  rotate: false
+  xy: 80, 51
+  size: 33, 26
+  orig: 33, 26
+  offset: 0, 0
+  index: -1
+vlasy_vpred
+  rotate: false
+  xy: 115, 47
+  size: 29, 30
+  orig: 29, 30
+  offset: 0, 0
+  index: -1
+vlasy_vzad
+  rotate: false
+  xy: 146, 49
+  size: 24, 28
+  orig: 24, 28
+  offset: 0, 0
+  index: -1
+zbijacka
+  rotate: false
+  xy: 221, 48
+  size: 18, 29
+  orig: 18, 29
+  offset: 0, 0
+  index: -1

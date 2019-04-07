@@ -1,9 +1,19 @@
-﻿using System;
+﻿/*
+ * 	Genome2D - 2D GPU Framework
+ * 	http://www.genome2d.com
+ *
+ *	Copyright 2011-2019 Peter Stefcek. All rights reserved.
+ *
+ *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
+ */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Rendering;
+using com.genome2d.geom;
+using Object = UnityEngine.Object;
 
 namespace Genome2DNativePlugin
 {
@@ -25,6 +35,8 @@ namespace Genome2DNativePlugin
 
         protected Texture _lastTexture;
         protected Material _lastMaterialPass;
+        protected BlendMode _lastSrcBlendMode;
+        protected BlendMode _lastDstBlendMode;
 
         public GNativeUnityContext(MonoBehaviour p_wrapper)
         {
@@ -70,6 +82,8 @@ namespace Genome2DNativePlugin
                 _meshes.Add(mesh);
 
                 Material material = new Material(Shader.Find("Genome2D/UnlitShader"));
+                material.SetInt("BlendSrcMode", (int)BlendMode.SrcAlpha);
+                material.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
                 _materials.Add(material);
             }
         }
@@ -81,18 +95,22 @@ namespace Genome2DNativePlugin
             _meshes[_currentBatchIndex].Clear();
         }
 
-        public void Draw(Texture p_texture, BlendMode p_blendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
+        public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
             float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,
             float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY)
         {
-            if (_lastTexture != p_texture)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode)
             {
-                if (_lastTexture != null) FlushRenderer();
+                if (_lastTexture) FlushRenderer();
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
                 Material material = _materials[_currentBatchIndex];
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
+                material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
+                material.SetInt("BlendDstMode", (int)p_dstBlendMode);
+                _lastSrcBlendMode = p_srcBlendMode;
+                _lastDstBlendMode = p_dstBlendMode;
             }
 
             float tx;
@@ -198,6 +216,84 @@ namespace Genome2DNativePlugin
             if (_quadIndex >= MAX_BATCH_SIZE) FlushRenderer();
         }
         
+        public void DrawMatrix(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
+            float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,float p_vScale,
+            float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY)
+        {
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode)
+            {
+                if (_lastTexture) FlushRenderer();
+                
+                Mesh mesh = _meshes[_currentBatchIndex];
+                Material material = _materials[_currentBatchIndex];
+                material.mainTexture = p_texture;
+                _lastTexture = p_texture;
+                material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
+                material.SetInt("BlendDstMode", (int)p_dstBlendMode);
+                _lastSrcBlendMode = p_srcBlendMode;
+                _lastDstBlendMode = p_dstBlendMode;
+            }
+
+            float tx;
+            float ty;
+            
+            tx = -p_textureWidth / 2 - p_texturePivotX;
+            ty = -p_textureHeight / 2 - p_texturePivotY;
+
+            _vertices[_quadIndex * 4].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[_quadIndex * 4].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            
+            tx = -p_textureWidth / 2 - p_texturePivotX;
+            ty = p_textureHeight / 2 - p_texturePivotY;
+
+            _vertices[_quadIndex * 4 + 1].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[_quadIndex * 4 + 1].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            
+            tx = p_textureWidth / 2 - p_texturePivotX;
+            ty = p_textureHeight / 2 - p_texturePivotY;
+
+            _vertices[_quadIndex * 4 + 2].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[_quadIndex * 4 + 2].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            
+            tx = p_textureWidth / 2 - p_texturePivotX;
+            ty = -p_textureHeight / 2 - p_texturePivotY;
+
+            _vertices[_quadIndex * 4 + 3].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[_quadIndex * 4 + 3].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+
+            _uvs[_quadIndex * 4].x = p_u;
+            _uvs[_quadIndex * 4].y = 1 - p_v;
+            _uvs[_quadIndex * 4 + 1].x = p_u;
+            _uvs[_quadIndex * 4 + 1].y = 1 - (p_v + p_vScale);
+            _uvs[_quadIndex * 4 + 2].x = p_u + p_uScale;
+            _uvs[_quadIndex * 4 + 2].y = 1 - (p_v + p_vScale);
+            _uvs[_quadIndex * 4 + 3].x = p_u + p_uScale;
+            _uvs[_quadIndex * 4 + 3].y = 1 - p_v;
+
+            _colors[_quadIndex * 4].r = p_red;
+            _colors[_quadIndex * 4].g = p_green;
+            _colors[_quadIndex * 4].b = p_blue;
+            _colors[_quadIndex * 4].a = p_alpha;
+            
+            _colors[_quadIndex * 4 + 1].r = p_red;
+            _colors[_quadIndex * 4 + 1].g = p_green;
+            _colors[_quadIndex * 4 + 1].b = p_blue;
+            _colors[_quadIndex * 4 + 1].a = p_alpha;
+            
+            _colors[_quadIndex * 4 + 2].r = p_red;
+            _colors[_quadIndex * 4 + 2].g = p_green;
+            _colors[_quadIndex * 4 + 2].b = p_blue;
+            _colors[_quadIndex * 4 + 2].a = p_alpha;
+            
+            _colors[_quadIndex * 4 + 3].r = p_red;
+            _colors[_quadIndex * 4 + 3].g = p_green;
+            _colors[_quadIndex * 4 + 3].b = p_blue;
+            _colors[_quadIndex * 4 + 3].a = p_alpha;
+
+            _quadIndex++;
+            
+            if (_quadIndex >= MAX_BATCH_SIZE) FlushRenderer();
+        }
         
         
         public void FlushRenderer()

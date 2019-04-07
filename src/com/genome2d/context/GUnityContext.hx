@@ -1,3 +1,11 @@
+/*
+ * 	Genome2D - 2D GPU Framework
+ * 	http://www.genome2d.com
+ *
+ *	Copyright 2011-2019 Peter Stefcek. All rights reserved.
+ *
+ *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
+ */
 package com.genome2d.context;
 
 import unityengine.*;
@@ -9,7 +17,7 @@ import com.genome2d.callbacks.GCallback.GCallback2;
 import com.genome2d.input.IGFocusable;
 import com.genome2d.textures.GTexture;
 import com.genome2d.context.IGRenderer;
-import com.genome2d.context.renderers.GRendererCommon;
+import com.genome2d.geom.GMatrix;
 import com.genome2d.geom.GMatrix3D;
 import com.genome2d.context.stats.GStats;
 import com.genome2d.context.stats.IGStats;
@@ -35,6 +43,8 @@ class GUnityContext implements IGContext {
     public var onResize(default,null):GCallback2<Int,Int>;
 
 	public var g2d_onMouseInputInternal:GMouseInput->Void;
+
+    private var g2d_cachedMatrix:GMatrix;
 
     private var g2d_currentDeltaTime:Float;
     private var g2d_currentTime:Float;
@@ -85,6 +95,7 @@ class GUnityContext implements IGContext {
 		g2d_stageViewRect = p_config.viewRect;
 
 		g2d_defaultCamera = new GCamera(this);
+        g2d_cachedMatrix = new GMatrix();
 
 		onInitialized = new GCallback0();
         onFailed = new GCallback1<String>();
@@ -166,25 +177,33 @@ class GUnityContext implements IGContext {
         flushRenderer();
     }
 
-    public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
-        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
+    public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
+        var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
+        var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
     }
 
     @:access(com.genome2d.textures.GTexture)
-    public function drawSource(p_texture:GTexture, p_blendMode:GBlendMode, p_sourceX:Float, p_sourceY:Float, p_sourceWidth:Float, p_sourceHeight:Float, p_sourcePivotX:Float, p_sourcePivotY:Float, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {
+    public function drawSource(p_texture:GTexture, p_blendMode:GBlendMode, p_sourceX:Float, p_sourceY:Float, p_sourceWidth:Float, p_sourceHeight:Float, p_sourcePivotX:Float, p_sourcePivotY:Float, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
+        var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
+        var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
         var u:Float = p_sourceX / p_texture.g2d_gpuWidth;
 		var v:Float = p_sourceY / p_texture.g2d_gpuHeight;
         var uScale:Float = p_sourceWidth / p_texture.g2d_gpuWidth;
 		var vScale:Float = p_sourceHeight / p_texture.g2d_gpuHeight;
-        g2d_nativeContext.Draw(p_texture.nativeTexture, BlendMode.OneMinusSrcAlpha, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, u, v, uScale, vScale, p_sourceWidth, p_sourceHeight, p_sourcePivotX, p_sourcePivotY);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, u, v, uScale, vScale, p_sourceWidth, p_sourceHeight, p_sourcePivotX, p_sourcePivotY);
     }
 
-    public function drawMatrix(p_texture:GTexture, p_blendMode:GBlendMode, p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float=1, p_filter:GFilter = null):Void {}
+    public function drawMatrix(p_texture:GTexture, p_blendMode:GBlendMode, p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
+        g2d_cachedMatrix.setTo(p_a, p_b, p_c, p_d, p_tx, p_ty);
+        var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
+        var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
+        g2d_nativeContext.DrawMatrix(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cast g2d_cachedMatrix, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
+    }
 
-    public function drawPoly(p_texture:GTexture, p_blendMode :GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float = 1, p_scaleY:Float = 1, p_rotation:Float = 0, p_red:Float = 1, p_green:Float = 1, p_blue:Float = 1, p_alpha:Float = 1, p_filter:GFilter = null):Void {}
+    public function drawPoly(p_texture:GTexture, p_blendMode :GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {}
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}
-
     public function setRenderer(p_renderer:IGRenderer):Void {}
 
 	public function flushRenderer():Void {

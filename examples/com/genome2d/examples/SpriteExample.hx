@@ -2,7 +2,7 @@
  * 	Genome2D - 2D GPU Framework
  * 	http://www.genome2d.com
  *
- *	Copyright 2011-2014 Peter Stefcek. All rights reserved.
+ *	Copyright 2011-2019 Peter Stefcek. All rights reserved.
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
@@ -38,7 +38,6 @@ class SpriteExample extends AbstractExample
         sprite = createSprite(800, 600, "assets/atlas.png_0");
 
         var texture:GTexture = GTextureManager.getTexture("assets/texture.png");
-        texture.pivotX = texture.pivotY = 64;
         test = new GNode();
         sprite = createSprite(0, 0, "assets/texture.png");
         test.addChild(sprite.node);

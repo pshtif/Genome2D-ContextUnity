@@ -2,12 +2,128 @@
  * 	Genome2D - 2D GPU Framework
  * 	http://www.genome2d.com
  *
- *	Copyright 2011-2014 Peter Stefcek. All rights reserved.
+ *	Copyright 2011-2019 Peter Stefcek. All rights reserved.
  *
  *	License:: ./doc/LICENSE.md (https://github.com/pshtif/Genome2D/blob/master/LICENSE.md)
  */
+
 package com.genome2d.geom;
 
+/**/
+extern class GMatrix {
+    var a:Float;
+    var b:Float;
+    var c:Float;
+    var d:Float;
+    var tx:Float;
+    var ty:Float;
+
+    function new();
+
+    function copyFrom(p_from:GMatrix):Void;
+    function setTo(p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float):Void;
+    function identity():Void;
+    function concat(p_matrix:GMatrix):Void;
+    function invert():GMatrix;
+    function scale(p_scaleX:Float, p_scaleY:Float):Void;
+    function rotate (p_angle:Float):Void;
+    function translate(p_x:Float, p_y:Float):Void;
+}
+/**
+//typedef GMatrix = com.genome2d.geom.GMatrixNative;
+
+abstract GMatrix(GMatrixNative) {
+    inline public function new(p_a:Float = 1, p_b:Float = 0, p_c:Float = 0, p_d:Float = 1, p_tx:Float = 0, p_ty:Float = 0) {
+        this = new com.genome2d.geom.GMatrixNative(p_a, p_b, p_c, p_d, p_tx, p_ty);
+    }
+
+    public var a(get,set):Float;
+    inline public function get_a():Float {
+        return this.a;
+    }
+    inline public function set_a(p_a:Float):Float {
+        this.a = p_a;
+        return p_a;
+    }
+
+    public var b(get,set):Float;
+    inline public function get_b():Float {
+        return this.b;
+    }
+    inline public function set_b(p_b:Float):Float {
+        this.b = p_b;
+        return p_b;
+    }
+
+    public var c(get,set):Float;
+    inline public function get_c():Float {
+        return this.c;
+    }
+    inline public function set_c(p_c:Float):Float {
+        this.c = p_c;
+        return p_c;
+    }
+
+    public var d(get,set):Float;
+    inline public function get_d():Float {
+        return this.d;
+    }
+    inline public function set_d(p_d:Float):Float {
+        this.d = p_d;
+        return p_d;
+    }
+
+    public var tx(get,set):Float;
+    inline public function get_tx():Float {
+        return this.tx;
+    }
+    inline public function set_tx(p_tx:Float):Float {
+        this.tx = p_tx;
+        return p_tx;
+    }
+
+    public var ty(get,set):Float;
+    inline public function get_ty():Float {
+        return this.ty;
+    }
+    inline public function set_ty(p_ty:Float):Float {
+        this.ty = p_ty;
+        return p_ty;
+    }
+
+    inline public function copyFrom(p_from:GMatrix):Void {
+        this.copyFrom(cast p_from);
+    }
+
+    inline public function setTo(p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float):Void {
+        this.setTo(p_a, p_b, p_c, p_d, p_tx, p_ty);
+    }
+
+    inline public function identity():Void {
+        this.identity();
+    }
+
+    inline public function concat(p_matrix:GMatrix):Void {
+        this.concat(cast p_matrix);
+    }
+
+    inline public function invert():GMatrix {
+        return cast this.invert();
+    }
+
+    inline public function scale(p_scaleX:Float, p_scaleY:Float):Void {
+        this.scale(p_scaleX, p_scaleY);
+    }
+
+    inline public function rotate (p_angle:Float):Void { 
+        this.rotate(p_angle);
+    }
+
+    inline public function translate(p_x:Float, p_y:Float):Void {
+        this.translate(p_x, p_y);
+    }
+}
+/*
 class GMatrix {
     public var a:Float;
     public var b:Float;
@@ -121,3 +237,4 @@ class GMatrix {
         ty += p_y;
     }
 }
+/**/

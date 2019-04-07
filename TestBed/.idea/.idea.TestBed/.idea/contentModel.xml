@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\pstefcek\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\pstefcek\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
     <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
@@ -40,6 +42,7 @@
                     <e p="GShape.cs" t="Include" />
                     <e p="GSlice3Sprite.cs" t="Include" />
                     <e p="GSliceSprite.cs" t="Include" />
+                    <e p="GSpineComponent.cs" t="Include" />
                     <e p="GSprite.cs" t="Include" />
                     <e p="GTexturedQuad.cs" t="Include" />
                     <e p="GTiledSprite.cs" t="Include" />
@@ -64,6 +67,7 @@
                     <e p="GFilter.cs" t="Include" />
                   </e>
                   <e p="GBlendMode.cs" t="Include" />
+                  <e p="GBlendModeFunc.cs" t="Include" />
                   <e p="GCamera.cs" t="Include" />
                   <e p="GContextConfig.cs" t="Include" />
                   <e p="GContextFeature.cs" t="Include" />
@@ -76,7 +80,6 @@
                   <e p="IGRenderer.cs" t="Include" />
                   <e p="renderers" t="Include">
                     <e p="G3DRenderer.cs" t="Include" />
-                    <e p="GRendererCommon.cs" t="Include" />
                   </e>
                   <e p="stats" t="Include">
                     <e p="GStats.cs" t="Include" />
@@ -107,6 +110,20 @@
                     <e p="IGAffectorD.cs" t="Include" />
                     <e p="IGInitializerD.cs" t="Include" />
                   </e>
+                </e>
+                <e p="Examples" t="Include">
+                  <e p="AbstractExample.cs" t="Include" />
+                  <e p="custom" t="Include">
+                    <e p="ParticleModule.cs" t="Include" />
+                  </e>
+                  <e p="MouseExample.cs" t="Include" />
+                  <e p="ParticlesExample.cs" t="Include" />
+                  <e p="SimpleParticlesExample.cs" t="Include" />
+                  <e p="SpineExample.cs" t="Include" />
+                  <e p="SpriteExample.cs" t="Include" />
+                  <e p="TextureTextExample.cs" t="Include" />
+                  <e p="UIExample.cs" t="Include" />
+                  <e p="UnityTestProject.cs" t="Include" />
                 </e>
                 <e p="fbx" t="Include">
                   <e p="GFbxGeometry.cs" t="Include" />
@@ -149,7 +166,6 @@
                   <e p="GIntPoint.cs" t="Include" />
                   <e p="GIntRectangle.cs" t="Include" />
                   <e p="GLine.cs" t="Include" />
-                  <e p="GMatrix.cs" t="Include" />
                   <e p="GMatrix3D.cs" t="Include" />
                   <e p="GMatrixUtils.cs" t="Include" />
                   <e p="GPoint.cs" t="Include" />
@@ -216,6 +232,11 @@
                 <e p="scripts" t="Include">
                   <e p="GScript.cs" t="Include" />
                   <e p="GScriptManager.cs" t="Include" />
+                </e>
+                <e p="spine" t="Include">
+                  <e p="GAtlasAttachmentLoader.cs" t="Include" />
+                  <e p="GAtlasTextureLoader.cs" t="Include" />
+                  <e p="GSpine.cs" t="Include" />
                 </e>
                 <e p="text" t="Include">
                   <e p="GFont.cs" t="Include" />
@@ -287,6 +308,7 @@
                     <e p="GUISkinManager.cs" t="Include" />
                     <e p="GUISkinSheet.cs" t="Include" />
                     <e p="GUISkinType.cs" t="Include" />
+                    <e p="GUISpineSkin.cs" t="Include" />
                     <e p="GUITextureSkin.cs" t="Include" />
                   </e>
                 </e>
@@ -309,16 +331,6 @@
                   <e p="GVAlignType.cs" t="Include" />
                 </e>
               </e>
-              <e p="pixel" t="Include">
-                <e p="Examples" t="Include">
-                  <e p="AbstractExample.cs" t="Include" />
-                  <e p="MouseExample.cs" t="Include" />
-                  <e p="SpriteExample.cs" t="Include" />
-                  <e p="TextureTextExample.cs" t="Include" />
-                  <e p="UIExample.cs" t="Include" />
-                </e>
-                <e p="UnityTestProject.cs" t="Include" />
-              </e>
             </e>
             <e p="cs" t="Include">
               <e p="Boot.cs" t="Include" />
@@ -331,7 +343,6 @@
                 <e p="StringExt.cs" t="Include" />
               </e>
               <e p="Lib.cs" t="Include" />
-              <e p="NativeArray.cs" t="Include" />
             </e>
             <e p="Date.cs" t="Include" />
             <e p="EReg.cs" t="Include" />
@@ -346,6 +357,9 @@
                 <e p="StringMap.cs" t="Include" />
               </e>
               <e p="EntryPoint.cs" t="Include" />
+              <e p="format" t="Include">
+                <e p="JsonParser.cs" t="Include" />
+              </e>
               <e p="io" t="Include">
                 <e p="Bytes.cs" t="Include" />
                 <e p="BytesBuffer.cs" t="Include" />
@@ -359,9 +373,6 @@
                 <e p="Output.cs" t="Include" />
                 <e p="StringInput.cs" t="Include" />
               </e>
-              <e p="iterators" t="Include">
-                <e p="StringIteratorUnicode.cs" t="Include" />
-              </e>
               <e p="lang" t="Include">
                 <e p="Null.cs" t="Include" />
               </e>
@@ -370,7 +381,6 @@
               <e p="rtti" t="Include">
                 <e p="Meta.cs" t="Include" />
               </e>
-              <e p="Timer.cs" t="Include" />
               <e p="xml" t="Include">
                 <e p="Parser.cs" t="Include" />
                 <e p="Printer.cs" t="Include" />
@@ -386,6 +396,75 @@
             <e p="Lambda.cs" t="Include" />
             <e p="Math.cs" t="Include" />
             <e p="Reflect.cs" t="Include" />
+            <e p="spinehaxe" t="Include">
+              <e p="animation" t="Include">
+                <e p="Animation.cs" t="Include" />
+                <e p="AnimationState.cs" t="Include" />
+                <e p="AnimationStateData.cs" t="Include" />
+                <e p="AttachmentTimeline.cs" t="Include" />
+                <e p="ColorTimeline.cs" t="Include" />
+                <e p="CurveTimeline.cs" t="Include" />
+                <e p="DeformTimeline.cs" t="Include" />
+                <e p="DrawOrderTimeline.cs" t="Include" />
+                <e p="EventQueue.cs" t="Include" />
+                <e p="EventTimeline.cs" t="Include" />
+                <e p="IkConstraintTimeline.cs" t="Include" />
+                <e p="Listeners.cs" t="Include" />
+                <e p="PathConstraintMixTimeline.cs" t="Include" />
+                <e p="PathConstraintPositionTimeline.cs" t="Include" />
+                <e p="PathConstraintSpacingTimeline.cs" t="Include" />
+                <e p="RotateTimeline.cs" t="Include" />
+                <e p="ScaleTimeline.cs" t="Include" />
+                <e p="ShearTimeline.cs" t="Include" />
+                <e p="Timeline.cs" t="Include" />
+                <e p="TrackEntry.cs" t="Include" />
+                <e p="TransformConstraintTimeline.cs" t="Include" />
+                <e p="TranslateTimeline.cs" t="Include" />
+              </e>
+              <e p="ArrayUtils.cs" t="Include" />
+              <e p="atlas" t="Include">
+                <e p="Atlas.cs" t="Include" />
+                <e p="AtlasPage.cs" t="Include" />
+                <e p="AtlasRegion.cs" t="Include" />
+                <e p="TextureLoader.cs" t="Include" />
+              </e>
+              <e p="attachments" t="Include">
+                <e p="Attachment.cs" t="Include" />
+                <e p="AttachmentLoader.cs" t="Include" />
+                <e p="AttachmentType.cs" t="Include" />
+                <e p="BoundingBoxAttachment.cs" t="Include" />
+                <e p="MeshAttachment.cs" t="Include" />
+                <e p="PathAttachment.cs" t="Include" />
+                <e p="RegionAttachment.cs" t="Include" />
+                <e p="VertexAttachment.cs" t="Include" />
+              </e>
+              <e p="Bone.cs" t="Include" />
+              <e p="BoneData.cs" t="Include" />
+              <e p="Constraint.cs" t="Include" />
+              <e p="Event.cs" t="Include" />
+              <e p="EventData.cs" t="Include" />
+              <e p="Exception.cs" t="Include" />
+              <e p="IkConstraint.cs" t="Include" />
+              <e p="IkConstraintData.cs" t="Include" />
+              <e p="JsonNode.cs" t="Include" />
+              <e p="LinkedMesh.cs" t="Include" />
+              <e p="MathUtils.cs" t="Include" />
+              <e p="PathConstraint.cs" t="Include" />
+              <e p="PathConstraintData.cs" t="Include" />
+              <e p="Pool.cs" t="Include" />
+              <e p="Pool_spinehaxe_animation_TrackEntry.cs" t="Include" />
+              <e p="Poolable.cs" t="Include" />
+              <e p="Skeleton.cs" t="Include" />
+              <e p="SkeletonData.cs" t="Include" />
+              <e p="SkeletonJson.cs" t="Include" />
+              <e p="Skin.cs" t="Include" />
+              <e p="Slot.cs" t="Include" />
+              <e p="SlotData.cs" t="Include" />
+              <e p="TransformConstraint.cs" t="Include" />
+              <e p="TransformConstraintData.cs" t="Include" />
+              <e p="TransformMode.cs" t="Include" />
+              <e p="Updatable.cs" t="Include" />
+            </e>
             <e p="Std.cs" t="Include" />
             <e p="StringBuf.cs" t="Include" />
             <e p="StringTools.cs" t="Include" />
@@ -394,10 +473,63 @@
             <e p="Xml.cs" t="Include" />
           </e>
         </e>
+        <e p="Plugins" t="Include">
+          <e p="CodeStage" t="Include">
+            <e p="AdvancedFPSCounter" t="Include">
+              <e p="API.txt" t="Include" />
+              <e p="Changelog.txt" t="Include" />
+              <e p="Examples" t="Include">
+                <e p="APITester.cs" t="Include" />
+              </e>
+              <e p="Legacy" t="Include">
+                <e p="readme.txt" t="Include" />
+              </e>
+              <e p="scripts" t="Include">
+                <e p="AFPSCounter.cs" t="Include" />
+                <e p="CountersData" t="Include">
+                  <e p="Abstract" t="Include">
+                    <e p="BaseCounterData.cs" t="Include" />
+                    <e p="UpdatebleCounterData.cs" t="Include" />
+                  </e>
+                  <e p="DeviceInfoCounterData.cs" t="Include" />
+                  <e p="FPSCounterData.cs" t="Include" />
+                  <e p="MemoryCounterData.cs" t="Include" />
+                </e>
+                <e p="Editor" t="Include">
+                  <e p="AFPSCounterEditor.cs" t="Include" />
+                  <e p="AFPSRenderRecorderEditor.cs" t="Include" />
+                  <e p="EditorUIUtils.cs" t="Include" />
+                </e>
+                <e p="Enums" t="Include">
+                  <e p="FPSLevel.cs" t="Include" />
+                  <e p="OperationMode.cs" t="Include" />
+                </e>
+                <e p="Label" t="Include">
+                  <e p="DrawableLabel.cs" t="Include" />
+                  <e p="LabelAnchor.cs" t="Include" />
+                  <e p="LabelEffect.cs" t="Include" />
+                </e>
+                <e p="utils" t="Include">
+                  <e p="AFPSRenderRecorder.cs" t="Include" />
+                  <e p="UIUtils.cs" t="Include" />
+                  <e p="WaitForSecondsUnscaled.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Resources" t="Include">
           <e p="Assets" t="Include">
             <e p="atlas.xml" t="Include" />
             <e p="font.fnt" t="Include" />
+            <e p="spine" t="Include">
+              <e p="diggy" t="Include">
+                <e p="diggy.txt" t="Include" />
+              </e>
+              <e p="spineboy" t="Include">
+                <e p="spineboy-old.txt" t="Include" />
+              </e>
+            </e>
           </e>
           <e p="Shaders" t="Include">
             <e p="UnlitShader.shader" t="Include" />

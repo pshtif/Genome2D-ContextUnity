@@ -3,6 +3,8 @@
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        BlendSrcMode ("BlendSrcMode", Float) = 0
+        BlendDstMode ("BlendDstMode", Float) = 0
     }
     SubShader
     {
@@ -12,7 +14,7 @@
         ZWrite Off
         // No reason just for Genome2D other contexts consistency, inverted axes
         Cull Front
-        Blend SrcAlpha OneMinusSrcAlpha
+        Blend [BlendSrcMode] [BlendDstMode]
 
         Pass
         {

@@ -99,6 +99,7 @@
     <Compile Include="Assets\Code\src\com\genome2d\components\renderable\ui\GUI.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\filters\GFilter.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\GBlendMode.cs" />
+    <Compile Include="Assets\Code\src\com\genome2d\context\GBlendModeFunc.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\GCamera.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\GContextConfig.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\GContextFeature.cs" />
@@ -110,7 +111,6 @@
     <Compile Include="Assets\Code\src\com\genome2d\context\IGContext.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\IGRenderer.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\renderers\G3DRenderer.cs" />
-    <Compile Include="Assets\Code\src\com\genome2d\context\renderers\GRendererCommon.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\stats\GStats.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\context\stats\IGStats.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\debug\GDebug.cs" />
@@ -127,7 +127,10 @@
     <Compile Include="Assets\Code\src\com\genome2d\deprecated\particles\IGAffectorD.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\deprecated\particles\IGInitializerD.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\AbstractExample.cs" />
+    <Compile Include="Assets\Code\src\com\genome2d\examples\custom\ParticleModule.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\MouseExample.cs" />
+    <Compile Include="Assets\Code\src\com\genome2d\examples\ParticlesExample.cs" />
+    <Compile Include="Assets\Code\src\com\genome2d\examples\SimpleParticlesExample.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\SpineExample.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\SpriteExample.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\TextureTextExample.cs" />
@@ -165,7 +168,6 @@
     <Compile Include="Assets\Code\src\com\genome2d\geom\GIntPoint.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\geom\GIntRectangle.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\geom\GLine.cs" />
-    <Compile Include="Assets\Code\src\com\genome2d\geom\GMatrix.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\geom\GMatrix3D.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\geom\GMatrixUtils.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\geom\GPoint.cs" />
@@ -350,6 +352,7 @@
     <Compile Include="Assets\Code\src\spinehaxe\atlas\TextureLoader.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\attachments\Attachment.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\attachments\AttachmentLoader.cs" />
+    <Compile Include="Assets\Code\src\spinehaxe\attachments\AttachmentType.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\attachments\BoundingBoxAttachment.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\attachments\MeshAttachment.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\attachments\PathAttachment.cs" />
@@ -379,6 +382,7 @@
     <Compile Include="Assets\Code\src\spinehaxe\SlotData.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\TransformConstraint.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\TransformConstraintData.cs" />
+    <Compile Include="Assets\Code\src\spinehaxe\TransformMode.cs" />
     <Compile Include="Assets\Code\src\spinehaxe\Updatable.cs" />
     <Compile Include="Assets\Code\src\Std.cs" />
     <Compile Include="Assets\Code\src\StringBuf.cs" />
@@ -387,10 +391,11 @@
     <Compile Include="Assets\Code\src\Type.cs" />
     <Compile Include="Assets\Code\src\Xml.cs" />
     <None Include="Assets\Resources\Shaders\UnlitShader.shader" />
-    <None Include="Assets\Resources\Assets\font.fnt" />
-    <None Include="Assets\Resources\Assets\atlas.xml" />
+    <None Include="Assets\Resources\assets\font.fnt" />
+    <None Include="Assets\Resources\assets\spine\diggy\diggy.txt" />
+    <None Include="Assets\Resources\assets\atlas.xml" />
     <None Include="Assets\Code\hxcs_build.txt" />
-    <None Include="Assets\Resources\Assets\spine\spineboy\spineboy-old.txt" />
+    <None Include="Assets\Resources\assets\spine\spineboy\spineboy-old.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/WORKSPACE/Haxe/Genome2D/Genome2D-ContextUnity/TestBed/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
