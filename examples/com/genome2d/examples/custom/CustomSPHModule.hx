@@ -4,7 +4,7 @@ import com.genome2d.particles.modules.GParticleEmitterModule;
 import com.genome2d.particles.GParticle;
 import com.genome2d.particles.GParticleEmitter;
 
-class ParticleModule extends GParticleEmitterModule
+class CustomSPHModule extends GParticleEmitterModule
 {
 	public var accelerationY:Float =.2;
 

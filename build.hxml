@@ -18,6 +18,7 @@
 # -net-lib /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll 
 
 -lib hscript
+-lib box2d
 
 -D no-root
 -D net-ver=40

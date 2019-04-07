@@ -5,38 +5,11 @@
       <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/New Material.mat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/New Material.mat.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Resources/Assets/spine/spineboy/spineboy-old.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Resources/Assets/spine/spineboy/spineboy-old.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Resources/Shaders/UnlitShader.shader" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Resources/Shaders/UnlitShader.shader" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../build.hxml" beforeDir="false" afterPath="$PROJECT_DIR$/../build.hxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/AbstractExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/AbstractExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/MouseExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/MouseExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/SpineExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/SpineExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/SpriteExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/SpriteExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/TextureTextExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/TextureTextExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/UIExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/UIExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/UnityTestProject.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/UnityTestProject.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Genome2DNativePlugin.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Genome2DNativePlugin.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/custom/ParticleModule.hx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityImageAsset.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityImageAsset.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GCamera.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/GUnityContext.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/filters/GFilter.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/context/filters/GFilter.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/context/renderers/GRendererCommon.hx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GFloat4.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GFloat4.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GMatrix.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GMatrix.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GMatrix3D.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GMatrix3D.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GPoint.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GPoint.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GRectangle.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GRectangle.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/geom/GVector3D.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/geom/GVector3D.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/com/genome2d/textures/GTexture.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../src/com/genome2d/textures/GTexture.hx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,30 +22,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="196" column="48" lean-forward="true" selection-start-line="196" selection-start-column="48" selection-end-line="239" selection-end-column="55" />
+            <state relative-caret-position="270">
+              <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
               <folding>
-                <marker date="1554588099643" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
-                <marker date="1554588099643" expanded="true" signature="228:373" ph="..." />
-                <marker date="1554588099643" expanded="true" signature="465:19381" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="504:19379" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="1180:3111" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="1579:2617" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="2675:3101" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="3140:3283" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="3678:7961" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="3832:4389" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="4568:4686" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="4872:5038" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="5328:5494" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="5791:5957" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="6272:6438" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="8315:11805" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="8469:9026" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="11859:13216" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="11901:13089" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="12811:12938" ph="{...}" />
-                <marker date="1554588099643" expanded="true" signature="13234:19373" ph="/* Trying Native Array ... */" />
+                <marker date="1554666777229" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+                <marker date="1554666777229" expanded="true" signature="228:373" ph="..." />
+                <marker date="1554666777229" expanded="true" signature="465:20982" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="504:20980" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="1180:3111" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="1579:2617" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="2675:3101" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="3140:3283" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="3678:7942" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="3832:4389" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="4614:4732" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="4918:5084" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="5657:5823" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="6435:6601" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="7225:7391" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="8296:11736" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="8450:9007" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="12009:13423" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="12163:12720" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="12911:13029" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="13142:13308" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="13460:14817" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="13502:14690" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="14412:14539" ph="{...}" />
+                <marker date="1554666777229" expanded="true" signature="14835:20974" ph="/* Trying Native Array ... */" />
               </folding>
             </state>
           </provider>
@@ -193,10 +170,12 @@
     <findStrings>
       <find>float</find>
       <find>double</find>
+      <find>_quadIndex</find>
     </findStrings>
     <replaceStrings>
       <replace>double</replace>
       <replace>float</replace>
+      <replace>_vertexIndex</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -226,10 +205,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-2568" />
+    <option name="y" value="-8" />
     <option name="width" value="2576" />
-    <option name="height" value="1576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -315,7 +295,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56375000" />
+    <option name="totallyTimeSpent" value="57892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -327,7 +307,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="2576" height="1576" extended-state="0" />
+    <frame x="-2568" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26311606" />
@@ -350,7 +330,7 @@
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.19265419" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.30119178" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -478,30 +458,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="196" column="48" lean-forward="true" selection-start-line="196" selection-start-column="48" selection-end-line="239" selection-end-column="55" />
+        <state relative-caret-position="270">
+          <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
           <folding>
-            <marker date="1554588099643" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
-            <marker date="1554588099643" expanded="true" signature="228:373" ph="..." />
-            <marker date="1554588099643" expanded="true" signature="465:19381" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="504:19379" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="1180:3111" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="1579:2617" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="2675:3101" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="3140:3283" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="3678:7961" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="3832:4389" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="4568:4686" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="4872:5038" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="5328:5494" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="5791:5957" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="6272:6438" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="8315:11805" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="8469:9026" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="11859:13216" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="11901:13089" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="12811:12938" ph="{...}" />
-            <marker date="1554588099643" expanded="true" signature="13234:19373" ph="/* Trying Native Array ... */" />
+            <marker date="1554666777229" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+            <marker date="1554666777229" expanded="true" signature="228:373" ph="..." />
+            <marker date="1554666777229" expanded="true" signature="465:20982" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="504:20980" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="1180:3111" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="1579:2617" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="2675:3101" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="3140:3283" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="3678:7942" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="3832:4389" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="4614:4732" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="4918:5084" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="5657:5823" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="6435:6601" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="7225:7391" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="8296:11736" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="8450:9007" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="12009:13423" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="12163:12720" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="12911:13029" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="13142:13308" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="13460:14817" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="13502:14690" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="14412:14539" ph="{...}" />
+            <marker date="1554666777229" expanded="true" signature="14835:20974" ph="/* Trying Native Array ... */" />
           </folding>
         </state>
       </provider>

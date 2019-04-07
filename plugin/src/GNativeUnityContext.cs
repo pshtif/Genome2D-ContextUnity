@@ -119,6 +119,7 @@ namespace Genome2DNativePlugin
             float rty;
             float cos = 1;
             float sin = 0;
+            int vertexIndex = _quadIndex * 4;
 
             if (p_rotation != 0)
             {
@@ -137,8 +138,16 @@ namespace Genome2DNativePlugin
                 ty = rty;
             }
 
-            _vertices[_quadIndex * 4].x = p_x + tx;
-            _vertices[_quadIndex * 4].y = p_y + ty;
+            _vertices[vertexIndex].x = p_x + tx;
+            _vertices[vertexIndex].y = p_y + ty;
+            
+            _uvs[vertexIndex].x = p_u;
+            _uvs[vertexIndex].y = 1 - p_v;
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
 
             tx = p_scaleX * (-p_textureWidth / 2 - p_texturePivotX);
             ty = p_scaleY * (p_textureHeight / 2 - p_texturePivotY);
@@ -151,8 +160,17 @@ namespace Genome2DNativePlugin
                 ty = rty;
             }
 
-            _vertices[_quadIndex * 4 + 1].x = p_x + tx;
-            _vertices[_quadIndex * 4 + 1].y = p_y + ty;
+            vertexIndex++;
+            _vertices[vertexIndex].x = p_x + tx;
+            _vertices[vertexIndex].y = p_y + ty;
+            
+            _uvs[vertexIndex].x = p_u;
+            _uvs[vertexIndex].y = 1 - (p_v + p_vScale);
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
 
             tx = p_scaleX * (p_textureWidth / 2 - p_texturePivotX);
             ty = p_scaleY * (p_textureHeight / 2 - p_texturePivotY);
@@ -164,9 +182,18 @@ namespace Genome2DNativePlugin
                 tx = rtx;
                 ty = rty;
             }
-                 
-            _vertices[_quadIndex * 4 + 2].x = p_x + tx;
-            _vertices[_quadIndex * 4 + 2].y = p_y + ty;
+
+            vertexIndex++;
+            _vertices[vertexIndex].x = p_x + tx;
+            _vertices[vertexIndex].y = p_y + ty;
+            
+            _uvs[vertexIndex].x = p_u + p_uScale;
+            _uvs[vertexIndex].y = 1 - (p_v + p_vScale);
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
 
             tx = p_scaleX * (p_textureWidth / 2 - p_texturePivotX);
             ty = p_scaleY * (-p_textureHeight / 2 - p_texturePivotY);
@@ -178,38 +205,18 @@ namespace Genome2DNativePlugin
                 tx = rtx;
                 ty = rty;
             }
-            
-            _vertices[_quadIndex * 4 + 3].x = p_x + tx;
-            _vertices[_quadIndex * 4 + 3].y = p_y + ty;
 
-            _uvs[_quadIndex * 4].x = p_u;
-            _uvs[_quadIndex * 4].y = 1 - p_v;
-            _uvs[_quadIndex * 4 + 1].x = p_u;
-            _uvs[_quadIndex * 4 + 1].y = 1 - (p_v + p_vScale);
-            _uvs[_quadIndex * 4 + 2].x = p_u + p_uScale;
-            _uvs[_quadIndex * 4 + 2].y = 1 - (p_v + p_vScale);
-            _uvs[_quadIndex * 4 + 3].x = p_u + p_uScale;
-            _uvs[_quadIndex * 4 + 3].y = 1 - p_v;
+            vertexIndex++;
+            _vertices[vertexIndex].x = p_x + tx;
+            _vertices[vertexIndex].y = p_y + ty;
 
-            _colors[_quadIndex * 4].r = p_red;
-            _colors[_quadIndex * 4].g = p_green;
-            _colors[_quadIndex * 4].b = p_blue;
-            _colors[_quadIndex * 4].a = p_alpha;
+            _uvs[vertexIndex].x = p_u + p_uScale;
+            _uvs[vertexIndex].y = 1 - p_v;
             
-            _colors[_quadIndex * 4 + 1].r = p_red;
-            _colors[_quadIndex * 4 + 1].g = p_green;
-            _colors[_quadIndex * 4 + 1].b = p_blue;
-            _colors[_quadIndex * 4 + 1].a = p_alpha;
-            
-            _colors[_quadIndex * 4 + 2].r = p_red;
-            _colors[_quadIndex * 4 + 2].g = p_green;
-            _colors[_quadIndex * 4 + 2].b = p_blue;
-            _colors[_quadIndex * 4 + 2].a = p_alpha;
-            
-            _colors[_quadIndex * 4 + 3].r = p_red;
-            _colors[_quadIndex * 4 + 3].g = p_green;
-            _colors[_quadIndex * 4 + 3].b = p_blue;
-            _colors[_quadIndex * 4 + 3].a = p_alpha;
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
 
             _quadIndex++;
             
@@ -236,66 +243,117 @@ namespace Genome2DNativePlugin
 
             float tx;
             float ty;
+            int vertexIndex = _quadIndex * 4;
             
             tx = -p_textureWidth / 2 - p_texturePivotX;
             ty = -p_textureHeight / 2 - p_texturePivotY;
 
-            _vertices[_quadIndex * 4].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
-            _vertices[_quadIndex * 4].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            _vertices[vertexIndex].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[vertexIndex].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
             
+            _uvs[vertexIndex].x = p_u;
+            _uvs[vertexIndex].y = 1 - p_v;
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
+                      
             tx = -p_textureWidth / 2 - p_texturePivotX;
             ty = p_textureHeight / 2 - p_texturePivotY;
 
-            _vertices[_quadIndex * 4 + 1].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
-            _vertices[_quadIndex * 4 + 1].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            vertexIndex++;
+            _vertices[vertexIndex].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[vertexIndex].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            
+            _uvs[vertexIndex].x = p_u;
+            _uvs[vertexIndex].y = 1 - (p_v + p_vScale);
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
             
             tx = p_textureWidth / 2 - p_texturePivotX;
             ty = p_textureHeight / 2 - p_texturePivotY;
 
-            _vertices[_quadIndex * 4 + 2].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
-            _vertices[_quadIndex * 4 + 2].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            vertexIndex++;
+            _vertices[vertexIndex].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[vertexIndex].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            
+            _uvs[vertexIndex].x = p_u + p_uScale;
+            _uvs[vertexIndex].y = 1 - (p_v + p_vScale);
+            
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
             
             tx = p_textureWidth / 2 - p_texturePivotX;
             ty = -p_textureHeight / 2 - p_texturePivotY;
 
-            _vertices[_quadIndex * 4 + 3].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
-            _vertices[_quadIndex * 4 + 3].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
+            vertexIndex++;
+            _vertices[vertexIndex].x = (float) (p_matrix.a * tx + p_matrix.c * ty + p_matrix.tx);
+            _vertices[vertexIndex].y = (float) (p_matrix.b * tx + p_matrix.d * ty + p_matrix.ty);
 
-            _uvs[_quadIndex * 4].x = p_u;
-            _uvs[_quadIndex * 4].y = 1 - p_v;
-            _uvs[_quadIndex * 4 + 1].x = p_u;
-            _uvs[_quadIndex * 4 + 1].y = 1 - (p_v + p_vScale);
-            _uvs[_quadIndex * 4 + 2].x = p_u + p_uScale;
-            _uvs[_quadIndex * 4 + 2].y = 1 - (p_v + p_vScale);
-            _uvs[_quadIndex * 4 + 3].x = p_u + p_uScale;
-            _uvs[_quadIndex * 4 + 3].y = 1 - p_v;
-
-            _colors[_quadIndex * 4].r = p_red;
-            _colors[_quadIndex * 4].g = p_green;
-            _colors[_quadIndex * 4].b = p_blue;
-            _colors[_quadIndex * 4].a = p_alpha;
+            _uvs[vertexIndex].x = p_u + p_uScale;
+            _uvs[vertexIndex].y = 1 - p_v;
             
-            _colors[_quadIndex * 4 + 1].r = p_red;
-            _colors[_quadIndex * 4 + 1].g = p_green;
-            _colors[_quadIndex * 4 + 1].b = p_blue;
-            _colors[_quadIndex * 4 + 1].a = p_alpha;
-            
-            _colors[_quadIndex * 4 + 2].r = p_red;
-            _colors[_quadIndex * 4 + 2].g = p_green;
-            _colors[_quadIndex * 4 + 2].b = p_blue;
-            _colors[_quadIndex * 4 + 2].a = p_alpha;
-            
-            _colors[_quadIndex * 4 + 3].r = p_red;
-            _colors[_quadIndex * 4 + 3].g = p_green;
-            _colors[_quadIndex * 4 + 3].b = p_blue;
-            _colors[_quadIndex * 4 + 3].a = p_alpha;
+            _colors[vertexIndex].r = p_red;
+            _colors[vertexIndex].g = p_green;
+            _colors[vertexIndex].b = p_blue;
+            _colors[vertexIndex].a = p_alpha;
 
             _quadIndex++;
             
             if (_quadIndex >= MAX_BATCH_SIZE) FlushRenderer();
         }
-        
-        
+
+        public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float[] p_vertices, float[] p_uvs,
+            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha)
+        {
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode)
+            {
+                if (_lastTexture) FlushRenderer();
+                
+                Mesh mesh = _meshes[_currentBatchIndex];
+                Material material = _materials[_currentBatchIndex];
+                material.mainTexture = p_texture;
+                _lastTexture = p_texture;
+                material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
+                material.SetInt("BlendDstMode", (int)p_dstBlendMode);
+                _lastSrcBlendMode = p_srcBlendMode;
+                _lastDstBlendMode = p_dstBlendMode;
+            }
+            
+            float tx;
+            float rtx;
+            float ty;
+            float rty;
+            float cos = 1;
+            float sin = 0;
+
+            if (p_rotation != 0)
+            {
+                cos = Mathf.Cos(p_rotation);
+                sin = Mathf.Sin(p_rotation);
+            }
+            
+            tx = p_scaleX;
+            ty = p_scaleY;
+            
+            if (p_rotation != 0)
+            {
+                rtx = cos * tx - sin * ty;
+                rty = sin * tx + cos * ty;
+                tx = rtx;
+                ty = rty;
+            }
+
+            _vertices[_quadIndex * 4].x = p_x + tx;
+            _vertices[_quadIndex * 4].y = p_y + ty;
+        }
+
         public void FlushRenderer()
         {
             if (_quadIndex > 0)

@@ -12,6 +12,117 @@
           <e p="hxcs_build.txt" t="Include" />
           <e p="src" t="Include">
             <e p="Array.cs" t="Include" />
+            <e p="box2D" t="Include">
+              <e p="collision" t="Include">
+                <e p="B2AABB.cs" t="Include" />
+                <e p="B2Collision.cs" t="Include" />
+                <e p="B2ContactID.cs" t="Include" />
+                <e p="B2ContactPoint.cs" t="Include" />
+                <e p="B2Distance.cs" t="Include" />
+                <e p="B2DistanceInput.cs" t="Include" />
+                <e p="B2DistanceOutput.cs" t="Include" />
+                <e p="B2DistanceProxy.cs" t="Include" />
+                <e p="B2DynamicTree.cs" t="Include" />
+                <e p="B2DynamicTreeBroadPhase.cs" t="Include" />
+                <e p="B2DynamicTreeNode.cs" t="Include" />
+                <e p="B2DynamicTreePair.cs" t="Include" />
+                <e p="B2Manifold.cs" t="Include" />
+                <e p="B2ManifoldPoint.cs" t="Include" />
+                <e p="B2ManifoldType.cs" t="Include" />
+                <e p="B2OBB.cs" t="Include" />
+                <e p="B2RayCastInput.cs" t="Include" />
+                <e p="B2RayCastOutput.cs" t="Include" />
+                <e p="B2SeparationFunction.cs" t="Include" />
+                <e p="B2SeparationFunctionType.cs" t="Include" />
+                <e p="B2Simplex.cs" t="Include" />
+                <e p="B2SimplexCache.cs" t="Include" />
+                <e p="B2SimplexVertex.cs" t="Include" />
+                <e p="B2TimeOfImpact.cs" t="Include" />
+                <e p="B2TOIInput.cs" t="Include" />
+                <e p="B2WorldManifold.cs" t="Include" />
+                <e p="ClipVertex.cs" t="Include" />
+                <e p="Features.cs" t="Include" />
+                <e p="IBroadPhase.cs" t="Include" />
+                <e p="shapes" t="Include">
+                  <e p="B2CircleShape.cs" t="Include" />
+                  <e p="B2EdgeShape.cs" t="Include" />
+                  <e p="B2MassData.cs" t="Include" />
+                  <e p="B2PolygonShape.cs" t="Include" />
+                  <e p="B2Shape.cs" t="Include" />
+                </e>
+              </e>
+              <e p="common" t="Include">
+                <e p="B2Color.cs" t="Include" />
+                <e p="B2Settings.cs" t="Include" />
+                <e p="math" t="Include">
+                  <e p="B2Mat22.cs" t="Include" />
+                  <e p="B2Mat33.cs" t="Include" />
+                  <e p="B2Math.cs" t="Include" />
+                  <e p="B2Sweep.cs" t="Include" />
+                  <e p="B2Transform.cs" t="Include" />
+                  <e p="B2Vec2.cs" t="Include" />
+                  <e p="B2Vec3.cs" t="Include" />
+                </e>
+              </e>
+              <e p="dynamics" t="Include">
+                <e p="B2Body.cs" t="Include" />
+                <e p="B2BodyDef.cs" t="Include" />
+                <e p="B2ContactFilter.cs" t="Include" />
+                <e p="B2ContactImpulse.cs" t="Include" />
+                <e p="B2ContactListener.cs" t="Include" />
+                <e p="B2ContactManager.cs" t="Include" />
+                <e p="B2DestructionListener.cs" t="Include" />
+                <e p="B2FilterData.cs" t="Include" />
+                <e p="B2Fixture.cs" t="Include" />
+                <e p="B2FixtureDef.cs" t="Include" />
+                <e p="B2Island.cs" t="Include" />
+                <e p="B2TimeStep.cs" t="Include" />
+                <e p="B2World.cs" t="Include" />
+                <e p="contacts" t="Include">
+                  <e p="B2CircleContact.cs" t="Include" />
+                  <e p="B2Contact.cs" t="Include" />
+                  <e p="B2ContactConstraint.cs" t="Include" />
+                  <e p="B2ContactConstraintPoint.cs" t="Include" />
+                  <e p="B2ContactEdge.cs" t="Include" />
+                  <e p="B2ContactFactory.cs" t="Include" />
+                  <e p="B2ContactRegister.cs" t="Include" />
+                  <e p="B2ContactSolver.cs" t="Include" />
+                  <e p="B2EdgeAndCircleContact.cs" t="Include" />
+                  <e p="B2PolyAndCircleContact.cs" t="Include" />
+                  <e p="B2PolyAndEdgeContact.cs" t="Include" />
+                  <e p="B2PolygonContact.cs" t="Include" />
+                  <e p="B2PositionSolverManifold.cs" t="Include" />
+                </e>
+                <e p="controllers" t="Include">
+                  <e p="B2Controller.cs" t="Include" />
+                  <e p="B2ControllerEdge.cs" t="Include" />
+                </e>
+                <e p="joints" t="Include">
+                  <e p="B2DistanceJoint.cs" t="Include" />
+                  <e p="B2DistanceJointDef.cs" t="Include" />
+                  <e p="B2FrictionJoint.cs" t="Include" />
+                  <e p="B2FrictionJointDef.cs" t="Include" />
+                  <e p="B2GearJoint.cs" t="Include" />
+                  <e p="B2GearJointDef.cs" t="Include" />
+                  <e p="B2Jacobian.cs" t="Include" />
+                  <e p="B2Joint.cs" t="Include" />
+                  <e p="B2JointDef.cs" t="Include" />
+                  <e p="B2JointEdge.cs" t="Include" />
+                  <e p="B2LineJoint.cs" t="Include" />
+                  <e p="B2LineJointDef.cs" t="Include" />
+                  <e p="B2MouseJoint.cs" t="Include" />
+                  <e p="B2MouseJointDef.cs" t="Include" />
+                  <e p="B2PrismaticJoint.cs" t="Include" />
+                  <e p="B2PrismaticJointDef.cs" t="Include" />
+                  <e p="B2PulleyJoint.cs" t="Include" />
+                  <e p="B2PulleyJointDef.cs" t="Include" />
+                  <e p="B2RevoluteJoint.cs" t="Include" />
+                  <e p="B2RevoluteJointDef.cs" t="Include" />
+                  <e p="B2WeldJoint.cs" t="Include" />
+                  <e p="B2WeldJointDef.cs" t="Include" />
+                </e>
+              </e>
+            </e>
             <e p="com" t="Include">
               <e p="Genome2D" t="Include">
                 <e p="animation" t="Include">
@@ -114,14 +225,19 @@
                 <e p="Examples" t="Include">
                   <e p="AbstractExample.cs" t="Include" />
                   <e p="custom" t="Include">
-                    <e p="ParticleModule.cs" t="Include" />
+                    <e p="CustomModule.cs" t="Include" />
+                    <e p="CustomSPHModule.cs" t="Include" />
                   </e>
                   <e p="MouseExample.cs" t="Include" />
                   <e p="ParticlesExample.cs" t="Include" />
+                  <e p="PhysicsExample.cs" t="Include" />
+                  <e p="ShapeExample.cs" t="Include" />
                   <e p="SimpleParticlesExample.cs" t="Include" />
+                  <e p="SliceSpriteExample.cs" t="Include" />
                   <e p="SpineExample.cs" t="Include" />
                   <e p="SpriteExample.cs" t="Include" />
                   <e p="TextureTextExample.cs" t="Include" />
+                  <e p="TweenExample.cs" t="Include" />
                   <e p="UIExample.cs" t="Include" />
                   <e p="UnityTestProject.cs" t="Include" />
                 </e>
