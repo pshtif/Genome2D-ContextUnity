@@ -338,20 +338,32 @@ namespace Genome2DNativePlugin
                 cos = Mathf.Cos(p_rotation);
                 sin = Mathf.Sin(p_rotation);
             }
-            
-            tx = p_scaleX;
-            ty = p_scaleY;
-            
-            if (p_rotation != 0)
-            {
-                rtx = cos * tx - sin * ty;
-                rty = sin * tx + cos * ty;
-                tx = rtx;
-                ty = rty;
-            }
 
-            _vertices[_quadIndex * 4].x = p_x + tx;
-            _vertices[_quadIndex * 4].y = p_y + ty;
+            int length = p_vertices.Length >> 1;
+            for (int i = 0; i < length; i++)
+            {
+                tx = p_scaleX * p_vertices[i*2];
+                ty = p_scaleY * p_vertices[i*2+1];
+            
+                if (p_rotation != 0)
+                {
+                    rtx = cos * tx - sin * ty;
+                    rty = sin * tx + cos * ty;
+                    tx = rtx;
+                    ty = rty;
+                }
+
+                _vertices[vertexIndex].x = p_x + tx;
+                _vertices[vertexIndex].y = p_y + ty;
+                
+                _uvs[vertexIndex].x = p_uvs[i*2]
+                _uvs[vertexIndex].y = p_uvs[i*2+1]
+            
+                _colors[vertexIndex].r = p_red;
+                _colors[vertexIndex].g = p_green;
+                _colors[vertexIndex].b = p_blue;
+                _colors[vertexIndex].a = p_alpha;
+            }
         }
 
         public void FlushRenderer()

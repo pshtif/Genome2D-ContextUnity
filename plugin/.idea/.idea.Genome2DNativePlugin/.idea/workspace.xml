@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e286c335-8f1c-4caa-8314-a7f732416e4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.hxml" beforeDir="false" afterPath="$PROJECT_DIR$/../build.hxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/custom/ParticleModule.hx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityContext.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,34 +15,34 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
+            <state relative-caret-position="185">
+              <caret line="341" column="17" selection-start-line="341" selection-start-column="17" selection-end-line="341" selection-end-column="17" />
               <folding>
-                <marker date="1554666777229" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
-                <marker date="1554666777229" expanded="true" signature="228:373" ph="..." />
-                <marker date="1554666777229" expanded="true" signature="465:20982" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="504:20980" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="1180:3111" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="1579:2617" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="2675:3101" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="3140:3283" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="3678:7942" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="3832:4389" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="4614:4732" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="4918:5084" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="5657:5823" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="6435:6601" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="7225:7391" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="8296:11736" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="8450:9007" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="12009:13423" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="12163:12720" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="12911:13029" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="13142:13308" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="13460:14817" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="13502:14690" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="14412:14539" ph="{...}" />
-                <marker date="1554666777229" expanded="true" signature="14835:20974" ph="/* Trying Native Array ... */" />
+                <marker date="1554667704274" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+                <marker date="1554667704274" expanded="true" signature="228:373" ph="..." />
+                <marker date="1554667704274" expanded="true" signature="465:21036" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="504:21034" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="1180:3111" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="1579:2617" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="2675:3101" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="3140:3283" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="3678:7918" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="3832:4389" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="4614:4732" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="4918:5084" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="5657:5823" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="6435:6601" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="7225:7391" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="8272:11758" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="8426:8983" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="12031:13477" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="12185:12742" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="12933:13051" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="13196:13362" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="13514:14871" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="13556:14744" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="14466:14593" ph="{...}" />
+                <marker date="1554667704274" expanded="true" signature="14889:21028" ph="/* Trying Native Array ... */" />
               </folding>
             </state>
           </provider>
@@ -295,7 +288,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57892000" />
+    <option name="totallyTimeSpent" value="58629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -458,34 +451,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="210" column="33" selection-start-line="210" selection-start-column="33" selection-end-line="210" selection-end-column="33" />
+        <state relative-caret-position="185">
+          <caret line="341" column="17" selection-start-line="341" selection-start-column="17" selection-end-line="341" selection-end-column="17" />
           <folding>
-            <marker date="1554666777229" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
-            <marker date="1554666777229" expanded="true" signature="228:373" ph="..." />
-            <marker date="1554666777229" expanded="true" signature="465:20982" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="504:20980" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="1180:3111" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="1579:2617" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="2675:3101" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="3140:3283" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="3678:7942" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="3832:4389" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="4614:4732" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="4918:5084" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="5657:5823" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="6435:6601" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="7225:7391" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="8296:11736" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="8450:9007" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="12009:13423" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="12163:12720" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="12911:13029" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="13142:13308" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="13460:14817" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="13502:14690" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="14412:14539" ph="{...}" />
-            <marker date="1554666777229" expanded="true" signature="14835:20974" ph="/* Trying Native Array ... */" />
+            <marker date="1554667704274" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+            <marker date="1554667704274" expanded="true" signature="228:373" ph="..." />
+            <marker date="1554667704274" expanded="true" signature="465:21036" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="504:21034" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="1180:3111" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="1579:2617" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="2675:3101" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="3140:3283" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="3678:7918" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="3832:4389" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="4614:4732" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="4918:5084" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="5657:5823" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="6435:6601" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="7225:7391" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="8272:11758" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="8426:8983" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="12031:13477" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="12185:12742" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="12933:13051" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="13196:13362" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="13514:14871" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="13556:14744" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="14466:14593" ph="{...}" />
+            <marker date="1554667704274" expanded="true" signature="14889:21028" ph="/* Trying Native Array ... */" />
           </folding>
         </state>
       </provider>

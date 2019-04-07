@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628c424f-a7a9-4221-a349-3c33b7542192" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TestBed.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.hxml" beforeDir="false" afterPath="$PROJECT_DIR$/../build.hxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/ParticlesExample.hx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/custom/ParticleModule.hx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../plugin/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/src/GNativeUnityContext.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
