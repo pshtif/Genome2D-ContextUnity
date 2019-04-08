@@ -94,13 +94,12 @@ class GUnityContext implements IGContext {
 
         g2d_activeCamera = p_camera;
 
-        GDebug.info(g2d_activeCamera.normalizedViewX, g2d_activeCamera.normalizedViewY, g2d_activeCamera.normalizedViewWidth, g2d_activeCamera.normalizedViewHeight);
         g2d_activeViewRect.setTo(Std.int(g2d_stageViewRect.width*g2d_activeCamera.normalizedViewX),
         Std.int(g2d_stageViewRect.height*(1-g2d_activeCamera.normalizedViewY) - g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight),
         Std.int(g2d_stageViewRect.width*g2d_activeCamera.normalizedViewWidth),
         Std.int(g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight));
         var vx:Float = g2d_activeViewRect.width;
-        var vy:Float = g2d_stageViewRect.height*g2d_activeCamera.normalizedViewY/2 + g2d_activeViewRect.height/2;
+        var vy:Float = (g2d_activeViewRect.height*.5)/g2d_activeCamera.normalizedViewHeight;
 
         g2d_projectionMatrix = new GProjectionMatrix();
         g2d_projectionMatrix.ortho(g2d_stageViewRect.width, g2d_stageViewRect.height);
@@ -111,7 +110,6 @@ class GUnityContext implements IGContext {
         g2d_projectionMatrix.prependTranslation(-g2d_activeCamera.x, -g2d_activeCamera.y, 0);
 
         GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
-        GDebug.info(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height);
         GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
 
         //g2d_nativeContext.scissor(Std.int(g2d_activeViewRect.x), Std.int(g2d_stageViewRect.height-g2d_activeViewRect.height-g2d_activeViewRect.y), Std.int(g2d_activeViewRect.width), Std.int(g2d_activeViewRect.height));
