@@ -62,6 +62,7 @@ class GUnityContext implements IGContext {
         return g2d_stageViewRect;
     }
     private var g2d_activeViewRect:GRectangle;
+    private var g2d_activeMaskRect:GRectangle;
 
     private var g2d_defaultCamera:GCamera;
     public function getDefaultCamera():GCamera {
@@ -78,12 +79,23 @@ class GUnityContext implements IGContext {
 		return null;
 	}
 
-	public function getMaskRect():GRectangle {
-		return null;
-	}
-    public function setMaskRect(p_maskRect:GRectangle):Void {
+	inline public function getMaskRect():GRectangle {
+        return g2d_activeMaskRect;
+    }
+    inline public function setMaskRect(p_maskRect:GRectangle):Void {
+        if (p_maskRect != g2d_activeMaskRect || ((p_maskRect != null && g2d_activeMaskRect != null) && (p_maskRect.width != g2d_activeMaskRect.width || p_maskRect.height != g2d_activeMaskRect.height && p_maskRect.x != g2d_activeMaskRect.x || p_maskRect.y != g2d_activeMaskRect.y))) {
+            flushRenderer();
 
-	}
+            if (p_maskRect == null) {
+                g2d_activeMaskRect = null;
+                GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
+            } else {
+                g2d_activeMaskRect = g2d_activeViewRect.intersection(new GRectangle(p_maskRect.x + g2d_activeViewRect.x + g2d_activeViewRect.width * .5 - g2d_activeCamera.x * g2d_activeCamera.scaleX, p_maskRect.y + g2d_activeViewRect.y + g2d_activeViewRect.height * .5 - g2d_activeCamera.y * g2d_activeCamera.scaleY, p_maskRect.width, p_maskRect.height));
+                // TODO need to test as it's inverted in Unity
+                GL.Viewport(new Rect(g2d_activeMaskRect.x, g2d_activeViewRect.height-g2d_activeMaskRect.y-g2d_activeMaskRect.height, g2d_activeMaskRect.width, g2d_activeMaskRect.height));
+            }
+        }
+    }
 
     private var g2d_activeCamera:GCamera;
     public function setActiveCamera(p_camera:GCamera):Bool {
@@ -98,7 +110,7 @@ class GUnityContext implements IGContext {
         Std.int(g2d_stageViewRect.height*(1-g2d_activeCamera.normalizedViewY) - g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight),
         Std.int(g2d_stageViewRect.width*g2d_activeCamera.normalizedViewWidth),
         Std.int(g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight));
-        var vx:Float = g2d_activeViewRect.width;
+        var vx:Float = (g2d_activeViewRect.width*.5)/g2d_activeCamera.normalizedViewWidth;//g2d_activeViewRect.width;
         var vy:Float = (g2d_activeViewRect.height*.5)/g2d_activeCamera.normalizedViewHeight;
 
         g2d_projectionMatrix = new GProjectionMatrix();
@@ -111,9 +123,6 @@ class GUnityContext implements IGContext {
 
         GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
         GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
-
-        //g2d_nativeContext.scissor(Std.int(g2d_activeViewRect.x), Std.int(g2d_stageViewRect.height-g2d_activeViewRect.height-g2d_activeViewRect.y), Std.int(g2d_activeViewRect.width), Std.int(g2d_activeViewRect.height));
-        //g2d_nativeContext.SetScissorRect(g2d_defaultCamera.getNativeCamera(), new Rect(0,0,1,1), 100, 0, .5, 1);
 
 		return true;
 	}
