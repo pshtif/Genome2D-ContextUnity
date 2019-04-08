@@ -8,6 +8,7 @@
  */
 package com.genome2d.context;
 
+import cs.NativeArray;
 import unityengine.*;
 import unityengine.rendering.*;
 import genome2dnativeplugin.*;
@@ -29,6 +30,7 @@ import com.genome2d.input.GMouseInputType;
 import com.genome2d.context.filters.GFilter;
 import com.genome2d.macros.MGDebug;
 import com.genome2d.project.GProject;
+import com.genome2d.geom.GVector3D;
 import com.genome2d.debug.GDebug;
 
 @:nativeGen
@@ -44,6 +46,7 @@ class GUnityContext implements IGContext {
 
 	public var g2d_onMouseInputInternal:GMouseInput->Void;
 
+    private var g2d_projectionMatrix:GProjectionMatrix;
     private var g2d_cachedMatrix:GMatrix;
 
     private var g2d_currentDeltaTime:Float;
@@ -58,6 +61,7 @@ class GUnityContext implements IGContext {
     inline public function getStageViewRect():GRectangle {
         return g2d_stageViewRect;
     }
+    private var g2d_activeViewRect:GRectangle;
 
     private var g2d_defaultCamera:GCamera;
     public function getDefaultCamera():GCamera {
@@ -81,11 +85,42 @@ class GUnityContext implements IGContext {
 
 	}
 
+    private var g2d_activeCamera:GCamera;
     public function setActiveCamera(p_camera:GCamera):Bool {
-		return false;
+        if (g2d_stageViewRect.width*p_camera.normalizedViewWidth <= 0 ||
+        g2d_stageViewRect.height*p_camera.normalizedViewHeight <= 0) return false;
+
+        flushRenderer();
+
+        g2d_activeCamera = p_camera;
+
+        GDebug.info(g2d_activeCamera.normalizedViewX, g2d_activeCamera.normalizedViewY, g2d_activeCamera.normalizedViewWidth, g2d_activeCamera.normalizedViewHeight);
+        g2d_activeViewRect.setTo(Std.int(g2d_stageViewRect.width*g2d_activeCamera.normalizedViewX),
+        Std.int(g2d_stageViewRect.height*(1-g2d_activeCamera.normalizedViewY) - g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight),
+        Std.int(g2d_stageViewRect.width*g2d_activeCamera.normalizedViewWidth),
+        Std.int(g2d_stageViewRect.height*g2d_activeCamera.normalizedViewHeight));
+        var vx:Float = g2d_activeViewRect.width;
+        var vy:Float = g2d_stageViewRect.height*g2d_activeCamera.normalizedViewY/2 + g2d_activeViewRect.height/2;
+
+        g2d_projectionMatrix = new GProjectionMatrix();
+        g2d_projectionMatrix.ortho(g2d_stageViewRect.width, g2d_stageViewRect.height);
+
+        g2d_projectionMatrix.prependTranslation(vx, vy, 0);
+        g2d_projectionMatrix.prependRotation(g2d_activeCamera.rotation*180/Math.PI, GVector3D.Z_AXIS, new GVector3D());
+        g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
+        g2d_projectionMatrix.prependTranslation(-g2d_activeCamera.x, -g2d_activeCamera.y, 0);
+
+        GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
+        GDebug.info(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height);
+        GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
+
+        //g2d_nativeContext.scissor(Std.int(g2d_activeViewRect.x), Std.int(g2d_stageViewRect.height-g2d_activeViewRect.height-g2d_activeViewRect.y), Std.int(g2d_activeViewRect.width), Std.int(g2d_activeViewRect.height));
+        //g2d_nativeContext.SetScissorRect(g2d_defaultCamera.getNativeCamera(), new Rect(0,0,1,1), 100, 0, .5, 1);
+
+		return true;
 	}
     public function getActiveCamera():GCamera {
-		return null;
+		return g2d_activeCamera;
 	}
 
 	public function new(p_config:GContextConfig) {
@@ -93,8 +128,11 @@ class GUnityContext implements IGContext {
 
 		g2d_nativeStage = p_config.nativeStage;
 		g2d_stageViewRect = p_config.viewRect;
+        g2d_activeViewRect = new GRectangle();
 
 		g2d_defaultCamera = new GCamera(this);
+        g2d_defaultCamera.x = g2d_stageViewRect.width / 2;
+        g2d_defaultCamera.y = g2d_stageViewRect.height / 2;
         g2d_cachedMatrix = new GMatrix();
 
 		onInitialized = new GCallback0();
@@ -169,6 +207,8 @@ class GUnityContext implements IGContext {
 
     public function setBackgroundColor(p_color:Int, p_alpha:Float = 1):Void {}
     public function begin():Bool {
+        setActiveCamera(g2d_defaultCamera);
+        GL.Clear(false, true, new Color(0,0,0,1), 1);
         g2d_nativeContext.Begin();
 		return true;
 	}
@@ -201,7 +241,11 @@ class GUnityContext implements IGContext {
         g2d_nativeContext.DrawMatrix(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cast g2d_cachedMatrix, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
     }
 
-    public function drawPoly(p_texture:GTexture, p_blendMode :GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {}
+    public function drawPoly(p_texture:GTexture, p_blendMode:GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
+        var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
+        var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
+        g2d_nativeContext.DrawPoly(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha);
+    }
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}
     public function setRenderer(p_renderer:IGRenderer):Void {}

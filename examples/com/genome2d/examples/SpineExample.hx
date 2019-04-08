@@ -20,7 +20,8 @@ import com.genome2d.textures.GTextureManager;
 @:nativeGen
 class SpineExample extends AbstractExample
 {
-	public var scale:Float = 2;
+		public var count:Int = 2500;
+		public var scale:Float = 2;
 
     /**
         Initialize Example code
@@ -45,7 +46,7 @@ class SpineExample extends AbstractExample
 		spineMaster.node.setScale(scale,scale);
 		getGenome().root.addChild(spineMaster.node);
 
-		for (i in 0...500) {
+		for (i in 0...count) {
 			var spine:GSpineComponent = GNode.createWithComponent(GSpineComponent);
 			spine.autoUpdate = false;
 			spine.setupReferenced(spineMaster.getSpine());

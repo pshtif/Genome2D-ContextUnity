@@ -21,6 +21,9 @@ class GCamera
     public var y:Float = 0;
 
     static private var _nativeCamera:Camera;
+    public function getNativeCamera():Camera {
+        return _nativeCamera;
+    }
 
     /**
 	 * 	Camera group used against node camera group a node is rendered through this camera if camera.group and nodecameraGroup != 0
@@ -53,15 +56,23 @@ class GCamera
             var gameObject:GameObject = p_context.getNativeStage().gameObject;
             _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
 
+            // Clear nothing Genome2D will handle direct GL call
+            _nativeCamera.clearFlags = CameraClearFlags.Nothing;
+
+            // Disable all this unnecessary default Unity stuff as it will result in multiple passes
+            _nativeCamera.allowHDR = false;
+            _nativeCamera.allowMSAA = false;
+            _nativeCamera.useOcclusionCulling = false;
+
+            /* Removed as all this is now handled by Genome2D context overriding the projection matrix directly
+            /* All cameras inside Genome2D are now actually rendered through single Unity camera
+
             var aspectRatio:Float = Screen.height/p_context.getStageViewRect().height;
             _nativeCamera.orthographic = true;
             _nativeCamera.orthographicSize = p_context.getStageViewRect().height/2;
             _nativeCamera.gameObject.transform.position = new Vector3(Screen.width/(2*aspectRatio), p_context.getStageViewRect().height/2,1);
             _nativeCamera.gameObject.transform.Rotate(0,180,180);
-            _nativeCamera.clearFlags = CameraClearFlags.SolidColor;
-            _nativeCamera.backgroundColor = new Color(0,0,0,1);
-
-            //gameObject.transform.parent = p_context.getNativeStage().gameObject.transform;
+            /**/
         }
     }
 }

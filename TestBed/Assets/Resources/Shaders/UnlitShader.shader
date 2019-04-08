@@ -13,7 +13,7 @@
         
         ZWrite Off
         // No reason just for Genome2D other contexts consistency, inverted axes
-        Cull Front
+        Cull Off
         Blend [BlendSrcMode] [BlendDstMode]
 
         Pass

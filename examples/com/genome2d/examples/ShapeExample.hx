@@ -25,10 +25,10 @@ class ShapeExample extends AbstractExample
      **/
     override public function initExample():Void {		
 		title = "SHAPE EXAMPLE";
-		detail = "Sprite component is the most basic renderable component to render static and animated sprites.";
+		detail = "Shape component can be used to render custom shapes.";
 
         var shape:GShape = GNode.createWithComponent(GShape);
-        shape.setup([0,0, 50, 0, 0, 50, 0, 50, 50, 0, 50, 50],[0,0,1,0,0,1,0,1,1,0,1,1]);
+        shape.setup([0, 0, 50, 0, 0, 50, 0, 50, 50, 0, 50, 50],[0,0,1,0,0,1,0,1,1,0,1,1]);
         shape.texture = GTextureManager.getTexture("assets/texture.png");
         shape.node.setPosition(400,300);
         getGenome().root.addChild(shape.node);

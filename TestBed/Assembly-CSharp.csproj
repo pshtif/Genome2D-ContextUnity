@@ -116,6 +116,7 @@
     <Compile Include="Assets\Code\src\box2D\dynamics\B2ContactImpulse.cs" />
     <Compile Include="Assets\Code\src\box2D\dynamics\B2ContactListener.cs" />
     <Compile Include="Assets\Code\src\box2D\dynamics\B2ContactManager.cs" />
+    <Compile Include="Assets\Code\src\box2D\dynamics\B2DebugDraw.cs" />
     <Compile Include="Assets\Code\src\box2D\dynamics\B2DestructionListener.cs" />
     <Compile Include="Assets\Code\src\box2D\dynamics\B2FilterData.cs" />
     <Compile Include="Assets\Code\src\box2D\dynamics\B2Fixture.cs" />
@@ -220,6 +221,7 @@
     <Compile Include="Assets\Code\src\com\genome2d\deprecated\particles\IGAffectorD.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\deprecated\particles\IGInitializerD.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\AbstractExample.cs" />
+    <Compile Include="Assets\Code\src\com\genome2d\examples\CameraExample.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\custom\CustomModule.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\custom\CustomSPHModule.cs" />
     <Compile Include="Assets\Code\src\com\genome2d\examples\MouseExample.cs" />
@@ -489,11 +491,11 @@
     <Compile Include="Assets\Code\src\Type.cs" />
     <Compile Include="Assets\Code\src\Xml.cs" />
     <None Include="Assets\Resources\Shaders\UnlitShader.shader" />
-    <None Include="Assets\Resources\assets\font.fnt" />
-    <None Include="Assets\Resources\assets\spine\diggy\diggy.txt" />
-    <None Include="Assets\Resources\assets\atlas.xml" />
+    <None Include="Assets\Resources\Assets\font.fnt" />
+    <None Include="Assets\Resources\Assets\spine\diggy\diggy.txt" />
+    <None Include="Assets\Resources\Assets\atlas.xml" />
     <None Include="Assets\Code\hxcs_build.txt" />
-    <None Include="Assets\Resources\assets\spine\spineboy\spineboy-old.txt" />
+    <None Include="Assets\Resources\Assets\spine\spineboy\spineboy-old.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/WORKSPACE/Haxe/Genome2D/Genome2D-ContextUnity/TestBed/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

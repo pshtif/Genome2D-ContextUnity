@@ -99,7 +99,7 @@ class SpriteExample extends AbstractExample
     }
 
     private function update_handler(p_delta:Float):Void {
-        test.rotation += 0.01;
+        //test.rotation += 0.01;
     }
 
     private function mouseclick_handler(p_input:GMouseInput):Void {

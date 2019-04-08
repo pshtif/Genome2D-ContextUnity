@@ -51,7 +51,7 @@ class UnityTestProject extends GProject {
 		//getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
 		
 		for (i in 0...30000) {
-			getGenome().getContext().draw(_texture, GBlendMode.NONE, Math.random()*Screen.width, Math.random()*Screen.height, 1, 1, 0, 1, 1, 1, 1, null);
+			getGenome().getContext().draw(_texture, GBlendMode.NORMAL, Math.random()*Screen.width, Math.random()*Screen.height, 1, 1, 0, 1, 1, 1, 1, null);
 		}
 	}
 }

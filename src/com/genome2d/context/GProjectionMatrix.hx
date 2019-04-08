@@ -16,14 +16,11 @@ class GProjectionMatrix extends GMatrix3D
 	static private var g2d_instance:GProjectionMatrix;
 
     public function new(p_raw:Array<Float> = null) {
-		super(p_raw);
-        /*
-        rawData =  new Float32Array([2.0 , 0.0  , 0.0           , 0.0,
-									0.0  , -2.0 , 0.0           , 0.0,
-									0.0  , 0.0  , 1/(FAR-NEAR) , -NEAR/(FAR-NEAR),
-									-1.0 , 1.0  , 0             , 1.0
-									]);
-                                    */
+		super([2.0 , 0.0  , 0.0           , 0.0,
+               0.0 , -2.0 , 0.0           , 0.0,
+               0.0 , 0.0  , 1/(FAR-NEAR)  , -NEAR/(FAR-NEAR),
+              -1.0 , 1.0  , 0             , 1.0
+              ]);
     }
 
     static public function getOrtho(p_width:Float, p_height:Float, p_transform:GMatrix3D = null):GProjectionMatrix {
@@ -32,8 +29,8 @@ class GProjectionMatrix extends GMatrix3D
     }
 
     public function ortho(p_width:Float, p_height:Float, p_transform:GMatrix3D = null):GProjectionMatrix {
-        //rawData[0] = 2 / p_width;
-        //rawData[5] = -2 / p_height;
+        nativeMatrix[0] = 2 / p_width;
+        nativeMatrix[5] = -2 / p_height;
 
         if (p_transform != null) this.prepend(p_transform);
 
@@ -42,11 +39,11 @@ class GProjectionMatrix extends GMatrix3D
 	
 	// Render to texture needs different ortho matrix?!?
 	public function orthoRtt(p_width:Float, p_height:Float, p_transform:GMatrix3D = null):GProjectionMatrix {
-        //rawData[0] = 2 / p_width;
-        //rawData[5] = -2 / p_height;
+        nativeMatrix[0] = 2 / p_width;
+        nativeMatrix[5] = -2 / p_height;
 
-        //rawData[12] = -1;
-		//rawData[13] = -1;
+        //nativeMatrix[12] = -1;
+		//nativeMatrix[13] = -1;
 
         if (p_transform != null) this.prepend(p_transform);
 
