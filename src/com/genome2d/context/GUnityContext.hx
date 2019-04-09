@@ -52,6 +52,8 @@ class GUnityContext implements IGContext {
     private var g2d_currentDeltaTime:Float;
     private var g2d_currentTime:Float;
 
+    private var g2d_stats:IGStats;
+
     private var g2d_nextFrameCallback:Void->Void;
     public function callNextFrame(p_callback:Void->Void):Void {
         g2d_nextFrameCallback = p_callback;
@@ -149,6 +151,8 @@ class GUnityContext implements IGContext {
         onFrame = new GCallback1<Float>();
         onMouseInput = new GCallback1<GMouseInput>();
         onKeyboardInput = new GCallback1<GKeyboardInput>();
+
+        g2d_stats = new GStats(g2d_nativeStage);
 	}
 
     public function init():Void {
@@ -164,6 +168,8 @@ class GUnityContext implements IGContext {
         var currentTime:Float = Date.now().getTime();
         g2d_currentDeltaTime = currentTime - g2d_currentTime;
         g2d_currentTime = currentTime;
+
+        g2d_stats.render(this);
         if (g2d_nextFrameCallback != null) {
             var callback:Void->Void = g2d_nextFrameCallback;
             g2d_nextFrameCallback = null;
@@ -214,6 +220,7 @@ class GUnityContext implements IGContext {
 
     public function setBackgroundColor(p_color:Int, p_alpha:Float = 1):Void {}
     public function begin():Bool {
+        g2d_stats.clear();
         setActiveCamera(g2d_defaultCamera);
         GL.Clear(false, true, new Color(0,0,0,1), 1);
         g2d_nativeContext.Begin();

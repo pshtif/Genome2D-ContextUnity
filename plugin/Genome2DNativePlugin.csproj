@@ -41,11 +41,15 @@
     <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2018.3.11f1\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2018.3.12f1\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GMath.cs" />
     <Compile Include="src\GMatrix.cs" />
+    <Compile Include="src\GNativeStats.cs" />
     <Compile Include="src\GNativeUnityImageAsset.cs" />
     <Compile Include="src\GNativeUnityContext.cs" />
     <Compile Include="src\GNativeUnityAsset.cs" />

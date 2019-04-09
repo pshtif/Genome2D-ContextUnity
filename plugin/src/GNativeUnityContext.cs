@@ -396,6 +396,8 @@ namespace Genome2DNativePlugin
         {
             if (_quadIndex > 0 || _polyIndex > 0)
             {
+                GNativeStats.drawCalls++;
+                
                 Mesh mesh = _meshes[_currentBatchIndex];
 
                 if (_renderType == 1)
