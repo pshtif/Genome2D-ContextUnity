@@ -51,7 +51,6 @@ namespace Genome2DNativePlugin
                 }
                 else
                 {
-                    Debug.Log("Loaded");
                     texture = DownloadHandlerTexture.GetContent(uwr);
                     _loaded(p_url);
                 }

@@ -4,8 +4,6 @@
     <e p="C:\Users\pshti\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\pshti\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
     <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
-      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Code" t="Include">
@@ -588,51 +586,6 @@
             <e p="Sys.cs" t="Include" />
             <e p="Type.cs" t="Include" />
             <e p="Xml.cs" t="Include" />
-          </e>
-        </e>
-        <e p="Plugins" t="Include">
-          <e p="CodeStage" t="Include">
-            <e p="AdvancedFPSCounter" t="Include">
-              <e p="API.txt" t="Include" />
-              <e p="Changelog.txt" t="Include" />
-              <e p="Examples" t="Include">
-                <e p="APITester.cs" t="Include" />
-              </e>
-              <e p="Legacy" t="Include">
-                <e p="readme.txt" t="Include" />
-              </e>
-              <e p="scripts" t="Include">
-                <e p="AFPSCounter.cs" t="Include" />
-                <e p="CountersData" t="Include">
-                  <e p="Abstract" t="Include">
-                    <e p="BaseCounterData.cs" t="Include" />
-                    <e p="UpdatebleCounterData.cs" t="Include" />
-                  </e>
-                  <e p="DeviceInfoCounterData.cs" t="Include" />
-                  <e p="FPSCounterData.cs" t="Include" />
-                  <e p="MemoryCounterData.cs" t="Include" />
-                </e>
-                <e p="Editor" t="Include">
-                  <e p="AFPSCounterEditor.cs" t="Include" />
-                  <e p="AFPSRenderRecorderEditor.cs" t="Include" />
-                  <e p="EditorUIUtils.cs" t="Include" />
-                </e>
-                <e p="Enums" t="Include">
-                  <e p="FPSLevel.cs" t="Include" />
-                  <e p="OperationMode.cs" t="Include" />
-                </e>
-                <e p="Label" t="Include">
-                  <e p="DrawableLabel.cs" t="Include" />
-                  <e p="LabelAnchor.cs" t="Include" />
-                  <e p="LabelEffect.cs" t="Include" />
-                </e>
-                <e p="utils" t="Include">
-                  <e p="AFPSRenderRecorder.cs" t="Include" />
-                  <e p="UIUtils.cs" t="Include" />
-                  <e p="WaitForSecondsUnscaled.cs" t="Include" />
-                </e>
-              </e>
-            </e>
           </e>
         </e>
         <e p="Resources" t="Include">
