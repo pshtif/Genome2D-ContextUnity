@@ -35,3 +35,8 @@
 /TestBed/.idea/.idea.TestBed/.idea/workspace.xml
 /TestBed/obj/Debug/
 /bin/*
+/TestBed/ProjectSettings/XRSettings.asset
+/TestBed/Assembly-CSharp-Editor-firstpass.csproj
+/TestBed/Assembly-CSharp-firstpass.csproj
+/TestBed/Assembly-CSharp.csproj
+/TestBed/TestBed.sln
