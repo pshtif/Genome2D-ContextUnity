@@ -63,6 +63,7 @@ class GCamera
             _nativeCamera.allowHDR = false;
             _nativeCamera.allowMSAA = false;
             _nativeCamera.useOcclusionCulling = false;
+            _nativeCamera.worldToCameraMatrix = Matrix4x4.identity;
 
             /* Removed as all this is now handled by Genome2D context overriding the projection matrix directly
             /* All cameras inside Genome2D are now actually rendered through single Unity camera
