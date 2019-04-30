@@ -68,7 +68,7 @@ class GTexture extends GTextureBase
 	}
 
 	override public function dispose(p_disposeSource:Bool = false):Void {
-		// Add dispose of native Unity texture
+		Object.DestroyImmediate(g2d_nativeTexture);
 		g2d_nativeTexture = null;
 
 		super.dispose(p_disposeSource);
