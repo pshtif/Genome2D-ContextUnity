@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 1243784902}
   - component: {fileID: 1243784901}
   - component: {fileID: 1243784903}
-  - component: {fileID: 1243784904}
   m_Layer: 0
   m_Name: Genome2DContext
   m_TagString: Untagged
@@ -146,14 +145,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243784900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eacb224c69057c74e8c29f92a8bdfa32, type: 3}
+  m_Script: {fileID: 11500000, guid: 4002b30fd324dee40808856b671ed3fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initType: 0
-  title: 
-  detail: 
 --- !u!4 &1243784902
 Transform:
   m_ObjectHideFlags: 0
@@ -175,21 +171,9 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243784900}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d5297e609d51d4478785cfdb2d313b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1243784904
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1243784900}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76fa3a7ca9411e84db2568967c6f53ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1cdc61965eb6c8d4291d7668ea73442d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initType: 0
