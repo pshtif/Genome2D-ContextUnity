@@ -8,8 +8,28 @@
  */
 package com.genome2d.context.filters;
 
+import com.genome2d.textures.GTexture;
+
 class GFilter {
-    public function new() {
-        
+    public var id:String;
+    public var overrideFragmentShader:Bool = true; // Always true for JS as it doesn't support shader injecting jet
+    public var fragmentCode:String = "";
+    static private var g2d_count:Int = 0;
+
+    private var g2d_fragmentConstants:Array<Float>;
+
+    private function new() {
+        id = untyped (g2d_count++)+"";
+    }
+
+    public function bind(p_context:IGContext, p_renderer:IGRenderer, p_defaultTexture:GTexture):Void {
+
+    }
+
+    /**
+        Called when filter is finished rendering
+    **/
+    public function clear(p_context:IGContext):Void {
+
     }
 }
