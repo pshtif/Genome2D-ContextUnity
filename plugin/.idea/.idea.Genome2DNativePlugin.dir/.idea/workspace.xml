@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6fc140fd-f9d6-40c3-b530-598b51173557" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/GNativeUnityAudioAsset.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Genome2DNativePlugin.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestBed/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/ProjectSettings/ProjectVersion.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../build.hxml" beforeDir="false" afterPath="$PROJECT_DIR$/../build.hxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../examples/com/genome2d/examples/CameraExample.hx" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/com/genome2d/examples/CameraExample.hx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Genome2DNativePlugin.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Genome2DNativePlugin.csproj" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GNativeStats.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-323">
+              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+              <folding>
+                <marker date="1554883780057" expanded="true" signature="30:4822" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="43:81" ph="..." />
+                <marker date="1554883780057" expanded="true" signature="116:4810" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="531:698" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="728:1481" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="861:1179" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="1210:1441" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="1529:2483" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="1632:1721" ph="/* canvasObject.tag = gameObject.tag; ... */" />
+                <marker date="1554883780057" expanded="true" signature="2078:2165" ph="/* canvas.pixelPerfect = pixelPerfect; ... */" />
+                <marker date="1554883780057" expanded="true" signature="2265:2381" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="2398:2473" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="2522:4246" ph="{...}" />
+                <marker date="1554883780057" expanded="true" signature="4326:4804" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GMath.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+              <folding>
+                <marker date="1554707774648" expanded="true" signature="30:1350" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="55:1348" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="153:496" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="542:1342" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="586:648" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="687:736" ph="{...}" />
+                <marker date="1554707774648" expanded="true" signature="762:1034" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GNativeUnityImageAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <folding>
+                <marker date="1556523729308" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+                <marker date="1556523729308" expanded="false" signature="228:310" ph="..." />
+                <marker date="1556523729308" expanded="true" signature="342:1616" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="384:1614" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="604:690" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="738:1071" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="792:949" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="970:1061" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="1125:1608" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="1231:1598" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="1343:1421" ph="{...}" />
+                <marker date="1556523729308" expanded="true" signature="1442:1584" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GNativeUnityAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-401">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <folding>
+                <marker date="1554707774649" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+                <marker date="1554707774649" expanded="false" signature="228:310" ph="..." />
+                <marker date="1554707774649" expanded="true" signature="342:1926" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="379:1924" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="590:676" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="724:1415" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="778:1296" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="889:1021" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1054:1162" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1183:1282" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1317:1405" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1466:1918" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1558:1908" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1670:1748" ph="{...}" />
+                <marker date="1554707774649" expanded="true" signature="1769:1894" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/GNativeUnityAudioAsset.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+              <folding>
+                <marker date="1558088669293" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+                <marker date="1558088669293" expanded="false" signature="228:310" ph="..." />
+                <marker date="1558088669293" expanded="true" signature="342:2061" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="384:2059" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="608:694" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="742:1416" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="796:1296" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="911:1050" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1090:1162" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1183:1282" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1317:1406" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1468:2053" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1672:2043" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1784:1862" ph="{...}" />
+                <marker date="1558088669293" expanded="true" signature="1883:2029" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/GNativeUnityAudioAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GNativeUnityImageAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GMath.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GNativeUnityAsset.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/GNativeStats.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/GNativeUnityAudioAsset.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/indexLayout.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/compiler.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/deployment.xml" />
+        <option value="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/webServers.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1096" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="SolutionExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="FileSystemExplorer" />
+      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Genome2DNativePlugin" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Genome2DNativePlugin" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Genome2DNativePlugin" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="References" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="Assemblies" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+            <path>
+              <item name="" type="784c90a0:SolutionExplorerRootNode" />
+              <item name="Genome2DNativePlugin" type="24d0babc:SolutionExplorerModelNode" />
+              <item name="src" type="24d0babc:SolutionExplorerModelNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-all-files" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="25412">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="25412" />
+      <option name="userSelectedPid" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6fc140fd-f9d6-40c3-b530-598b51173557" name="Default Changelist" comment="" />
+      <created>1558082060492</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558082060492</updated>
+      <workItem from="1558082063831" duration="3519000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3519000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Performance Profiler" weight="0.32942432" />
+      <window_info active="true" anchor="bottom" id="Build" visible="true" weight="0.3464819" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978677" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" weight="0.32995737" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Unit Tests Coverage" weight="0.32995737" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" suspend="NONE" type="DotNet Exception Breakpoints">
+          <properties exception="System.Threading.ThreadAbortException" displayValue="System.Threading.ThreadAbortException" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/GNativeStats.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-323">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <folding>
+            <marker date="1554883780057" expanded="true" signature="30:4822" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="43:81" ph="..." />
+            <marker date="1554883780057" expanded="true" signature="116:4810" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="531:698" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="728:1481" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="861:1179" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="1210:1441" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="1529:2483" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="1632:1721" ph="/* canvasObject.tag = gameObject.tag; ... */" />
+            <marker date="1554883780057" expanded="true" signature="2078:2165" ph="/* canvas.pixelPerfect = pixelPerfect; ... */" />
+            <marker date="1554883780057" expanded="true" signature="2265:2381" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="2398:2473" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="2522:4246" ph="{...}" />
+            <marker date="1554883780057" expanded="true" signature="4326:4804" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GMath.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding>
+            <marker date="1554707774648" expanded="true" signature="30:1350" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="55:1348" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="153:496" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="542:1342" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="586:648" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="687:736" ph="{...}" />
+            <marker date="1554707774648" expanded="true" signature="762:1034" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GNativeUnityAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-401">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <marker date="1554707774649" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+            <marker date="1554707774649" expanded="false" signature="228:310" ph="..." />
+            <marker date="1554707774649" expanded="true" signature="342:1926" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="379:1924" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="590:676" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="724:1415" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="778:1296" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="889:1021" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1054:1162" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1183:1282" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1317:1405" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1466:1918" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1558:1908" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1670:1748" ph="{...}" />
+            <marker date="1554707774649" expanded="true" signature="1769:1894" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GNativeUnityImageAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <marker date="1556523729308" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+            <marker date="1556523729308" expanded="false" signature="228:310" ph="..." />
+            <marker date="1556523729308" expanded="true" signature="342:1616" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="384:1614" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="604:690" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="738:1071" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="792:949" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="970:1061" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="1125:1608" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="1231:1598" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="1343:1421" ph="{...}" />
+            <marker date="1556523729308" expanded="true" signature="1442:1584" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GNativeUnityAudioAsset.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+          <folding>
+            <marker date="1558088669293" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
+            <marker date="1558088669293" expanded="false" signature="228:310" ph="..." />
+            <marker date="1558088669293" expanded="true" signature="342:2061" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="384:2059" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="608:694" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="742:1416" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="796:1296" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="911:1050" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1090:1162" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1183:1282" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1317:1406" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1468:2053" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1672:2043" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1784:1862" ph="{...}" />
+            <marker date="1558088669293" expanded="true" signature="1883:2029" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

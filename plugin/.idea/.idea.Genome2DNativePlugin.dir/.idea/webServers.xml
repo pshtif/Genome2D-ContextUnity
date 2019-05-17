@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="253e9f5e-b970-4c43-9e42-5f5edfc42676" name="Genome2D" url="http://localhost">
+        <fileTransfer port="0" mountedRoot="d:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed\Assets\Plugins\Genome2D" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

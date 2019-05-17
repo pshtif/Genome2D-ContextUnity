@@ -69,6 +69,8 @@ class AbstractExample extends GProject
 			GStaticAssetManager.addFromUrl("assets/button.png");
 			GStaticAssetManager.addFromUrl("assets/white.png");
 			GStaticAssetManager.addFromUrl("assets/water.png");
+
+			GStaticAssetManager.addFromUrl("assets/sound.mp3");
 			GStaticAssetManager.loadQueue(assetsLoaded_handler, assetsFailed_handler);
 		} else {
 			initWrapper();

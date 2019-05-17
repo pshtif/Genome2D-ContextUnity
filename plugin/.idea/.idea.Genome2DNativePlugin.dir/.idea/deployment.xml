@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Genome2D">
+    <serverData>
+      <paths name="Genome2D">
+        <serverdata>
+          <mappings>
+            <mapping deploy="d:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed\Assets\Plugins\Genome2D\" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

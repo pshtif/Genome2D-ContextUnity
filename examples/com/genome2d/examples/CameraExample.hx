@@ -18,6 +18,9 @@ import com.genome2d.geom.GCurve;
 import com.genome2d.node.GNode;
 import com.genome2d.particles.GParticleEmitter;
 import com.genome2d.textures.GTextureManager;
+import com.genome2d.audio.GAudioManager;
+import com.genome2d.assets.GStaticAssetManager;
+import com.genome2d.assets.GAudioAsset;
 
 @:nativeGen
 class CameraExample extends AbstractExample
@@ -79,6 +82,8 @@ class CameraExample extends AbstractExample
 				particleSystem.node.setPosition(400, 300);
 				particleSystem.node.cameraGroup = 2;
 				container.addChild(particleSystem.node);
+
+				GAudioManager.playAudio(cast (GStaticAssetManager.getAssetById("assets/sound.mp3"), GAudioAsset));
 
 				getGenome().onUpdate.add(update_handler);
     }

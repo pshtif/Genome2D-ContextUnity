@@ -9,7 +9,7 @@
 -cp examples
 
 # Cross
--net-lib TestBed\Assets\Genome2DNativePlugin.dll
+-net-lib TestBed\Assets\Plugins\Genome2D\Genome2DNativePlugin.dll
 
 # PC
 -net-lib c:\Program Files\Unity\Hub\Editor\2019.1.2f1\Editor\Data\Managed\UnityEngine.dll

@@ -91,6 +91,8 @@ namespace Genome2DNativePlugin
                 material.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
                 _materials.Add(material);
             }
+
+            _wrapper.gameObject.AddComponent<AudioListener>();
         }
 
         public void Begin()
