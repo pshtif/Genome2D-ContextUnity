@@ -234,7 +234,7 @@ class GUnityContext implements IGContext {
     public function draw(p_texture:GTexture, p_blendMode:GBlendMode, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
         var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
         var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
-        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY, p_filter == null ? null : p_filter.material);
     }
 
     @:access(com.genome2d.textures.GTexture)
@@ -245,20 +245,20 @@ class GUnityContext implements IGContext {
 		var v:Float = p_sourceY / p_texture.g2d_gpuHeight;
         var uScale:Float = p_sourceWidth / p_texture.g2d_gpuWidth;
 		var vScale:Float = p_sourceHeight / p_texture.g2d_gpuHeight;
-        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, u, v, uScale, vScale, p_sourceWidth, p_sourceHeight, p_sourcePivotX, p_sourcePivotY);
+        g2d_nativeContext.Draw(p_texture.nativeTexture, srcBlendMode, dstBlendMode, p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, u, v, uScale, vScale, p_sourceWidth, p_sourceHeight, p_sourcePivotX, p_sourcePivotY, p_filter == null ? null : p_filter.material);
     }
 
     public function drawMatrix(p_texture:GTexture, p_blendMode:GBlendMode, p_a:Float, p_b:Float, p_c:Float, p_d:Float, p_tx:Float, p_ty:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
         g2d_cachedMatrix.setTo(p_a, p_b, p_c, p_d, p_tx, p_ty);
         var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
         var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
-        g2d_nativeContext.DrawMatrix(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cast g2d_cachedMatrix, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY);
+        g2d_nativeContext.DrawMatrix(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cast g2d_cachedMatrix, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_texture.width, p_texture.height, p_texture.pivotX, p_texture.pivotY, p_filter == null ? null : p_filter.material);
     }
 
     public function drawPoly(p_texture:GTexture, p_blendMode:GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
         var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
         var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
-        g2d_nativeContext.DrawPoly(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha);
+        g2d_nativeContext.DrawPoly(p_texture.nativeTexture, srcBlendMode, dstBlendMode, cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_filter == null ? null : p_filter.material);
     }
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}

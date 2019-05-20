@@ -18,12 +18,16 @@ import com.genome2d.textures.GTextureManager;
 import com.genome2d.assets.GImageAsset;
 import com.genome2d.context.GBlendMode;
 import com.genome2d.textures.GTexture;
+import com.genome2d.context.filters.GFilter;
+import com.genome2d.context.filters.GDesaturateFilter;
 
 @:nativeGen
 class UnityTestProject extends GProject {
 	private var _texture:GTexture;
+	private var _filter:GFilter;
 
     override private function init():Void {
+		GStaticAssetManager.addFromUrl("assets/texture.png");
 		GStaticAssetManager.addFromUrl("assets/ball.png");
         GStaticAssetManager.addFromUrl("assets/atlas.png");
 		GStaticAssetManager.addFromUrl("assets/atlas.xml");
@@ -42,16 +46,19 @@ class UnityTestProject extends GProject {
 
 		GStaticAssetManager.generate();
 
-		_texture = GTextureManager.getTexture("assets/ball.png");
+		//_texture = GTextureManager.getTexture("assets/ball.png");
+		_texture = GTextureManager.getTexture("assets/texture.png");
 		
+		_filter = new GDesaturateFilter();
+
 		getGenome().onPreRender.add(render_handler);
 	}
 
 	private function render_handler():Void {
 		//getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
 		
-		for (i in 0...30000) {
-			getGenome().getContext().draw(_texture, GBlendMode.NORMAL, Math.random()*Screen.width, Math.random()*Screen.height, 1, 1, 0, 1, 1, 1, 1, null);
+		for (i in 0...30) {
+			getGenome().getContext().draw(_texture, GBlendMode.NORMAL, Math.random()*Screen.width, Math.random()*Screen.height, 1, 1, 0, 1, 1, 1, 1, _filter);
 		}
 	}
 }

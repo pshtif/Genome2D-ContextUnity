@@ -8,5 +8,13 @@
  */
 package com.genome2d.context.filters;
 
+import unityengine.*;
+
 class GDesaturateFilter extends GFilter {
+
+    public function new() {
+        super();
+
+        material = new Material(Shader.Find("Genome2D/DesaturateShader"));
+    }
 }

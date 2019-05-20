@@ -22,7 +22,9 @@ namespace Genome2DNativePlugin
         public const int MAX_BATCH_SIZE = 10000;
 
         protected int _renderType = 1;
-        
+
+        protected Material _defaultMaterial;
+        protected Material _lastMaterial;
         protected MonoBehaviour _wrapper;
         protected List<Mesh> _meshes;
         
@@ -32,7 +34,6 @@ namespace Genome2DNativePlugin
         protected int[] _polyIndices;
         protected Color[] _colors;
         
-        protected List<Material> _materials;
         protected int _currentBatchIndex = 0;
         protected int _quadIndex = 0;
         protected int _polyIndex = 0;
@@ -46,7 +47,6 @@ namespace Genome2DNativePlugin
         {
             _wrapper = p_wrapper;
             _meshes = new List<Mesh>();
-            _materials = new List<Material>();
 
             _vertices = new Vector3[4 * MAX_BATCH_SIZE];
             _uvs = new Vector2[4 * MAX_BATCH_SIZE];
@@ -85,12 +85,11 @@ namespace Genome2DNativePlugin
                 mesh.MarkDynamic();
 
                 _meshes.Add(mesh);
-
-                Material material = new Material(Shader.Find("Genome2D/UnlitShader"));
-                material.SetInt("BlendSrcMode", (int)BlendMode.SrcAlpha);
-                material.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
-                _materials.Add(material);
             }
+            
+            _defaultMaterial = new Material(Shader.Find("Genome2D/UnlitShader"));
+            _defaultMaterial.SetInt("BlendSrcMode", (int)BlendMode.SrcAlpha);
+            _defaultMaterial.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
 
             _wrapper.gameObject.AddComponent<AudioListener>();
         }
@@ -104,14 +103,15 @@ namespace Genome2DNativePlugin
 
         public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
             float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,
-            float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY)
+            float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, Material p_material)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastMaterial != p_material)
             {
                 if (_lastTexture) FlushRenderer();
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = _materials[_currentBatchIndex];
+                Material material = (p_material == null) ? _defaultMaterial : p_material;
+                _lastMaterial = p_material;
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
@@ -234,14 +234,15 @@ namespace Genome2DNativePlugin
         
         public void DrawMatrix(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
             float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,float p_vScale,
-            float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY)
+            float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, Material p_material)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastMaterial != p_material)
             {
                 if (_lastTexture) FlushRenderer();
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = _materials[_currentBatchIndex];
+                Material material = (p_material == null) ? _defaultMaterial : p_material;
+                _lastMaterial = p_material;
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
@@ -321,14 +322,15 @@ namespace Genome2DNativePlugin
         }
 
         public void DrawPoly(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
-            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha)
+            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, Material p_material)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * MAX_BATCH_SIZE)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * MAX_BATCH_SIZE || _lastMaterial != p_material)
             {
                 if (_lastTexture) FlushRenderer();
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = _materials[_currentBatchIndex];
+                Material material = (p_material == null) ? _defaultMaterial : p_material;
+                _lastMaterial = p_material;
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
@@ -439,7 +441,7 @@ namespace Genome2DNativePlugin
                     mesh.colors = cc;
                 }
 
-                Material material = _materials[_currentBatchIndex];
+                Material material = (_lastMaterial == null) ? _defaultMaterial : _lastMaterial;
                 if (_lastMaterialPass != material)
                 {
                     material.SetPass(0);
@@ -454,6 +456,7 @@ namespace Genome2DNativePlugin
 
             _currentBatchIndex++;
             _meshes[_currentBatchIndex].Clear();
+            _lastMaterial = null;
             _lastTexture = null;
         }
         

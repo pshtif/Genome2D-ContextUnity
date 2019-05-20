@@ -8,6 +8,7 @@
  */
 package com.genome2d.context.filters;
 
+import unityengine.*;
 import com.genome2d.textures.GTexture;
 
 class GFilter {
@@ -15,6 +16,8 @@ class GFilter {
     public var overrideFragmentShader:Bool = true; // Always true for JS as it doesn't support shader injecting jet
     public var fragmentCode:String = "";
     static private var g2d_count:Int = 0;
+
+    public var material:Material;
 
     private var g2d_fragmentConstants:Array<Float>;
 
