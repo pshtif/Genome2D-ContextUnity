@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 1243784902}
   - component: {fileID: 1243784901}
   - component: {fileID: 1243784903}
+  - component: {fileID: 1243784904}
   m_Layer: 0
   m_Name: Genome2DContext
   m_TagString: Untagged
@@ -171,7 +172,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1243784900}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cdc61965eb6c8d4291d7668ea73442d, type: 3}
   m_Name: 
@@ -181,3 +182,18 @@ MonoBehaviour:
   detail: 
   count: 2500
   scale: 2
+--- !u!114 &1243784904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243784900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a105db20c4c78c644b880aa5dcd21767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initType: 0
+  title: 
+  detail: 
