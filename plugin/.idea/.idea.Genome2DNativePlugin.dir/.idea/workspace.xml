@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6fc140fd-f9d6-40c3-b530-598b51173557" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestBed/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../build.hxml" beforeDir="false" afterPath="$PROJECT_DIR$/../build.hxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityContext.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -141,8 +133,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="371">
-              <caret line="89" column="81" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="81" />
+            <state relative-caret-position="-527">
+              <caret line="21" column="47" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="47" />
               <folding>
                 <marker date="1558358905965" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
                 <marker date="1558358905965" expanded="false" signature="228:433" ph="..." />
@@ -214,7 +206,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="1912" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -305,12 +297,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558082060492</updated>
-      <workItem from="1558082063831" duration="7303000" />
+      <workItem from="1558082063831" duration="7930000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7303000" />
+    <option name="totallyTimeSpent" value="7930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -478,8 +470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GNativeUnityContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="89" column="81" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="81" />
+        <state relative-caret-position="-527">
+          <caret line="21" column="47" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="47" />
           <folding>
             <marker date="1558358905965" expanded="true" signature="0:221" ph="/* Genome2D - 2D GPU Framework ... */" />
             <marker date="1558358905965" expanded="false" signature="228:433" ph="..." />

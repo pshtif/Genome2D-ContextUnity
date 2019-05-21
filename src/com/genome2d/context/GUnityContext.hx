@@ -46,6 +46,8 @@ class GUnityContext implements IGContext {
 
 	public var g2d_onMouseInputInternal:GMouseInput->Void;
 
+    private var g2d_renderTarget:GTexture;
+
     private var g2d_projectionMatrix:GProjectionMatrix;
     private var g2d_cachedMatrix:GMatrix;
 
@@ -279,12 +281,30 @@ class GUnityContext implements IGContext {
     public function renderToColor(p_stencilLayer:Int):Void {}
     public function setDepthTest(p_depthMask:Bool, p_depthFunc:GDepthFunc):Void {}
     public function getRenderTarget():GTexture {
-		return null;
+		return g2d_renderTarget;
 	}
 	public function getRenderTargetMatrix():GMatrix3D {
 		return null;
 	}
-    public function setRenderTarget(p_texture:GTexture = null, p_transform:GMatrix3D = null, p_clear:Bool = false):Void {}
+    public function setRenderTarget(p_texture:GTexture = null, p_transform:GMatrix3D = null, p_clear:Bool = false):Void {
+        if (p_texture != g2d_renderTarget) {
+            flushRenderer();
+        }
+
+        if (p_texture == null) {
+            RenderTexture.active = null;
+
+            setActiveCamera(g2d_activeCamera);
+        } else {
+            Graphics.SetRenderTarget(cast (p_texture.nativeTexture, RenderTexture));
+
+            g2d_projectionMatrix = new GProjectionMatrix();
+            g2d_projectionMatrix.orthoRtt(p_texture.nativeWidth, p_texture.nativeHeight);
+            GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
+        }
+
+        g2d_renderTarget = p_texture;
+    }
     public function setRenderTargets(p_textures:Array<GTexture>, p_transform:GMatrix3D = null, p_clear:Bool = false):Void {}
 
 	private function gotFocus():Void {
