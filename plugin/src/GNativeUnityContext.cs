@@ -108,11 +108,11 @@ namespace Genome2DNativePlugin
             if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastMaterial != p_material)
             {
                 if (_lastTexture) FlushRenderer();
-                
                 Mesh mesh = _meshes[_currentBatchIndex];
                 Material material = (p_material == null) ? _defaultMaterial : p_material;
                 _lastMaterial = p_material;
                 material.mainTexture = p_texture;
+                //material.SetTexture("_MainTex", p_texture);
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
                 material.SetInt("BlendDstMode", (int)p_dstBlendMode);
@@ -442,9 +442,10 @@ namespace Genome2DNativePlugin
                 }
 
                 Material material = (_lastMaterial == null) ? _defaultMaterial : _lastMaterial;
-                if (_lastMaterialPass != material)
+                if (true) // _lastMaterialPass != material) Texture change not handled correctly as material is not changing but params are therefore set pass is neede -- sHTiF
                 {
                     material.SetPass(0);
+                    Debug.Log(material.mainTexture.name);
                     _lastMaterialPass = material;
                 }
 

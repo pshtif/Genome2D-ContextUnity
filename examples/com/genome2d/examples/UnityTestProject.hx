@@ -23,7 +23,8 @@ import com.genome2d.context.filters.GDesaturateFilter;
 
 @:nativeGen
 class UnityTestProject extends GProject {
-	private var _texture:GTexture;
+	private var _texture1:GTexture;
+	private var _texture2:GTexture;
 	private var _filter:GFilter;
 
     override private function init():Void {
@@ -46,8 +47,8 @@ class UnityTestProject extends GProject {
 
 		GStaticAssetManager.generate();
 
-		//_texture = GTextureManager.getTexture("assets/ball.png");
-		_texture = GTextureManager.getTexture("assets/texture.png");
+		_texture1 = GTextureManager.getTexture("assets/ball.png");
+		_texture2 = GTextureManager.getTexture("assets/texture.png");
 		
 		_filter = new GDesaturateFilter();
 
@@ -58,7 +59,8 @@ class UnityTestProject extends GProject {
 		//getGenome().getContext().draw(_texture, GBlendMode.NONE, 0, 0);
 		
 		for (i in 0...30) {
-			getGenome().getContext().draw(_texture, GBlendMode.NORMAL, Math.random()*Screen.width, Math.random()*Screen.height, 1, 1, 0, 1, 1, 1, 1, _filter);
+			getGenome().getContext().draw(_texture1, GBlendMode.NORMAL, 40*i, 100, 1, 1, 0, 1, 1, 1, 1, null);
+			getGenome().getContext().draw(_texture2, GBlendMode.NORMAL, 40*i, 200, 1, 1, 0, 1, 1, 1, 1, null);
 		}
 	}
 }
