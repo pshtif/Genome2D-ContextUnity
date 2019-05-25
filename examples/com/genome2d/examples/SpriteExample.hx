@@ -17,6 +17,7 @@ import com.genome2d.components.renderable.GSprite;
 import com.genome2d.node.GNode;
 import com.genome2d.textures.GTextureManager;
 import com.genome2d.textures.GTexture;
+import com.genome2d.geom.GRectangle;
 
 @:nativeGen
 class SpriteExample extends AbstractExample
@@ -31,6 +32,7 @@ class SpriteExample extends AbstractExample
 		
         var sprite:GSprite;
 		
+        container.maskRect = new GRectangle(400,300,400,300);
 		// Create a sprite
         sprite = createSprite(0, 0, "assets/atlas.png_0");
         sprite = createSprite(800, 0, "assets/atlas.png_0");

@@ -45,12 +45,33 @@ class UIExample extends AbstractExample
 
 		skinPrototype = '<skinSheet>
 											<textureSkin id="textureSkin" texture="@assets/button.png" sliceLeft="10" sliceTop="10" sliceRight="35" sliceBottom="35"/>
-											<fontSkin id="fontSkin" font="@assets/font.fnt" color="0x0" autoSize="true"/>
+											<fontSkin id="fontSkin" font="@assets/font.fnt" color="0xFFFFFF" autoSize="true"/>
 										</skinSheet>';
 
 		elementPrototype = '<element name="A1" anchorLeft="0" anchorRight="1" anchorTop="0" anchorBottom="1">
 										<element name="A2" skin="@textureSkin" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="100" preferredWidth="200">
 											<element skin="@fontSkin" model="TITLE" anchorAlign="MIDDLE_CENTER" pivotAlign="MIDDLE_CENTER"/>
+										</element>
+										<element useMask="true" name="B2" skin="@textureSkin" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="180" preferredWidth="512" preferredHeight="150">
+											<element name="A3" skin="@fontSkin" model="LAYOUT" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+											<element name="B3" anchorY="90" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER">
+												<p:layout><horizontal gap="5"/></p:layout>
+												<element name="A4" skin="@textureSkin" color="0xFFBBBB" preferredWidth="140">
+													<element name="A5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+												</element>
+												<element name="B4" skin="@textureSkin" color="0xBBFFBB" preferredWidth="140">
+													<element name="B5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+												</element>
+												<element name="C4" skin="@textureSkin" preferredWidth="140" color.default-mouseOut="0xFF0000" color.mouseOver="0xFFFFFF">
+													<element name="C5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+												</element>
+												<element name="C4" skin="@textureSkin" preferredWidth="140" color.default-mouseOut="0xFF0000" color.mouseOver="0xFFFFFF">
+													<element name="C5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+												</element>
+											</element>
+										</element>
+										<element name="C2" skin="@textureSkin" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="360" preferredWidth="300">
+											<element name="C3" skin="@fontSkin" model="SETTINGS" anchorAlign="MIDDLE_CENTER" pivotAlign="MIDDLE_CENTER"/>
 										</element>
 									</element>';
 
