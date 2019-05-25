@@ -445,7 +445,6 @@ namespace Genome2DNativePlugin
                 if (true) // _lastMaterialPass != material) Texture change not handled correctly as material is not changing but params are therefore set pass is neede -- sHTiF
                 {
                     material.SetPass(0);
-                    Debug.Log(material.mainTexture.name);
                     _lastMaterialPass = material;
                 }
 

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e286c335-8f1c-4caa-8314-a7f732416e4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Genome2DNativePlugin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GNativeUnityContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/GNativeUnityContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../TestBed/Assets/TestBed.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -219,10 +218,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
+    <option name="x" value="-2568" />
     <option name="y" value="-8" />
     <option name="width" value="2576" />
-    <option name="height" value="1576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -293,12 +292,12 @@
       <workItem from="1554819821648" duration="7111000" />
       <workItem from="1556460879543" duration="1209000" />
       <workItem from="1558642475255" duration="20000" />
-      <workItem from="1558642566604" duration="1343000" />
+      <workItem from="1558642566604" duration="1942000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69116000" />
+    <option name="totallyTimeSpent" value="69715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -310,7 +309,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="2576" height="1576" extended-state="6" />
+    <frame x="-2568" y="-8" width="2576" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27106518" />
@@ -333,7 +332,7 @@
       <window_info anchor="bottom" id="Unit Tests" order="12" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info anchor="bottom" id="Event Log" order="14" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.3007623" />
+      <window_info active="true" anchor="bottom" id="Build" order="15" visible="true" weight="0.47020584" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
