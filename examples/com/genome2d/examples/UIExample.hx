@@ -57,10 +57,13 @@ class UIExample extends AbstractExample
 											<element name="B3" anchorY="90" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER">
 												<p:layout><horizontal gap="5"/></p:layout>
 												<element name="A4" skin="@textureSkin" color="0xFFBBBB" preferredWidth="140">
-													<element name="A5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+													<element name="A5" skin="@fontSkin" model="BUTTONDLHYJAKSVINA" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
 												</element>
 												<element name="B4" skin="@textureSkin" color="0xBBFFBB" preferredWidth="140">
 													<element name="B5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
+												</element>
+												<element name="C4" skin="@textureSkin" preferredWidth="140" color.default-mouseOut="0xFF0000" color.mouseOver="0xFFFFFF">
+													<element name="C5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
 												</element>
 												<element name="C4" skin="@textureSkin" preferredWidth="140" color.default-mouseOut="0xFF0000" color.mouseOver="0xFFFFFF">
 													<element name="C5" skin="@fontSkin" model="BUTTON" anchorAlign="TOP_CENTER" pivotAlign="TOP_CENTER" anchorY="5"/>
@@ -79,11 +82,19 @@ class UIExample extends AbstractExample
 
 		gui = GNode.createWithComponent(GUI);
 		gui.node.mouseEnabled = true;
-		gui.setBounds(new GRectangle(0,0,800,600));
+		gui.setBounds(new GRectangle(0,0,600,600));
 		container.addChild(gui.node);
 
 		var textureElement:GUIElement = cast GXmlPrototypeParser.createPrototypeFromXmlString(elementPrototype);
 		gui.root.addChild(textureElement);
+
+		var camera1:GCameraController = GNode.createWithComponent(GCameraController);
+		camera1.node.setPosition(400,300);
+		camera1.zoom = .8;
+		//camera1.node.setPosition(getGenome().getContext().getStageViewRect().width/2, getGenome().getContext().getStageViewRect().height/2);
+		//camera1.setView(0, 0, .5, .5);
+		//camera1.contextCamera.group = 3;
+		getGenome().root.addChild(camera1.node);
 
 		Genome2D.getInstance().onKeyboardInput.add(keyboardInput_handler);
 	}
