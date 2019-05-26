@@ -101,7 +101,8 @@ class GUnityContext implements IGContext {
                 g2d_projectionMatrix = new GProjectionMatrix();
                 g2d_projectionMatrix.ortho(g2d_activeMaskRect.width, g2d_activeMaskRect.height);
 
-                g2d_projectionMatrix.prependTranslation(-g2d_activeMaskRect.x, -g2d_activeMaskRect.y, 0);
+                g2d_projectionMatrix.prependTranslation(-g2d_activeMaskRect.x+g2d_defaultCamera.x-g2d_activeCamera.x*g2d_activeCamera.scaleX, -g2d_activeMaskRect.y+g2d_defaultCamera.y-g2d_activeCamera.y*g2d_activeCamera.scaleX, 0);
+                g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
 
                 GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);            
 
