@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\pstefcek\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\pstefcek\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_TestBed.-848479360.00" t="ExcludeRecursive" />
     <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\TestBed" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -69,7 +69,6 @@
                 <e p="B2ContactImpulse.cs" t="Include" />
                 <e p="B2ContactListener.cs" t="Include" />
                 <e p="B2ContactManager.cs" t="Include" />
-                <e p="B2DebugDraw.cs" t="Include" />
                 <e p="B2DestructionListener.cs" t="Include" />
                 <e p="B2FilterData.cs" t="Include" />
                 <e p="B2Fixture.cs" t="Include" />
@@ -231,10 +230,12 @@
                 <e p="Examples" t="Include">
                   <e p="AbstractExample.cs" t="Include" />
                   <e p="CameraExample.cs" t="Include" />
+                  <e p="ContextExample.cs" t="Include" />
                   <e p="custom" t="Include">
                     <e p="CustomModule.cs" t="Include" />
                     <e p="CustomSPHModule.cs" t="Include" />
                   </e>
+                  <e p="G3DExample.cs" t="Include" />
                   <e p="MouseExample.cs" t="Include" />
                   <e p="ParticlesExample.cs" t="Include" />
                   <e p="PhysicsExample.cs" t="Include" />
@@ -610,6 +611,7 @@
             </e>
           </e>
           <e p="Shaders" t="Include">
+            <e p="3DShader.shader" t="Include" />
             <e p="DesaturateShader.shader" t="Include" />
             <e p="UnlitShader.shader" t="Include" />
           </e>

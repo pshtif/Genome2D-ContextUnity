@@ -90,9 +90,9 @@ class UIExample extends AbstractExample
 
 		var camera1:GCameraController = GNode.createWithComponent(GCameraController);
 		camera1.node.setPosition(400,300);
-		camera1.zoom = .8;
+		//camera1.zoom = .8;
 		//camera1.node.setPosition(getGenome().getContext().getStageViewRect().width/2, getGenome().getContext().getStageViewRect().height/2);
-		//camera1.setView(0, 0, .5, .5);
+		camera1.setView(0, 0, .5, .5);
 		//camera1.contextCamera.group = 3;
 		getGenome().root.addChild(camera1.node);
 

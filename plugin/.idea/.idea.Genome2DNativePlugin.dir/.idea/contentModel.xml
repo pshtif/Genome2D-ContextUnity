@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\pstefcek\.Rider2019.1\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\pstefcek\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_.19.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\pshti\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_.19.00" t="ExcludeRecursive" />
     <e p="D:\WORKSPACE\Haxe\Genome2D\Genome2D-ContextUnity\plugin" t="IncludeRecursive">
       <e p="bin" t="ExcludeRecursive" />
       <e p="Genome2DNativePlugin.csproj" t="IncludeRecursive" />
@@ -15,6 +15,7 @@
         <e p="GMath.cs" t="Include" />
         <e p="GMatrix.cs" t="Include" />
         <e p="GNativeStats.cs" t="Include" />
+        <e p="GNativeUnity3DRenderer.cs" t="Include" />
         <e p="GNativeUnityAsset.cs" t="Include" />
         <e p="GNativeUnityAudioAsset.cs" t="Include" />
         <e p="GNativeUnityContext.cs" t="Include" />

@@ -45,7 +45,7 @@ class GStats implements IGStats
     }
 
     public function render(p_context:IGContext):Void {
-        g2d_nativeStats.Update();
+        g2d_nativeStats.Update(visible);
     }
 
     public function clear():Void {

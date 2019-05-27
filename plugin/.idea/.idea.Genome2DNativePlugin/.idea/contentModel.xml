@@ -15,6 +15,7 @@
         <e p="GMath.cs" t="Include" />
         <e p="GMatrix.cs" t="Include" />
         <e p="GNativeStats.cs" t="Include" />
+        <e p="GNativeUnity3DRenderer.cs" t="Include" />
         <e p="GNativeUnityAsset.cs" t="Include" />
         <e p="GNativeUnityAudioAsset.cs" t="Include" />
         <e p="GNativeUnityContext.cs" t="Include" />

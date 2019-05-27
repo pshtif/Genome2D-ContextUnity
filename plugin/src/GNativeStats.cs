@@ -10,6 +10,7 @@ namespace Genome2DNativePlugin
         private MonoBehaviour _stage;
         private Canvas _canvas;
         private CanvasScaler _canvasScaler;
+        private GameObject _canvasObject;
 
         private int g2d_frames = 0;
         private float g2d_previousTime = 0;
@@ -29,37 +30,44 @@ namespace Genome2DNativePlugin
             ConfigureLabel();
         }
 
-        public void Update()
+        public void Update(bool p_visible)
         {
-            g2d_frames++;
-            float time = Time.time;
-            
-            if ( time > g2d_previousTime + 1 ) {
-                fps = (int)Mathf.Round( ( g2d_frames ) / ( time - g2d_previousTime ) );
-
-                g2d_statsText.text = "<b><color=#55da55ff>FPS: " + fps +" </color> <color=#5555daff>Drawcalls: " + drawCalls+"</color></b>";
-                g2d_previousTime = time;
-                g2d_frames = 0;
-            }
-            else if (time < 1)
+            _canvasObject.SetActive(p_visible);
+            if (p_visible)
             {
-                fps = (int)Mathf.Round( 1 / Time.deltaTime );
-                g2d_statsText.text = "<b><color=#55da55ff>FPS: " + fps +" </color> <color=#5555daff>Drawcalls: " + drawCalls+"</color></b>";
+                g2d_frames++;
+                float time = Time.time;
+
+                if (time > g2d_previousTime + 1)
+                {
+                    fps = (int) Mathf.Round((g2d_frames) / (time - g2d_previousTime));
+
+                    g2d_statsText.text = "<b><color=#55da55ff>FPS: " + fps + " </color> <color=#5555daff>Drawcalls: " +
+                                         drawCalls + "</color></b>";
+                    g2d_previousTime = time;
+                    g2d_frames = 0;
+                }
+                else if (time < 1)
+                {
+                    fps = (int) Mathf.Round(1 / Time.deltaTime);
+                    g2d_statsText.text = "<b><color=#55da55ff>FPS: " + fps + " </color> <color=#5555daff>Drawcalls: " +
+                                         drawCalls + "</color></b>";
+                }
+
+                /**/
             }
-            /**/
-            
         }
         
         private void ConfigureCanvas()
         {
-            GameObject canvasObject = new GameObject("GStats", typeof(Canvas));
+            _canvasObject = new GameObject("GStats", typeof(Canvas));
             //canvasObject.tag = gameObject.tag;
             //canvasObject.layer = gameObject.layer;
-            canvasObject.transform.SetParent(_stage.transform, false);
+            _canvasObject.transform.SetParent(_stage.transform, false);
 
-            _canvas = canvasObject.GetComponent<Canvas>();
+            _canvas = _canvasObject.GetComponent<Canvas>();
 
-            RectTransform canvasRectTransform =  canvasObject.GetComponent<RectTransform>();
+            RectTransform canvasRectTransform =  _canvasObject.GetComponent<RectTransform>();
 
             ResetRectTransform(canvasRectTransform);
 
@@ -67,7 +75,7 @@ namespace Genome2DNativePlugin
             //canvas.pixelPerfect = pixelPerfect;
             //canvas.sortingOrder = sortingOrder;
 
-            _canvasScaler = canvasObject.AddComponent<CanvasScaler>();
+            _canvasScaler = _canvasObject.AddComponent<CanvasScaler>();
 
             if (autoScale)
             {

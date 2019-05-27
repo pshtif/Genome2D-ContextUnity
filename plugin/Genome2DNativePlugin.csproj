@@ -50,6 +50,7 @@
     <Compile Include="src\GMath.cs" />
     <Compile Include="src\GMatrix.cs" />
     <Compile Include="src\GNativeStats.cs" />
+    <Compile Include="src\GNativeUnity3DRenderer.cs" />
     <Compile Include="src\GNativeUnityAudioAsset.cs" />
     <Compile Include="src\GNativeUnityImageAsset.cs" />
     <Compile Include="src\GNativeUnityContext.cs" />

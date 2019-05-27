@@ -8,6 +8,7 @@
  */
 package com.genome2d.context.renderers;
 
+import genome2dnativeplugin.*;
 import com.genome2d.context.GProjectionMatrix;
 import com.genome2d.context.IGContext;
 import com.genome2d.context.IGRenderer;
@@ -32,13 +33,17 @@ class G3DRenderer implements IGRenderer
 	
 	public var texture:GTexture;
 
+	private var nativeRenderer:GNativeUnity3DRenderer;
+
 
 	public function getProgram() {
 		return null;
 	}
 	
 	public function invalidateGeometry(p_vertices:Array<Float>, p_uvs:Array<Float>, p_indices:Array<UInt>, p_normals:Array<Float>):Void {
-		
+		if (nativeRenderer == null) {
+			nativeRenderer = new GNativeUnity3DRenderer(cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), cs.Lib.nativeArray(p_indices,false), cs.Lib.nativeArray(p_normals,false));
+		}
 	}
 	
 	public function new(p_vertices:Array<Float>, p_uvs:Array<Float>, p_indices:Array<UInt>, p_normals:Array<Float>, p_generatePerspectiveMatrix:Bool = false):Void {
@@ -54,14 +59,12 @@ class G3DRenderer implements IGRenderer
 		
 	}
 
-	@:access(com.genome2d.context.GWebGLContext)
     public function bind(p_context:IGContext, p_reinitialize:Int):Void {
 		
     }
 	
-	@:access(com.genome2d.context.GWebGLContext)
 	public function draw(p_cull:Int = 0, p_renderType:Int):Void {
-		
+		nativeRenderer.Draw(texture.nativeTexture, modelMatrix.nativeMatrix, cameraMatrix.nativeMatrix);
     }
 	
 	public function push():Void {
