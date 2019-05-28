@@ -195,7 +195,7 @@ class GUnityContext implements IGContext {
     private var g2d_lastMouseX:Float;
     private var g2d_lastMouseY:Float;
 
-    private function g2d_mouse_handler(p_type:String, p_data:Int):Void {
+    private function g2d_mouse_handler(p_type:String, p_buttonDown:Bool):Void {
         // Since we are sending mouse move per update call it's not always moving
         if (p_type == GMouseInputType.MOUSE_MOVE) {
             if (!g2d_mouseInitialized) {
@@ -215,7 +215,7 @@ class GUnityContext implements IGContext {
         var input:GMouseInput = new GMouseInput(this, this, p_type, mx, my);
 		input.worldX = input.contextX = mx;
 		input.worldY = input.contextY = my;
-        input.buttonDown = p_data>=0;
+        input.buttonDown = p_buttonDown;
         input.ctrlKey = false;
         input.altKey = false;
         input.shiftKey = false;
