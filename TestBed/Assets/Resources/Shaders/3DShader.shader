@@ -47,8 +47,8 @@
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = mul(o.vertex, _ModelMatrix);
-                o.vertex = mul(o.vertex, _CameraMatrix);
+                //o.vertex = mul(o.vertex, _ModelMatrix);
+                //o.vertex = mul(o.vertex, _CameraMatrix);
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.color = v.color;

@@ -9,6 +9,7 @@ namespace Genome2DNativePlugin
         protected Vector3[] _vertices;
         protected Vector3[] _normals;
         protected Vector2[] _uvs;
+        protected Color[] _colors;
         protected int[] _indices;
 
         protected Mesh _mesh;
@@ -21,6 +22,7 @@ namespace Genome2DNativePlugin
             _vertices = new Vector3[size];
             _uvs = new Vector2[size];
             _normals = new Vector3[size];
+            _colors = new Color[size];
 
             String vertexDebug = "";
             String uvDebug = "";
@@ -33,6 +35,7 @@ namespace Genome2DNativePlugin
                 _uvs[i] = new Vector2((float)p_uvs[i*2], (float)p_uvs[i*2+1]);
                 _normals[i] = new Vector3((float) p_normals[i * 3], (float) p_normals[i * 3 + 1],
                     (float) p_normals[i * 3 + 2]);
+                _colors[i] = new Color(1, 1, 1, 1);
                 vertexDebug += p_vertices[i*3] + "," + p_vertices[i*3+1] + "," + p_vertices[i * 3 + 2] + ", ";
                 uvDebug += p_uvs[i * 2] + "," + p_uvs[i * 2 + 1] + ", ";
                 normalDebug += p_normals[i * 3] + "," + p_normals[i * 3 + 1] + "," + p_normals[i * 3 + 2] + ", ";
@@ -49,10 +52,12 @@ namespace Genome2DNativePlugin
             Debug.Log(normalDebug);
 
             _mesh = new Mesh();
+            _mesh.MarkDynamic();
             _mesh.vertices = _vertices;
             _mesh.uv = _uvs;
             _mesh.normals = _normals;
             _mesh.triangles = _indices;
+            _mesh.colors = _colors;
 
             _material = new Material(Shader.Find("Genome2D/3DShader"));
         }
