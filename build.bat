@@ -1,0 +1,1 @@
+MSBuild.exe plugin\Genome2DNativePlugin.csproj
