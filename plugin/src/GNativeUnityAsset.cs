@@ -18,7 +18,10 @@ namespace Genome2DNativePlugin
         protected MonoBehaviour _wrapper;
         protected Action<string> _loaded;
 
+        protected bool isBinaryAsset = false;
+
         public string text;
+        public byte[] bytes;
         
         public GNativeUnityAsset(MonoBehaviour p_wrapper, Action<string> p_loaded)
         {
@@ -30,6 +33,7 @@ namespace Genome2DNativePlugin
         {
             if (p_url.IndexOf("http") != 0)
             {
+                isBinaryAsset = p_url.IndexOf(".bytes") == p_url.Length-6;
                 TextAsset ta = Resources.Load<TextAsset>(p_url);
                 if (ta == null)
                 {
@@ -38,7 +42,11 @@ namespace Genome2DNativePlugin
 
                 if (ta != null)
                 {
-                    text = ta.text;
+                    if (isBinaryAsset) {
+                        bytes = ta.bytes;
+                    } else {
+                        text = ta.text;
+                    }
                     _loaded(p_url);
                 }
                 else
@@ -64,7 +72,11 @@ namespace Genome2DNativePlugin
                 }
                 else
                 {
-                    text = uwr.downloadHandler.text;
+                    if (isBinaryAsset) {
+                        bytes = uwr.downloadHandler.data;
+                    } else {
+                        text = uwr.downloadHandler.text;
+                    }
                     _loaded(p_url);
                 }
             }

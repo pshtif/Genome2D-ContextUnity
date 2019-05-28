@@ -57,7 +57,7 @@ class GCamera
             _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
 
             // Clear nothing Genome2D will handle direct GL call
-            _nativeCamera.clearFlags = CameraClearFlags.Nothing;
+            _nativeCamera.clearFlags = CameraClearFlags.Depth;
 
             // Disable all this unnecessary default Unity stuff as it will result in multiple passes
             _nativeCamera.allowHDR = false;

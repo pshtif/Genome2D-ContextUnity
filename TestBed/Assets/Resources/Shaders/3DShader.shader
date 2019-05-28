@@ -1,21 +1,23 @@
-﻿Shader "Genome2D/3DShader"
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Genome2D/3DShader"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        BlendSrcMode ("BlendSrcMode", Float) = 0
-        BlendDstMode ("BlendDstMode", Float) = 0
     }
     SubShader
     {
         Tags { "RenderType"="Transparent" }
         LOD 100
-        
-        ZWrite Off
-        // No reason just for Genome2D other contexts consistency, inverted axes
-        Cull Off
-        //Blend [BlendSrcMode] [BlendDstMode]
+
+        ZTest Less
+        ZWrite On
+        Cull Front
         Blend SrcAlpha OneMinusSrcAlpha
+        //Blend [BlendSrcMode] [BlendDstMode]
 
         Pass
         {
@@ -34,8 +36,8 @@
 
             struct v2f
             {
-                float2 uv : TEXCOORD0;
                 float4 vertex : SV_POSITION;
+                float2 uv : TEXCOORD0;
                 float4 color : COLOR;
             };
 
@@ -47,9 +49,9 @@
             v2f vert (appdata v)
             {
                 v2f o;
-                //o.vertex = mul(o.vertex, _ModelMatrix);
-                //o.vertex = mul(o.vertex, _CameraMatrix);
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.vertex = mul(_ModelMatrix, float4(v.vertex.xyz, 1.0));
+                o.vertex = mul(_CameraMatrix, float4(o.vertex.xyz, 1.0));
+                o.vertex = UnityObjectToClipPos(o.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.color = v.color;
                 return o;
@@ -57,7 +59,6 @@
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
                 return col * i.color;
             }

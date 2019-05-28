@@ -448,7 +448,7 @@ namespace Genome2DNativePlugin
                     _lastMaterialPass = material;
                 }
 
-                Graphics.DrawMeshNow(mesh, new Vector3(0, 0, 0), Quaternion.identity);
+                Graphics.DrawMeshNow(mesh, Vector3.zero, Quaternion.identity);
                 
                 _quadIndex = 0;
                 _polyIndex = 0;
