@@ -33,11 +33,13 @@ class G3DExample extends AbstractExample
 		detail = "Example showcasing 3D rendering capabilities inside Genome2D using custom overridable and extendable renderer.";
 
 		//scene = G3DFactory.createPlane(100, 100, GTextureManager.getTexture("assets/texture.png"));
-		scene = G3DFactory.createBox(100, 100, 100, GTextureManager.getTexture("assets/texture.png"));
+		//scene = G3DFactory.createBox(100, 100, 100, GTextureManager.getTexture("assets/texture.png"));
+
 		var importer:G3DImporter = new G3DImporter(true);
 		var asset:GBinaryAsset = GStaticAssetManager.getBinaryAssetById("assets/fisherman01.bytes");
-		GDebug.info(asset.data.length);
 		scene = importer.importScene(asset.data);
+
+
 		scene.invalidate();
 		
 		cameraMatrix = new GMatrix3D();
@@ -52,11 +54,15 @@ class G3DExample extends AbstractExample
 	private function postRender_handler():Void {
 		rotation++;
 		
-		scene.getSceneMatrix().identity();
-		scene.getSceneMatrix().appendRotation(rotation, GVector3D.Z_AXIS);
-		scene.tintColor = new GFloat4(1,1,1,.01);
-		
-		scene.render(cameraMatrix, 0);
+		for (i in 0...50) {
+			scene.lightDirection = new GFloat4(1,1,1,0);
+
+			scene.getSceneMatrix().identity();
+			scene.getSceneMatrix().appendRotation(rotation, GVector3D.Z_AXIS);
+			scene.getSceneMatrix().appendTranslation(-300+100*i%10, Math.floor(i/10)*180-300, 0);
+			
+			scene.render(cameraMatrix, 0);
+		}
 	}
 	
 	override public function dispose():Void {

@@ -8,6 +8,7 @@
  */
 package com.genome2d.context.renderers;
 
+import unityengine.*;
 import genome2dnativeplugin.*;
 import com.genome2d.context.GProjectionMatrix;
 import com.genome2d.context.IGContext;
@@ -64,6 +65,7 @@ class G3DRenderer implements IGRenderer
     }
 	
 	public function draw(p_cull:Int = 0, p_renderType:Int):Void {
+		nativeRenderer.lightDirection = new Vector3(lightDirection.x, lightDirection.y, lightDirection.z);
 		nativeRenderer.Draw(texture.nativeTexture, modelMatrix.nativeMatrix, cameraMatrix.nativeMatrix);
     }
 	

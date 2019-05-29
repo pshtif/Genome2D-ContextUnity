@@ -14,9 +14,13 @@ namespace Genome2DNativePlugin
 
         protected Mesh _mesh;
         protected Material _material;
+
+        public Vector3 lightDirection;
         
         public GNativeUnity3DRenderer(double[] p_vertices, double[] p_uvs, uint[] p_indices, double[] p_normals)
         {
+            lightDirection = Vector3.one;
+
             int size = p_vertices.Length / 3;
             //if (size != p_uvs.Length/2) Debug.LogError("Invalid size of uv array "+p_vertices.Length+" / "+p_uvs.Length);
             _vertices = new Vector3[size];
@@ -25,19 +29,21 @@ namespace Genome2DNativePlugin
             _colors = new Color[size];
             _indices = new int[p_indices.Length];
 
+            Debug.Log(p_vertices.Length + " , " + p_uvs.Length + " , " + p_normals.Length);
+
             //String vertexDebug = "";
-            String uvDebug = "";
+            //String uvDebug = "";
             //String normalDebug = "";
             //String indexDebug = "";
 
             for (int i = 0; i < size; i++)
             {
                 _vertices[i] = new Vector3((float)p_vertices[i * 3], (float)p_vertices[i * 3 + 1], (float)p_vertices[i * 3 + 2]);
-                _uvs[i] = new Vector2((float)p_uvs[i * 2], (float)p_uvs[i * 2 + 1]);
+                _uvs[i] = new Vector2((float)p_uvs[i * 2], 1-(float)p_uvs[i * 2 + 1]);
                 _normals[i] = new Vector3((float)p_normals[i * 3], (float)p_normals[i * 3 + 1], (float)p_normals[i * 3 + 2]);
                 _colors[i] = new Color(1, 1, 1, 1);
                 //vertexDebug += p_vertices[i*3] + "," + p_vertices[i*3+1] + "," + p_vertices[i * 3 + 2] + ", ";
-                uvDebug += p_uvs[i * 2] + "," + p_uvs[i * 2 + 1] + ", ";
+                //uvDebug += p_uvs[i * 2] + "," + p_uvs[i * 2 + 1] + ", ";
                 //normalDebug += p_normals[i * 3] + "," + p_normals[i * 3 + 1] + "," + p_normals[i * 3 + 2] + ", ";
             }
 
@@ -49,7 +55,7 @@ namespace Genome2DNativePlugin
             }
             
             //Debug.Log(vertexDebug);
-            Debug.Log(uvDebug);
+            //Debug.Log(uvDebug);
             //Debug.Log(indexDebug);
             //Debug.Log(normalDebug);
 
@@ -66,8 +72,10 @@ namespace Genome2DNativePlugin
 
         public void Draw(Texture p_texture, Matrix4x4 p_modelMatrix, Matrix4x4 p_cameraMatrix)
         {
+            _material.SetFloatArray("_LightDirection", new float[] {lightDirection.x, lightDirection.y, lightDirection.z, 0});
             _material.SetMatrix("_CameraMatrix", p_cameraMatrix);
             _material.SetMatrix("_ModelMatrix", p_modelMatrix);
+            _material.SetMatrix("_InvertedMatrix", p_modelMatrix.inverse);
 
             _material.mainTexture = p_texture;
             _material.SetPass(0);
