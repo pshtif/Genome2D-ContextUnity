@@ -83,7 +83,7 @@ Shader "Genome2D/3DShader"
 
 				col = half4(directionColor + ambientColor, 1);
 
-                return half4(i.normal,1);//col;// * i.color;
+                return col;// * i.color;
             }
             ENDCG
         }

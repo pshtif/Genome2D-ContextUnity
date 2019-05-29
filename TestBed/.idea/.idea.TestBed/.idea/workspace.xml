@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="628c424f-a7a9-4221-a349-3c33b7542192" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../plugin/.idea/.idea.Genome2DNativePlugin.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestBed/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -230,7 +230,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
+            <state relative-caret-position="765">
               <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
               <folding>
                 <marker date="1554740777179" expanded="true" signature="30:1514" ph="{...}" />
@@ -246,14 +246,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/3DShader.shader">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="409">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <marker date="1559055904651" expanded="true" signature="27:1741" ph="{...}" />
-                <marker date="1559055904651" expanded="true" signature="48:199" ph="{...}" />
-                <marker date="1559055904651" expanded="true" signature="218:1739" ph="{...}" />
-                <marker date="1559055904651" expanded="true" signature="514:1733" ph="{...}" />
-                <marker date="1559055904651" expanded="true" signature="537:1718" ph="{...}" />
+                <marker date="1559148085326" expanded="true" signature="0:166" ph="/* Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)' ... */" />
+                <marker date="1559148085326" expanded="true" signature="195:2596" ph="{...}" />
+                <marker date="1559148085326" expanded="true" signature="216:482" ph="{...}" />
+                <marker date="1559148085326" expanded="true" signature="501:2594" ph="{...}" />
+                <marker date="1559148085326" expanded="true" signature="723:2588" ph="{...}" />
+                <marker date="1559148085326" expanded="true" signature="746:2573" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -262,7 +263,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Code/src/com/genome2d/context/GUnityContext.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22950">
+            <state relative-caret-position="24174">
               <caret line="1467" selection-start-line="1467" selection-end-line="1467" />
               <folding>
                 <marker date="1559057786874" expanded="true" signature="144:114986" ph="{...}" />
@@ -720,10 +721,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="130" />
-    <option name="width" value="1440" />
-    <option name="height" value="780" />
+    <option name="x" value="-2568" />
+    <option name="y" value="-8" />
+    <option name="width" value="2576" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -731,14 +732,14 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AssemblyExplorer" />
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
         <option name="show-project-names" value="true" />
       </pane>
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
-      </pane>
+      <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
     </panes>
   </component>
@@ -806,11 +807,12 @@
       <workItem from="1558357098224" duration="2616000" />
       <workItem from="1558988843704" duration="3677000" />
       <workItem from="1559036407908" duration="431000" />
+      <workItem from="1559148197482" duration="13000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27907000" />
+    <option name="totallyTimeSpent" value="27920000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -824,7 +826,7 @@
   <component name="ToolWindowManager">
     <frame x="-2568" y="-8" width="2576" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2837838" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28616852" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Capture Tool" order="3" />
@@ -1284,7 +1286,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/UnlitShader.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="765">
           <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
           <folding>
             <marker date="1554740777179" expanded="true" signature="30:1514" ph="{...}" />
@@ -1298,7 +1300,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Code/src/com/genome2d/context/GUnityContext.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22950">
+        <state relative-caret-position="24174">
           <caret line="1467" selection-start-line="1467" selection-end-line="1467" />
           <folding>
             <marker date="1559057786874" expanded="true" signature="144:114986" ph="{...}" />
@@ -1698,14 +1700,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Resources/Shaders/3DShader.shader">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="409">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
-            <marker date="1559055904651" expanded="true" signature="27:1741" ph="{...}" />
-            <marker date="1559055904651" expanded="true" signature="48:199" ph="{...}" />
-            <marker date="1559055904651" expanded="true" signature="218:1739" ph="{...}" />
-            <marker date="1559055904651" expanded="true" signature="514:1733" ph="{...}" />
-            <marker date="1559055904651" expanded="true" signature="537:1718" ph="{...}" />
+            <marker date="1559148085326" expanded="true" signature="0:166" ph="/* Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)' ... */" />
+            <marker date="1559148085326" expanded="true" signature="195:2596" ph="{...}" />
+            <marker date="1559148085326" expanded="true" signature="216:482" ph="{...}" />
+            <marker date="1559148085326" expanded="true" signature="501:2594" ph="{...}" />
+            <marker date="1559148085326" expanded="true" signature="723:2588" ph="{...}" />
+            <marker date="1559148085326" expanded="true" signature="746:2573" ph="{...}" />
           </folding>
         </state>
       </provider>

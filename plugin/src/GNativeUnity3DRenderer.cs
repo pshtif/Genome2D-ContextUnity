@@ -16,6 +16,9 @@ namespace Genome2DNativePlugin
         protected Material _material;
 
         public Vector3 lightDirection;
+        public Color lightColor;
+        public Color ambientColor;
+        public Color tintColor;
         
         public GNativeUnity3DRenderer(double[] p_vertices, double[] p_uvs, uint[] p_indices, double[] p_normals)
         {
@@ -72,10 +75,13 @@ namespace Genome2DNativePlugin
 
         public void Draw(Texture p_texture, Matrix4x4 p_modelMatrix, Matrix4x4 p_cameraMatrix)
         {
-            _material.SetFloatArray("_LightDirection", new float[] {lightDirection.x, lightDirection.y, lightDirection.z, 0});
+            _material.SetVector("_LightDirection", lightDirection);
+            _material.SetColor("_LightColor", lightColor);
+            _material.SetColor("_AmbientColor", ambientColor);
+            _material.SetColor("_TintColor", tintColor);
             _material.SetMatrix("_CameraMatrix", p_cameraMatrix);
             _material.SetMatrix("_ModelMatrix", p_modelMatrix);
-            _material.SetMatrix("_InvertedMatrix", p_modelMatrix.inverse);
+            _material.SetMatrix("_InvertedMatrix", p_modelMatrix.transpose.inverse);
 
             _material.mainTexture = p_texture;
             _material.SetPass(0);
