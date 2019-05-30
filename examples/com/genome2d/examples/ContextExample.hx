@@ -33,7 +33,7 @@ class ContextExample extends AbstractExample
 		GDebug.info("prerender");
 		var rt:GTexture = GTextureManager.getTexture("rt");
 		if (rt != null) rt.dispose();
-		rt = GTextureManager.createRenderTexture("rt", 800, 600);
+		rt = GTextureManager.createRenderTexture("rt", 200, 200);
 		var texture:GTexture = GTextureManager.getTexture("assets/texture.png");
 
 		getGenome().getContext().setRenderTarget(rt);
@@ -41,6 +41,12 @@ class ContextExample extends AbstractExample
 		for (i in 0...100) {
 			getGenome().getContext().draw(texture, GBlendMode.NORMAL, Math.random()*800-32, Math.random()*600-32, 1, 1, 0, 1, 1, 1, 1, null);
 		}
+
+		var rt2:GTexture = GTextureManager.createRenderTexture("rt2", 200, 200);
+
+		getGenome().getContext().setRenderTarget(rt2);
+
+		getGenome().getContext().draw(rt, GBlendMode.NORMAL, 100, 100, 1, 1, 0, 1, 1, 1, 1, null);
 
 		getGenome().getContext().setRenderTarget(null);
 
@@ -52,7 +58,11 @@ class ContextExample extends AbstractExample
 		var texture:GTexture = GTextureManager.getTexture("rt");
 		//var texture:GTexture = GTextureManager.getTexture("assets/texture.png");
 
-		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 400, 300, 1, 1, 0, 1, 1, 1, 1, null);
+		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 300, 300, 1, 1, 0, 1, 1, 1, 1, null);
+
+		var texture:GTexture = GTextureManager.getTexture("rt2");
+
+		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 700, 300, 1, 1, 0, 1, 1, 1, 1, null);
 		//getGenome().autoUpdateAndRender = false;
 	}
 }

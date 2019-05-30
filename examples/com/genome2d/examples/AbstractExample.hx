@@ -59,11 +59,11 @@ class AbstractExample extends GProject
 			GStaticAssetManager.addFromUrl("assets/spine/diggy/diggy.txt");
 			GStaticAssetManager.addFromUrl("assets/spine/diggy/diggy.png", "diggy");
 
+			/*
 			GStaticAssetManager.addFromUrl("assets/seaport/sails_rum.png", "sails_rum.pngq");
-			GStaticAssetManager.addFromUrl("assets/seaport/Abdul_Hamid.bytes");
-			GStaticAssetManager.addFromUrl("assets/seaport/Abdul_Hamid_TEXTURE.png", "Abdul_Hamid_TEXTURE.pngq");
 			GStaticAssetManager.addFromUrl("assets/seaport/Abrigada.bytes");
 			GStaticAssetManager.addFromUrl("assets/seaport/Abrigada_TEXTURE.png", "Abrigada_TEXTURE.pngq");
+			/**/
 
 			GStaticAssetManager.addFromUrl("assets/logo_white.png");
 			GStaticAssetManager.addFromUrl("assets/atlas.png");
