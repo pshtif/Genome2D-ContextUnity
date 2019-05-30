@@ -68,7 +68,7 @@ class G3DRenderer implements IGRenderer
 		nativeRenderer.lightDirection = new Vector3(lightDirection.x, lightDirection.y, lightDirection.z);
 		nativeRenderer.lightColor = new Color(lightColor.x, lightColor.y, lightColor.z);
 		nativeRenderer.ambientColor = new Color(ambientColor.x, ambientColor.y, ambientColor.z);
-		nativeRenderer.tintColor = new Color(tintColor.x, tintColor.y, tintColor.z);
+		nativeRenderer.tintColor = new Color(tintColor.x, tintColor.y, tintColor.z, tintColor.w);
 		nativeRenderer.Draw(texture.nativeTexture, modelMatrix.nativeMatrix, cameraMatrix.nativeMatrix);
     }
 	

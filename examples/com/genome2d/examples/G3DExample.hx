@@ -58,6 +58,7 @@ class G3DExample extends AbstractExample
 		for (i in 0...18) {
 			scene.lightDirection = new GFloat4(-1,-1,1,1);
 			scene.ambientColor = new GFloat4(.1,.1,.1,1);
+			scene.tintColor = new GFloat4(1,1,1,.1);
 
 			scene.getSceneMatrix().identity();
 			scene.getSceneMatrix().appendRotation(rotation, GVector3D.Z_AXIS);
