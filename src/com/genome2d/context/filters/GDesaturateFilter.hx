@@ -15,6 +15,6 @@ class GDesaturateFilter extends GFilter {
     public function new() {
         super();
 
-        material = new Material(Shader.Find("Genome2D/DesaturateShader"));
+        g2d_material = new Material(Shader.Find("Genome2D/DesaturateShader"));
     }
 }

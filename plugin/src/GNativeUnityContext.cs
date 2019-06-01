@@ -24,7 +24,7 @@ namespace Genome2DNativePlugin
         protected int _renderType = 1;
 
         protected Material _defaultMaterial;
-        protected Material _lastMaterial;
+        protected IGNativeUnityFilter _lastFilter;
         protected MonoBehaviour _wrapper;
         protected List<Mesh> _meshes;
         
@@ -103,14 +103,15 @@ namespace Genome2DNativePlugin
 
         public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
             float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,
-            float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, Material p_material)
+            float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, IGNativeUnityFilter p_filter)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastMaterial != p_material)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastFilter != p_filter)
             {
                 if (_lastTexture) FlushRenderer();
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = (p_material == null) ? _defaultMaterial : p_material;
-                _lastMaterial = p_material;
+                Material material = (p_filter == null) ? _defaultMaterial : p_filter.getMaterial();
+                _lastFilter = p_filter;
+                if (_lastFilter != null) _lastFilter.bind();
                 material.mainTexture = p_texture;
                 //material.SetTexture("_MainTex", p_texture);
                 _lastTexture = p_texture;
@@ -234,15 +235,15 @@ namespace Genome2DNativePlugin
         
         public void DrawMatrix(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
             float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,float p_vScale,
-            float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, Material p_material)
+            float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, IGNativeUnityFilter p_filter)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastMaterial != p_material)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastFilter != p_filter)
             {
                 if (_lastTexture) FlushRenderer();
-                
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = (p_material == null) ? _defaultMaterial : p_material;
-                _lastMaterial = p_material;
+                Material material = (p_filter == null) ? _defaultMaterial : p_filter.getMaterial();
+                _lastFilter = p_filter;
+                if (_lastFilter != null) _lastFilter.bind();
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
@@ -322,15 +323,16 @@ namespace Genome2DNativePlugin
         }
 
         public void DrawPoly(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
-            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, Material p_material)
+            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, IGNativeUnityFilter p_filter)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * MAX_BATCH_SIZE || _lastMaterial != p_material)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * MAX_BATCH_SIZE || _lastFilter != p_filter)
             {
                 if (_lastTexture) FlushRenderer();
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
-                Material material = (p_material == null) ? _defaultMaterial : p_material;
-                _lastMaterial = p_material;
+                Material material = (p_filter == null) ? _defaultMaterial : p_filter.getMaterial();
+                _lastFilter = p_filter;
+                if (_lastFilter != null) _lastFilter.bind();
                 material.mainTexture = p_texture;
                 _lastTexture = p_texture;
                 material.SetInt("BlendSrcMode", (int)p_srcBlendMode);
@@ -441,7 +443,7 @@ namespace Genome2DNativePlugin
                     mesh.colors = cc;
                 }
 
-                Material material = (_lastMaterial == null) ? _defaultMaterial : _lastMaterial;
+                Material material = (_lastFilter == null) ? _defaultMaterial : _lastFilter.getMaterial();
                 if (true) // _lastMaterialPass != material) Texture change not handled correctly as material is not changing but params are therefore set pass is neede -- sHTiF
                 {
                     material.SetPass(0);
@@ -456,7 +458,7 @@ namespace Genome2DNativePlugin
 
             _currentBatchIndex++;
             _meshes[_currentBatchIndex].Clear();
-            _lastMaterial = null;
+            _lastFilter = null;
             _lastTexture = null;
         }
         

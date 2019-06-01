@@ -9,15 +9,16 @@
 package com.genome2d.context.filters;
 
 import unityengine.*;
+import genome2dnativeplugin.*;
 import com.genome2d.textures.GTexture;
 
-class GFilter {
+class GFilter implements IGNativeUnityFilter {
     public var id:String;
     public var overrideFragmentShader:Bool = true; // Always true for JS as it doesn't support shader injecting jet
     public var fragmentCode:String = "";
     static private var g2d_count:Int = 0;
 
-    public var material:Material;
+    private var g2d_material:Material;
 
     private var g2d_fragmentConstants:Array<Float>;
 
@@ -25,7 +26,11 @@ class GFilter {
         id = untyped (g2d_count++)+"";
     }
 
-    public function bind(p_context:IGContext, p_renderer:IGRenderer, p_defaultTexture:GTexture):Void {
+    public function getMaterial() {
+        return g2d_material;
+    }
+
+    public function bind():Void {
 
     }
 

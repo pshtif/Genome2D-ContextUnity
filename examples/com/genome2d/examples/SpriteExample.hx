@@ -18,11 +18,15 @@ import com.genome2d.node.GNode;
 import com.genome2d.textures.GTextureManager;
 import com.genome2d.textures.GTexture;
 import com.genome2d.geom.GRectangle;
+import com.genome2d.context.filters.GDesaturateFilter;
+import com.genome2d.context.filters.GColorMatrixFilter;
 
 @:nativeGen
 class SpriteExample extends AbstractExample
 {
     private var test:GNode;
+    private var desaturateFilter:GDesaturateFilter;
+    private var colorMatrixFilter:GColorMatrixFilter;
     /**
         Initialize Example code
      **/
@@ -31,26 +35,19 @@ class SpriteExample extends AbstractExample
 		detail = "Sprite component is the most basic renderable component to render static and animated sprites.";
 		
         var sprite:GSprite;
-		
-        container.maskRect = new GRectangle(400,300,400,300);
-		// Create a sprite
-        sprite = createSprite(0, 0, "assets/atlas.png_0");
-        sprite = createSprite(800, 0, "assets/atlas.png_0");
-        sprite = createSprite(0, 600, "assets/atlas.png_0");
-        sprite = createSprite(800, 600, "assets/atlas.png_0");
 
-        var texture:GTexture = GTextureManager.getTexture("assets/texture.png");
-        test = new GNode();
-        sprite = createSprite(0, 0, "assets/texture.png");
-        test.addChild(sprite.node);
-        //sprite = createSprite(0, -200, "assets/texture.png");
-        //test.addChild(sprite.node);
-        container.addChild(test);
-        test.x = 400;
-        test.y = 300;
+
+        sprite = createSprite(100, 200, "assets/texture.png");
+        //sprite.filter = new GDesaturateFilter();
+        var cmf:GColorMatrixFilter = new GColorMatrixFilter();
+        var colorMatrix:Array<Single> = [0,0,0,0,0,
+                                         0,1,0,0,0,
+                                         0,0,1,0,0,
+                                         0,0,0,1,0];
+        cmf.setMatrix(colorMatrix);
+        sprite.filter = cmf;
         
-        getGenome().onUpdate.add(update_handler);
-        return;
+
 		// Create a sprite with scaling
         sprite = createSprite(300, 200, "assets/atlas.png_0");
         sprite.node.setScale(2,2);

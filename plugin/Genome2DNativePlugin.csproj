@@ -55,6 +55,7 @@
     <Compile Include="src\GNativeUnityImageAsset.cs" />
     <Compile Include="src\GNativeUnityContext.cs" />
     <Compile Include="src\GNativeUnityAsset.cs" />
+    <Compile Include="src\IGNativeUnityFilter.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

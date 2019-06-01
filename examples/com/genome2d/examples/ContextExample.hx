@@ -51,6 +51,7 @@ class ContextExample extends AbstractExample
 		getGenome().getContext().setRenderTarget(null);
 
 		getGenome().onPreRender.remove(preRender_handler);
+		getGenome().onUpdate.add(onUpdate);
 	}
 
 	// Post render is called after Genome2D nodegraph has been rendered and before stats render and present is called
@@ -64,5 +65,9 @@ class ContextExample extends AbstractExample
 
 		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 700, 300, 1, 1, 0, 1, 1, 1, 1, null);
 		//getGenome().autoUpdateAndRender = false;
+	}
+
+	private function onUpdate(p_delta:Float):Void {
+		GDebug.info("here",p_delta);
 	}
 }
