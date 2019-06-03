@@ -9,13 +9,14 @@
 package com.genome2d.context.filters;
 
 import unityengine.*;
+import com.genome2d.geom.GFloat;
 import com.genome2d.textures.GTexture;
 
 class GColorMatrixFilter extends GFilter {
 
-    private var _colorMatrix:Array<Single>;
+    private var _colorMatrix:Array<GFloat>;
 
-    public function setMatrix(p_matrix:Array<Single>):Void {
+    public function setMatrix(p_matrix:Array<GFloat>):Void {
         p_matrix[4] /= 255;
         p_matrix[9] /= 255;
         p_matrix[14] /= 255;
