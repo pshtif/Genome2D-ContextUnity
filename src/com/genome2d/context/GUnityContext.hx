@@ -298,6 +298,8 @@ class GUnityContext implements IGContext {
 		return null;
 	}
     public function setRenderTarget(p_texture:GTexture = null, p_transform:GMatrix3D = null, p_clear:Bool = false):Void {
+        if (p_transform != null) MGDebug.WARNING("Transform on render target not supported yet.");
+
         if (p_texture != g2d_renderTarget) {
             flushRenderer();
         }
@@ -309,6 +311,10 @@ class GUnityContext implements IGContext {
         } else {
             Graphics.SetRenderTarget(cast (p_texture.nativeTexture, RenderTexture));
 
+            if (p_clear) {
+                GL.Clear(true, true, Color.clear);
+            }
+
             g2d_projectionMatrix = new GProjectionMatrix();
             g2d_projectionMatrix.orthoRtt(p_texture.nativeWidth, p_texture.nativeHeight);
             GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
@@ -316,6 +322,7 @@ class GUnityContext implements IGContext {
 
         g2d_renderTarget = p_texture;
     }
+
     public function setRenderTargets(p_textures:Array<GTexture>, p_transform:GMatrix3D = null, p_clear:Bool = false):Void {}
 
 	private function gotFocus():Void {
