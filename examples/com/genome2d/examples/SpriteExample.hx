@@ -18,6 +18,7 @@ import com.genome2d.node.GNode;
 import com.genome2d.textures.GTextureManager;
 import com.genome2d.textures.GTexture;
 import com.genome2d.geom.GRectangle;
+import com.genome2d.geom.GFloat;
 import com.genome2d.context.filters.GDesaturateFilter;
 import com.genome2d.context.filters.GColorMatrixFilter;
 
@@ -40,7 +41,7 @@ class SpriteExample extends AbstractExample
         sprite = createSprite(100, 200, "assets/texture.png");
         //sprite.filter = new GDesaturateFilter();
         var cmf:GColorMatrixFilter = new GColorMatrixFilter();
-        var colorMatrix:Array<Single> = [0,0,0,0,0,
+        var colorMatrix:Array<GFloat> = [0,0,0,0,0,
                                          0,1,0,0,0,
                                          0,0,1,0,0,
                                          0,0,0,1,0];
