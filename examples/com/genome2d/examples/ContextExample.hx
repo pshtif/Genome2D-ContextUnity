@@ -11,6 +11,7 @@ package com.genome2d.examples;
 import com.genome2d.context.GBlendMode;
 import com.genome2d.examples.AbstractExample;
 import com.genome2d.textures.GTexture;
+import com.genome2d.geom.GRectangle;
 import com.genome2d.textures.GTextureManager;
 import com.genome2d.debug.GDebug;
 
@@ -44,6 +45,8 @@ class ContextExample extends AbstractExample
 
 		var rt2:GTexture = GTextureManager.createRenderTexture("rt2", 200, 200);
 
+		GTextureManager.createSubTexture("sub", rt2, new GRectangle(0,0,200,200), null, false);
+
 		getGenome().getContext().setRenderTarget(rt2);
 
 		getGenome().getContext().draw(rt, GBlendMode.NORMAL, 100, 100, 1, 1, 0, 1, 1, 1, 1, null);
@@ -63,7 +66,11 @@ class ContextExample extends AbstractExample
 
 		var texture:GTexture = GTextureManager.getTexture("rt2");
 
-		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 700, 300, 1, 1, 0, 1, 1, 1, 1, null);
+		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 550, 300, 1, 1, 0, 1, 1, 1, 1, null);
+
+		var texture:GTexture = GTextureManager.getTexture("sub");
+
+		getGenome().getContext().draw(texture, GBlendMode.NORMAL, 800, 300, 1, 1, 0, 1, 1, 1, 1, null);
 		//getGenome().autoUpdateAndRender = false;
 	}
 

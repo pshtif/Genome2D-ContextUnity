@@ -62,6 +62,8 @@ class GTexture extends GTextureBase
     public function invalidateNativeTexture(p_reinitialize:Bool):Void {
 		if (g2d_sourceType == GTextureSourceType.RENDER_TARGET) {
 			if (g2d_nativeTexture == null || g2d_nativeTexture.width != g2d_nativeWidth || g2d_nativeTexture.height != g2d_nativeHeight) {
+				g2d_gpuWidth = g2d_nativeWidth;
+				g2d_gpuHeight = g2d_nativeHeight;
 				g2d_nativeTexture = new RenderTexture(g2d_nativeWidth, g2d_nativeHeight, 16);
 			}
 		}
