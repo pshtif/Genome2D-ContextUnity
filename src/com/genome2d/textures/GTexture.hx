@@ -72,7 +72,8 @@ class GTexture extends GTextureBase
 	}
 
 	override public function dispose(p_disposeSource:Bool = false):Void {
-		Object.DestroyImmediate(g2d_nativeTexture);
+		if (g2d_sourceType != GTextureSourceType.TEXTURE && g2d_nativeTexture != null) Object.DestroyImmediate(g2d_nativeTexture);
+
 		/*
 		if (g2d_sourceType == GTextureSourceType.RENDER_TARGET) {
 			cast (g2d_nativeTexture, RenderTexture).Release();
