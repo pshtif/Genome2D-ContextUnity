@@ -33,12 +33,12 @@ class G3DExample extends AbstractExample
 		detail = "Example showcasing 3D rendering capabilities inside Genome2D using custom overridable and extendable renderer.";
 
 		//scene = G3DFactory.createPlane(100, 100, GTextureManager.getTexture("assets/texture.png"));
-		//scene = G3DFactory.createBox(100, 100, 100, GTextureManager.getTexture("assets/texture.png"));
+		scene = G3DFactory.createBox(100, 100, 100, GTextureManager.getTexture("assets/texture.png"));
 
-		var importer:G3DImporter = new G3DImporter(true);
+		//var importer:G3DImporter = new G3DImporter(true);
 		//var asset:GBinaryAsset = GStaticAssetManager.getBinaryAssetById("assets/seaport/Abdul_Hamid.bytes");
-		var asset:GBinaryAsset = GStaticAssetManager.getBinaryAssetById("assets/seaport/Abrigada.bytes");
-		scene = importer.importScene(asset.data);
+		//var asset:GBinaryAsset = GStaticAssetManager.getBinaryAssetById("assets/seaport/Abrigada.bytes");
+		//scene = importer.importScene(asset.data);
 
 
 		scene.invalidate();
