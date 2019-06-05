@@ -15,7 +15,7 @@ class GProjectionMatrix extends GMatrix3D
     static public var FAR:Int = 4000;
 	static private var g2d_instance:GProjectionMatrix;
 
-    public function new(p_raw:Array<Float> = null) {
+    public function new() {
 		super([2.0 , 0.0  , 0.0           , 0.0,
                0.0 , -2.0 , 0.0           , 0.0,
                0.0 , 0.0  , 1/(FAR-NEAR)  , -NEAR/(FAR-NEAR),
