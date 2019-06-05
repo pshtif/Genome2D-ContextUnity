@@ -150,7 +150,7 @@ class GUnityContext implements IGContext {
 
 		g2d_nativeStage = p_config.nativeStage;
 		g2d_stageViewRect = p_config.viewRect;
-        g2d_activeViewRect = new GRectangle();
+        g2d_activeViewRect = new GRectangle(0, 0, 0, 0);
 
 		g2d_defaultCamera = new GCamera(this);
         g2d_defaultCamera.x = g2d_stageViewRect.width / 2;
