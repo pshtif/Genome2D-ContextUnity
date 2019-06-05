@@ -397,6 +397,62 @@ namespace Genome2DNativePlugin
                 _polyIndex++;
             }
         }
+        
+        private Dictionary<int, Vector3[]> _vector3Pool = new Dictionary<int, Vector3[]>();
+
+        private Vector3[] getVector3FromPool(int p_size)
+        {   
+            Vector3[] result;
+            
+            if (!_vector3Pool.TryGetValue(p_size, out result)) {
+                result = new Vector3[p_size];
+                _vector3Pool.Add(p_size, result);
+            }
+            
+            return result;
+        }
+        
+        private Dictionary<int, Vector2[]> _vector2Pool = new Dictionary<int, Vector2[]>();
+
+        private Vector2[] getVector2FromPool(int p_size)
+        {   
+            Vector2[] result;
+            
+            if (!_vector2Pool.TryGetValue(p_size, out result)) {
+                result = new Vector2[p_size];
+                _vector2Pool.Add(p_size, result);
+            }
+            
+            return result;
+        }
+        
+        private Dictionary<int, int[]> _intPool = new Dictionary<int, int[]>();
+
+        private int[] getIntFromPool(int p_size)
+        {   
+            int[] result;
+            
+            if (!_intPool.TryGetValue(p_size, out result)) {
+                result = new int[p_size];
+                _intPool.Add(p_size, result);
+            }
+            
+            return result;
+        }
+        
+        private Dictionary<int, Color[]> _colorPool = new Dictionary<int, Color[]>();
+
+        private Color[] getColorFromPool(int p_size)
+        {   
+            Color[] result;
+            
+            if (!_colorPool.TryGetValue(p_size, out result)) {
+                result = new Color[p_size];
+                _colorPool.Add(p_size, result);
+            }
+            
+            return result;
+        }
 
         public void FlushRenderer()
         {
@@ -408,37 +464,37 @@ namespace Genome2DNativePlugin
 
                 if (_renderType == 1)
                 {
-                    Vector3[] cv = new Vector3[_quadIndex * 4];
+                    Vector3[] cv = getVector3FromPool(_quadIndex * 4);
                     Array.Copy(_vertices, 0, cv, 0, _quadIndex * 4);
                     mesh.vertices = cv;
 
-                    int[] ci = new int[_quadIndex * 6];
+                    int[] ci = getIntFromPool(_quadIndex * 6);
                     Array.Copy(_quadIndices, 0, ci, 0, _quadIndex * 6);
                     mesh.triangles = ci;
 
-                    Vector2[] cu = new Vector2[_quadIndex * 4];
+                    Vector2[] cu = getVector2FromPool(_quadIndex * 4);
                     Array.Copy(_uvs, 0, cu, 0, _quadIndex * 4);
                     mesh.uv = cu;
 
-                    Color[] cc = new Color[_quadIndex * 4];
+                    Color[] cc = getColorFromPool(_quadIndex * 4);
                     Array.Copy(_colors, 0, cc, 0, _quadIndex * 4);
                     mesh.colors = cc;
                 }
                 else
                 {
-                    Vector3[] cv = new Vector3[_polyIndex];
+                    Vector3[] cv = getVector3FromPool(_polyIndex);
                     Array.Copy(_vertices, 0, cv, 0, _polyIndex);
                     mesh.vertices = cv;
 
-                    int[] ci = new int[_polyIndex];
+                    int[] ci = getIntFromPool(_polyIndex);
                     Array.Copy(_polyIndices, 0, ci, 0, _polyIndex);
                     mesh.triangles = ci;
 
-                    Vector2[] cu = new Vector2[_polyIndex];
+                    Vector2[] cu = getVector2FromPool(_polyIndex);
                     Array.Copy(_uvs, 0, cu, 0, _polyIndex);
                     mesh.uv = cu;
 
-                    Color[] cc = new Color[_polyIndex];
+                    Color[] cc = getColorFromPool(_polyIndex);
                     Array.Copy(_colors, 0, cc, 0, _polyIndex);
                     mesh.colors = cc;
                 }
