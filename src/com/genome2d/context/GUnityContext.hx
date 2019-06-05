@@ -219,7 +219,7 @@ class GUnityContext implements IGContext {
         input.ctrlKey = false;
         input.altKey = false;
         input.shiftKey = false;
-        input.delta = 0; // Need to add support for wheel later
+        input.delta = Std.int(Input.mouseScrollDelta.y);
 		input.nativeCaptured = false;
 
         onMouseInput.dispatch(input);
