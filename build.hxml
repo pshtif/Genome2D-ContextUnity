@@ -11,7 +11,7 @@
 -cp src
 
 # Include examples
--cp examples
+-cp ../Genome2D-Examples/src
 
 # Cross
 -net-lib TestBed\Assets\Plugins\Genome2D\Genome2DNativePlugin.dll
