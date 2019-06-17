@@ -10,9 +10,11 @@
 package com.genome2d.filesystem;
 
 import cs.system.io.Directory;
+import cs.system.io.File;
 import sys.FileSystem;
 import unityengine.Application;
-import unityengine.ios.Device;
+import unityengine.RuntimePlatform;
+import unityengine.WWW;
 
 class GFileSystem {
 
@@ -41,7 +43,27 @@ class GFileSystem {
 
     private static function get_applicationDirectory():String
     {
-        return Application.dataPath;
+        if (Application.platform == RuntimePlatform.Android) {
+            return Application.temporaryCachePath + "/StreamingAssets/";
+        }
+
+        return Application.streamingAssetsPath;
+    }
+
+    public static function prepareApplicationDirectory(p_files:Array<String>):Void
+    {
+        if (Application.platform != RuntimePlatform.Android) {
+            return;
+        }
+
+        for (file in p_files) {
+            var www:WWW = new WWW(Application.streamingAssetsPath + "/" + file);
+            while (!www.isDone) {
+
+            }
+            GFileSystem.createDirectory(getParent(applicationDirectory + "/" + file));
+            File.WriteAllBytes(applicationDirectory + "/" + file, www.bytes);
+        }
     }
 
     public static function isDirectory(p_path:String):Bool
@@ -64,14 +86,13 @@ class GFileSystem {
         FileSystem.deleteFile(p_path);
     }
 
+    @:functionCode("
+    #if UNITY_IOS
+        if (p_value) { unityengine.ios.Device.SetNoBackupFlag(p_path); } else { unityengine.ios.Device.ResetNoBackupFlag(p_path); }
+    #endif
+    ")
     public static function preventBackup(p_path:String, p_value:Bool):Void
-    {
-        if (p_value) {
-            Device.SetNoBackupFlag(p_path);
-        } else {
-            Device.ResetNoBackupFlag(p_path);
-        }
-    }
+    { }
 
     public static function hasTrailingSlash(p_path:String):Bool
     {
