@@ -5,8 +5,8 @@
 
 --next
 
-# Disable to avoid using completion server and cache
---connect 6000
+# Enable this to use completion server and cache
+#--connect 6000
 
 -cp ../Genome2D-ContextCommon/src
 -cp ../Genome2D-Core/src
