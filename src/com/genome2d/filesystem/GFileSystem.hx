@@ -88,7 +88,7 @@ class GFileSystem {
 
     @:functionCode("
     #if UNITY_IOS
-        if (p_value) { unityengine.ios.Device.SetNoBackupFlag(p_path); } else { unityengine.ios.Device.ResetNoBackupFlag(p_path); }
+        if (p_value) { UnityEngine.iOS.Device.SetNoBackupFlag(p_path); } else { UnityEngine.iOS.Device.ResetNoBackupFlag(p_path); }
     #endif
     ")
     public static function preventBackup(p_path:String, p_value:Bool):Void
