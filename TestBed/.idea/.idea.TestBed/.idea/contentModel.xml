@@ -145,6 +145,10 @@
                 </e>
                 <e p="callbacks" t="Include">
                   <e p="GCallback.cs" t="Include" />
+                  <e p="GCallback0.cs" t="Include" />
+                  <e p="GCallback1.cs" t="Include" />
+                  <e p="GCallback2.cs" t="Include" />
+                  <e p="GCallback3.cs" t="Include" />
                 </e>
                 <e p="components" t="Include">
                   <e p="GAnimator.cs" t="Include" />
@@ -233,13 +237,16 @@
                   <e p="CameraExample.cs" t="Include" />
                   <e p="ContextExample.cs" t="Include" />
                   <e p="custom" t="Include">
-                    <e p="CustomModule.cs" t="Include" />
-                    <e p="CustomSPHModule.cs" t="Include" />
+                    <e p="CustomComponent.cs" t="Include" />
+                    <e p="GEMoveGizmo.cs" t="Include" />
+                    <e p="ParticleModule.cs" t="Include" />
                   </e>
+                  <e p="ExampleWrapper.cs" t="Include" />
                   <e p="G3DExample.cs" t="Include" />
                   <e p="MouseExample.cs" t="Include" />
                   <e p="ParticlesExample.cs" t="Include" />
                   <e p="PhysicsExample.cs" t="Include" />
+                  <e p="ScriptExample.cs" t="Include" />
                   <e p="ShapeExample.cs" t="Include" />
                   <e p="SimpleParticlesExample.cs" t="Include" />
                   <e p="SliceSpriteExample.cs" t="Include" />
@@ -248,7 +255,7 @@
                   <e p="TextureTextExample.cs" t="Include" />
                   <e p="TweenExample.cs" t="Include" />
                   <e p="UIExample.cs" t="Include" />
-                  <e p="UnityTestProject.cs" t="Include" />
+                  <e p="UIRenderTargetExample.cs" t="Include" />
                 </e>
                 <e p="fbx" t="Include">
                   <e p="GFbxGeometry.cs" t="Include" />
@@ -260,6 +267,11 @@
                   <e p="GFbxScene.cs" t="Include" />
                   <e p="GFbxTexture.cs" t="Include" />
                   <e p="GFbxTools.cs" t="Include" />
+                </e>
+                <e p="filesystem" t="Include">
+                  <e p="GFileInput.cs" t="Include" />
+                  <e p="GFileOutput.cs" t="Include" />
+                  <e p="GFileSystem.cs" t="Include" />
                 </e>
                 <e p="g3d" t="Include">
                   <e p="G3DFactory.cs" t="Include" />
@@ -467,6 +479,10 @@
                 <e p="Runtime.cs" t="Include" />
                 <e p="StringExt.cs" t="Include" />
               </e>
+              <e p="io" t="Include">
+                <e p="NativeInput.cs" t="Include" />
+                <e p="NativeOutput.cs" t="Include" />
+              </e>
               <e p="Lib.cs" t="Include" />
             </e>
             <e p="Date.cs" t="Include" />
@@ -593,6 +609,15 @@
             <e p="Std.cs" t="Include" />
             <e p="StringBuf.cs" t="Include" />
             <e p="StringTools.cs" t="Include" />
+            <e p="sys" t="Include">
+              <e p="FileSystem.cs" t="Include" />
+              <e p="io" t="Include">
+                <e p="File.cs" t="Include" />
+                <e p="FileInput.cs" t="Include" />
+                <e p="FileOutput.cs" t="Include" />
+                <e p="FileSeek.cs" t="Include" />
+              </e>
+            </e>
             <e p="Sys.cs" t="Include" />
             <e p="Type.cs" t="Include" />
             <e p="Xml.cs" t="Include" />
@@ -613,6 +638,7 @@
           </e>
           <e p="Shaders" t="Include">
             <e p="3DShader.shader" t="Include" />
+            <e p="ColorMatrixShader.shader" t="Include" />
             <e p="DesaturateShader.shader" t="Include" />
             <e p="UnlitShader.shader" t="Include" />
           </e>
