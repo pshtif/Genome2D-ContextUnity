@@ -104,7 +104,7 @@ class GUnityContext implements IGContext {
                 g2d_projectionMatrix.prependTranslation(-g2d_activeMaskRect.x+g2d_defaultCamera.x-g2d_activeCamera.x*g2d_activeCamera.scaleX, -g2d_activeMaskRect.y+g2d_defaultCamera.y-g2d_activeCamera.y*g2d_activeCamera.scaleX, 0);
                 g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
 
-                GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);            
+                GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);            
 
                 // TODO need to test as it's inverted in Unity
                 GL.Viewport(new Rect(g2d_activeMaskRect.x, g2d_activeViewRect.height-g2d_activeMaskRect.y-g2d_activeMaskRect.height, g2d_activeMaskRect.width, g2d_activeMaskRect.height));
@@ -136,7 +136,7 @@ class GUnityContext implements IGContext {
         g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
         g2d_projectionMatrix.prependTranslation(-g2d_activeCamera.x, -g2d_activeCamera.y, 0);
 
-        GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
+        GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);
         GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
 
 		return true;
@@ -317,7 +317,7 @@ class GUnityContext implements IGContext {
 
             g2d_projectionMatrix = new GProjectionMatrix();
             g2d_projectionMatrix.orthoRtt(p_texture.nativeWidth, p_texture.nativeHeight);
-            GL.LoadProjectionMatrix(g2d_projectionMatrix.nativeMatrix);
+            GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);
         }
 
         g2d_renderTarget = p_texture;

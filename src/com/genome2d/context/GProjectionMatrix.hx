@@ -29,8 +29,8 @@ class GProjectionMatrix extends GMatrix3D
     }
 
     public function ortho(p_width:Float, p_height:Float, p_transform:GMatrix3D = null):GProjectionMatrix {
-        nativeMatrix[0] = 2 / p_width;
-        nativeMatrix[5] = -2 / p_height;
+        rawData[0] = 2 / p_width;
+        rawData[5] = -2 / p_height;
 
         if (p_transform != null) this.prepend(p_transform);
 
@@ -39,8 +39,8 @@ class GProjectionMatrix extends GMatrix3D
 	
 	// Render to texture needs different ortho matrix?!?
 	public function orthoRtt(p_width:Float, p_height:Float, p_transform:GMatrix3D = null):GProjectionMatrix {
-        nativeMatrix[0] = 2 / p_width;
-        nativeMatrix[5] = -2 / p_height;
+        rawData[0] = 2 / p_width;
+        rawData[5] = -2 / p_height;
 
         //nativeMatrix[12] = -1;
 		//nativeMatrix[13] = -1;
