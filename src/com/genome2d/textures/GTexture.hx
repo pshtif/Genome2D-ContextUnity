@@ -70,7 +70,16 @@ class GTexture extends GTextureBase
     }
 
 	override public function getAlphaAtUV(p_u:Float, p_v:Float):Int {
-        return 0;
+		var alpha:Int = 0;
+		
+        var texture2d:Texture2D = cast g2d_nativeTexture;
+        if( texture2d != null ) {
+
+            var color:Color = texture2d.GetPixel(Std.int(p_u * g2d_nativeTexture.width),Std.int(p_v * g2d_nativeTexture.height));
+            alpha = Std.int(color.a * 255);
+        }
+
+        return alpha;
 	}
 
 	override public function dispose(p_disposeSource:Bool = false):Void {
