@@ -20,8 +20,8 @@
 -net-lib TestBed\Assets\Plugins\Genome2D\Genome2DNativePlugin.dll
 
 # PC
--net-lib c:\Program Files\Unity\Hub\Editor\2019.1.8f1\Editor\Data\Managed\UnityEngine.dll
--net-lib c:\Program Files\Unity\Hub\Editor\2019.1.8f1\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll
+-net-lib c:\Program Files\Unity\Hub\Editor\2019.1.12f1\Editor\Data\Managed\UnityEngine.dll
+-net-lib c:\Program Files\Unity\Hub\Editor\2019.1.12f1\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll
 
 # Mac
 # -net-lib /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll 

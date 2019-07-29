@@ -145,10 +145,6 @@
                 </e>
                 <e p="callbacks" t="Include">
                   <e p="GCallback.cs" t="Include" />
-                  <e p="GCallback0.cs" t="Include" />
-                  <e p="GCallback1.cs" t="Include" />
-                  <e p="GCallback2.cs" t="Include" />
-                  <e p="GCallback3.cs" t="Include" />
                 </e>
                 <e p="components" t="Include">
                   <e p="GAnimator.cs" t="Include" />
