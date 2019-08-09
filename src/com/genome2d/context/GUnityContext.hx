@@ -275,7 +275,9 @@ class GUnityContext implements IGContext {
     }
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}
-    public function setRenderer(p_renderer:IGRenderer):Void {}
+    public function setRenderer(p_renderer:IGRenderer):Void {
+        flushRenderer();
+    }
 
 	public function flushRenderer():Void {
         g2d_nativeContext.FlushRenderer();
