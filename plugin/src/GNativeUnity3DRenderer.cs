@@ -32,8 +32,6 @@ namespace Genome2DNativePlugin
             _colors = new Color[size];
             _indices = new int[p_indices.Length];
 
-            Debug.Log(p_vertices.Length + " , " + p_uvs.Length + " , " + p_normals.Length);
-
             //String vertexDebug = "";
             //String uvDebug = "";
             //String normalDebug = "";

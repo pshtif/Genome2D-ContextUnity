@@ -20,6 +20,7 @@ namespace Genome2DNativePlugin
     public class GNativeUnityContext
     {
         public const int MAX_BATCH_SIZE = 10000;
+        // @deprecated removed in next updates
         public const int MESH_COUNT = 1;
 
         protected int _renderType = 1;
