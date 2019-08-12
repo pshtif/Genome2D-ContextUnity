@@ -20,6 +20,7 @@ namespace Genome2DNativePlugin
     public class GNativeUnityContext
     {
         public const int MAX_BATCH_SIZE = 10000;
+        public const int MESH_COUNT = 1;
 
         protected int _renderType = 1;
 
@@ -79,7 +80,7 @@ namespace Genome2DNativePlugin
                 _colors[i * 4 + 3] = new Color32(1, 1, 1, 1);
             }
             
-            for (int mi = 0; mi < 200; mi++)
+            for (int mi = 0; mi < MESH_COUNT ; mi++)
             {
                 Mesh mesh = new Mesh();
                 mesh.MarkDynamic();
@@ -513,6 +514,7 @@ namespace Genome2DNativePlugin
             }
 
             _currentBatchIndex++;
+            if (_currentBatchIndex >= MESH_COUNT) _currentBatchIndex = 0;
             _meshes[_currentBatchIndex].Clear();
             _lastFilter = null;
             _lastTexture = null;
