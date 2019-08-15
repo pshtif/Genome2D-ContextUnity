@@ -50,13 +50,16 @@ class GFileSystem {
         return Application.streamingAssetsPath;
     }
 
-    public static function prepareApplicationDirectory(p_files:Array<String>):Void
+    public static function prepareApplicationDirectory(p_files:Array<String>, p_skipExistingFiles:Bool):Void
     {
         if (Application.platform != RuntimePlatform.Android) {
             return;
         }
 
         for (file in p_files) {
+            if (p_skipExistingFiles && exists(applicationDirectory + "/" + file)) {
+                continue;
+            }
             var www:WWW = new WWW(Application.streamingAssetsPath + "/" + file);
             while (!www.isDone) {
 
