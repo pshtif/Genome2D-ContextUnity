@@ -196,21 +196,22 @@ class GUnityContext implements IGContext {
     private var g2d_lastMouseY:Float;
 
     private function g2d_mouse_handler(p_type:String, p_buttonDown:Bool):Void {
+        var position:{x:Single, y:Single} = (Input.touchCount > 0) ? Input.GetTouch(0).position : Input.mousePosition;
         // Since we are sending mouse move per update call it's not always moving
         if (p_type == GMouseInputType.MOUSE_MOVE) {
             if (!g2d_mouseInitialized) {
                 g2d_mouseInitialized = true;
             } else {
-                if (g2d_lastMouseX == Input.mousePosition.x && g2d_lastMouseY == Input.mousePosition.y) {
+                if (g2d_lastMouseX == position.x && g2d_lastMouseY == position.y) {
                     return;
                 }
             }
-            g2d_lastMouseX = Input.mousePosition.x;
-            g2d_lastMouseY = Input.mousePosition.y;
+            g2d_lastMouseX = position.x;
+            g2d_lastMouseY = position.y;
         }
 
-        var mx:Float = Input.mousePosition.x - g2d_stageViewRect.x;
-        var my:Float = Screen.height - Input.mousePosition.y - g2d_stageViewRect.y;
+        var mx:Float = position.x - g2d_stageViewRect.x;
+        var my:Float = Screen.height - position.y - g2d_stageViewRect.y;
 
         var input:GMouseInput = new GMouseInput(this, this, p_type, mx, my);
 		input.worldX = input.contextX = mx;
