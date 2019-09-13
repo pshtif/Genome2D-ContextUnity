@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -49,6 +50,14 @@ namespace Genome2DNativePlugin
             }
             
             _wrapper.StartCoroutine(SendRequest(UnityWebRequest.Post(GetUrlWithQueryParams(p_url, p_queryParams), form), p_headers));
+        }
+        
+        public void SendRawPostRequest(string p_url, string[][] p_headers, string[][] p_queryParams, string p_data)
+        {
+            UnityWebRequest request = new UnityWebRequest(GetUrlWithQueryParams(p_url, p_queryParams), "POST");
+            request.uploadHandler = (UploadHandler) new UploadHandlerRaw(Encoding.UTF8.GetBytes(p_data));
+            request.downloadHandler = (DownloadHandler) new DownloadHandlerBuffer();
+            _wrapper.StartCoroutine(SendRequest(request, p_headers));
         }
         
         public string ResponseText
