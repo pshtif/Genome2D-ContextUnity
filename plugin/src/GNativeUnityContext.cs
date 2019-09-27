@@ -399,7 +399,7 @@ namespace Genome2DNativePlugin
                 _polyIndex++;
             }
         }
-        
+        /*
         private Dictionary<int, Vector3[]> _vector3Pool = new Dictionary<int, Vector3[]>();
 
         private Vector3[] getVector3FromPool(int p_size)
@@ -455,7 +455,7 @@ namespace Genome2DNativePlugin
             
             return result;
         }
-
+        /* */
         public void FlushRenderer()
         {
             if (_quadIndex > 0 || _polyIndex > 0)
@@ -466,6 +466,7 @@ namespace Genome2DNativePlugin
 
                 if (_renderType == 1)
                 {
+                    /*
                     Vector3[] cv = getVector3FromPool(_quadIndex * 4);
                     Array.Copy(_vertices, 0, cv, 0, _quadIndex * 4);
                     mesh.vertices = cv;
@@ -481,9 +482,15 @@ namespace Genome2DNativePlugin
                     Color[] cc = getColorFromPool(_quadIndex * 4);
                     Array.Copy(_colors, 0, cc, 0, _quadIndex * 4);
                     mesh.colors = cc;
+                    /* */
+                    mesh.SetVertices(_vertices, 0, _quadIndex * 4);
+                    mesh.SetTriangles(_quadIndices, 0, _quadIndex * 6, 0, false, 0);
+                    mesh.SetUVs(0, _uvs, 0, _quadIndex * 4);
+                    mesh.SetColors(_colors, 0, _quadIndex * 4);
                 }
                 else
                 {
+                    /*
                     Vector3[] cv = getVector3FromPool(_polyIndex);
                     Array.Copy(_vertices, 0, cv, 0, _polyIndex);
                     mesh.vertices = cv;
@@ -499,6 +506,11 @@ namespace Genome2DNativePlugin
                     Color[] cc = getColorFromPool(_polyIndex);
                     Array.Copy(_colors, 0, cc, 0, _polyIndex);
                     mesh.colors = cc;
+                    /**/
+                    mesh.SetVertices(_vertices, 0, _polyIndex);
+                    mesh.SetTriangles(_polyIndices, 0, _polyIndex, 0, false, 0);
+                    mesh.SetUVs(0, _uvs, 0, _polyIndex * 4);
+                    mesh.SetColors(_colors, 0, _polyIndex * 4);
                 }
 
                 Material material = (_lastFilter == null) ? _defaultMaterial : _lastFilter.getMaterial();
