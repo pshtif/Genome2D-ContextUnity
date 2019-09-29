@@ -509,8 +509,8 @@ namespace Genome2DNativePlugin
                     /**/
                     mesh.SetVertices(_vertices, 0, _polyIndex);
                     mesh.SetTriangles(_polyIndices, 0, _polyIndex, 0, false, 0);
-                    mesh.SetUVs(0, _uvs, 0, _polyIndex * 4);
-                    mesh.SetColors(_colors, 0, _polyIndex * 4);
+                    mesh.SetUVs(0, _uvs, 0, _polyIndex);
+                    mesh.SetColors(_colors, 0, _polyIndex);
                 }
 
                 Material material = (_lastFilter == null) ? _defaultMaterial : _lastFilter.getMaterial();
