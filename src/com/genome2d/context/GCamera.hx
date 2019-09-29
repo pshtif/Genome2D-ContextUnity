@@ -54,6 +54,7 @@ class GCamera
 
         if (_nativeCamera == null) {
             var gameObject:GameObject = p_context.getNativeStage().gameObject;
+            /**/
             _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
 
             // Clear nothing Genome2D will handle direct GL call
@@ -64,16 +65,6 @@ class GCamera
             _nativeCamera.allowMSAA = false;
             _nativeCamera.useOcclusionCulling = false;
             _nativeCamera.worldToCameraMatrix = Matrix4x4.identity;
-
-            /* Removed as all this is now handled by Genome2D context overriding the projection matrix directly
-            /* All cameras inside Genome2D are now actually rendered through single Unity camera
-
-            var aspectRatio:Float = Screen.height/p_context.getStageViewRect().height;
-            _nativeCamera.orthographic = true;
-            _nativeCamera.orthographicSize = p_context.getStageViewRect().height/2;
-            _nativeCamera.gameObject.transform.position = new Vector3(Screen.width/(2*aspectRatio), p_context.getStageViewRect().height/2,1);
-            _nativeCamera.gameObject.transform.Rotate(0,180,180);
-            /**/
         }
     }
 }

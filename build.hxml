@@ -19,10 +19,12 @@
 # Cross
 -net-lib TestBed\Assets\Plugins\Genome2D\Genome2DNativePlugin.dll
 
+-net-lib plugin\lib\UnityEngine.dll
+-net-lib plugin\lib\UnityEngine.UI.dll
 # PC
--net-lib c:\Program Files\Unity\Hub\Editor\2019.3.0b4\Editor\Data\Managed\UnityEngine.dll
+#-net-lib c:\Program Files\Unity\Hub\Editor\2019.3.0b4\Editor\Data\Managed\UnityEngine.dll
 #-net-lib c:\Program Files\Unity\Hub\Editor\2019.3.0b4\Editor\Data\UnityExtensions\Unity\GUISystem\UnityEngine.UI.dll
--net-lib c:\Program Files\Unity\Hub\Editor\2019.3.0b4\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.universal-7.0.1\ScriptAssemblies\UnityEngine.UI.dll
+#-net-lib c:\Program Files\Unity\Hub\Editor\2019.3.0b4\Editor\Data\Resources\PackageManager\ProjectTemplates\libcache\com.unity.template.universal-7.0.1\ScriptAssemblies\UnityEngine.UI.dll
 
 # Mac
 # -net-lib /Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll 

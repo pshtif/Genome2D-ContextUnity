@@ -171,7 +171,7 @@ class GUnityContext implements IGContext {
     public function init():Void {
         g2d_currentTime = Date.now().getTime();
 
-        g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage);
+        g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage, g2d_enterFrame_handler);
         g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
         g2d_nativeStage.onMouse.add(g2d_mouse_handler);
 		onInitialized.dispatch();

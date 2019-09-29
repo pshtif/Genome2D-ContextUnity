@@ -18,7 +18,21 @@ using Object = UnityEngine.Object;
 namespace Genome2DNativePlugin
 {
     public class GNativeUnityContext
-    {
+    {   
+        /* URP preparation
+        static GNativeUnityContext _instance;
+
+        [RuntimeInitializeOnLoadMethod]
+        static void OnProjectLoaded()
+        {
+            Debug.Log("After Scene is loaded and game is running");
+            Application.quitting += Quit;
+        }
+
+        static void Quit() {
+            RenderPipelineManager.beginFrameRendering -= _instance.OnRender;
+        }
+        /* */
         public const int MAX_BATCH_SIZE = 10000;
         // @deprecated removed in next updates
         public const int MESH_COUNT = 1;
@@ -45,7 +59,9 @@ namespace Genome2DNativePlugin
         protected BlendMode _lastSrcBlendMode;
         protected BlendMode _lastDstBlendMode;
 
-        public GNativeUnityContext(MonoBehaviour p_wrapper)
+        protected Action _onRenderCallback;
+
+        public GNativeUnityContext(MonoBehaviour p_wrapper, Action p_onRenderCallback)
         {
             _wrapper = p_wrapper;
             _meshes = new List<Mesh>();
@@ -94,8 +110,19 @@ namespace Genome2DNativePlugin
             _defaultMaterial.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
 
             _wrapper.gameObject.AddComponent<AudioListener>();
-        }
 
+            /* URP preparation
+            if (p_onRenderCallback != null) {
+                _onRenderCallback = p_onRenderCallback;
+                RenderPipelineManager.beginFrameRendering += OnRender;
+            }
+            /* */
+        }
+        /*
+        public void OnRender(ScriptableRenderContext p_context, Camera[] p_cameras) {
+            _onRenderCallback();
+        }
+        /* */
         public void Begin()
         {
             _lastMaterialPass = null;

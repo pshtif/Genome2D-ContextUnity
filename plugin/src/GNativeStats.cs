@@ -2,37 +2,40 @@ namespace Genome2DNativePlugin
 {
     using UnityEngine;
     using UnityEngine.UI;
-    
+
     public class GNativeStats
-    {
+    {      
         public bool autoScale = false;
         
         private MonoBehaviour _stage;
         private Canvas _canvas;
         private CanvasScaler _canvasScaler;
-        private GameObject _canvasObject;
+        private GameObject g2d_container;
 
         private int g2d_frames = 0;
         private float g2d_previousTime = 0;
 
         private Text g2d_statsText;
 
+        private TextMesh g2d_statsTextMesh;
+        /* */
         static public int fps = 0;
         static public int drawCalls = 0;
-
+         
         public GNativeStats(MonoBehaviour p_stage)
         {
             _stage = p_stage;
 
             g2d_previousTime = Time.time;
             
+            //ConfigureTextMesh();
             ConfigureCanvas();
             ConfigureLabel();
         }
 
         public void Update(bool p_visible)
         {
-            _canvasObject.SetActive(p_visible);
+            g2d_container.SetActive(p_visible);
             if (p_visible)
             {
                 g2d_frames++;
@@ -53,28 +56,27 @@ namespace Genome2DNativePlugin
                     g2d_statsText.text = "<b><color=#55da55ff>FPS: " + fps + " </color> <color=#5555daff>Drawcalls: " +
                                          drawCalls + "</color></b>";
                 }
-
-                /**/
             }
+            /* */
         }
-        
+        /**/
         private void ConfigureCanvas()
         {
-            _canvasObject = new GameObject("GStats", typeof(Canvas));
+            g2d_container = new GameObject("GStats", typeof(Canvas));
             //canvasObject.tag = gameObject.tag;
             //canvasObject.layer = gameObject.layer;
-            _canvasObject.transform.SetParent(_stage.transform, false);
+            g2d_container.transform.SetParent(_stage.transform, false);
 
-            _canvas = _canvasObject.GetComponent<Canvas>();
+            _canvas = g2d_container.GetComponent<Canvas>();
 
-            RectTransform canvasRectTransform =  _canvasObject.GetComponent<RectTransform>();
+            RectTransform canvasRectTransform =  g2d_container.GetComponent<RectTransform>();
 
             ResetRectTransform(canvasRectTransform);
 
             _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             //canvas.pixelPerfect = pixelPerfect;
             //canvas.sortingOrder = sortingOrder;
-
+            /*
             _canvasScaler = _canvasObject.AddComponent<CanvasScaler>();
 
             if (autoScale)
@@ -85,6 +87,7 @@ namespace Genome2DNativePlugin
             {
                 _canvasScaler.scaleFactor = 1;
             }
+            /* */
         }
 
         private void ConfigureLabel()
@@ -106,7 +109,6 @@ namespace Genome2DNativePlugin
             GameObject statsObject = new GameObject("Text", typeof(Text));
             statsObject.transform.SetParent(gameObject.transform, false);
 
-            /* create UI Text component and apply settings */
             g2d_statsText = statsObject.GetComponent<Text>();
             g2d_statsText.alignment = TextAnchor.UpperLeft;
 
@@ -138,7 +140,23 @@ namespace Genome2DNativePlugin
             p_rectTransform.offsetMin = Vector2.zero;
             p_rectTransform.offsetMax = Vector2.zero;
         }
+        /* */
+
+        // Test without UnityEngine.UI.dll with direct text mesh
+         private void ConfigureTextMesh()
+        {
+            g2d_container = new GameObject("FPS");
+            g2d_container.transform.SetParent(_stage.transform, false);
+
+            GameObject statsObject = new GameObject("Text");
+            statsObject.transform.SetParent(g2d_container.transform, false);
+
+            g2d_statsTextMesh = statsObject.AddComponent<TextMesh>();
+            g2d_statsTextMesh.anchor = TextAnchor.UpperLeft;
+
+            g2d_statsTextMesh.richText = true;
+
+            g2d_statsText.text = "Initializing...";
+        }
     }
-    
-    
 }
