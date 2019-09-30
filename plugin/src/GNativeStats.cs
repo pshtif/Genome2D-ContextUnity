@@ -76,8 +76,8 @@ namespace Genome2DNativePlugin
             _canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             //canvas.pixelPerfect = pixelPerfect;
             //canvas.sortingOrder = sortingOrder;
-            /*
-            _canvasScaler = _canvasObject.AddComponent<CanvasScaler>();
+            
+            _canvasScaler = g2d_container.AddComponent<CanvasScaler>();
 
             if (autoScale)
             {
@@ -87,7 +87,6 @@ namespace Genome2DNativePlugin
             {
                 _canvasScaler.scaleFactor = 1;
             }
-            /* */
         }
 
         private void ConfigureLabel()
