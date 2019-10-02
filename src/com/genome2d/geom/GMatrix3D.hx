@@ -11,6 +11,9 @@ package com.genome2d.geom;
 import unityengine.*;
 
 class GMatrix3D {
+	private static var helperMatrix:GMatrix3D = new GMatrix3D();
+	private static var axisRotationMatrix:GMatrix3D = new GMatrix3D();
+	
 	public var rawData:Matrix4x4;
 
 	public var determinant (get, never):Float;
@@ -36,29 +39,8 @@ class GMatrix3D {
 		return p_value;
 	}
 	
-  public function new(p_raw:Array<Float> = null) {
-	  	rawData = Matrix4x4.identity;
-		if (p_raw != null) {
-			rawData[0] = p_raw[0];
-			rawData[1] = p_raw[1];
-			rawData[2] = p_raw[2];
-			rawData[3] = p_raw[3];
-			
-			rawData[4] = p_raw[4];
-			rawData[5] = p_raw[5];
-			rawData[6] = p_raw[6];
-			rawData[7] = p_raw[7];
-			
-			rawData[8] = p_raw[8];
-			rawData[9] = p_raw[9];
-			rawData[10] = p_raw[10];
-			rawData[11] = p_raw[11];
-			
-			rawData[12] = p_raw[12];
-			rawData[13] = p_raw[13];
-			rawData[14] = p_raw[14];
-			rawData[15] = p_raw[15];
-		}
+	public function new() {
+		rawData = Matrix4x4.identity;
 	}
 
   public function append(p_lhs:GMatrix3D):Void {	
@@ -92,7 +74,7 @@ class GMatrix3D {
 		rawData[15] = m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244;		
 	}
 	
-	public function appendRotation(p_degrees:Float, p_axis:GVector3D, p_pivotPoint:GVector3D = null):Void {	
+	public function appendRotation(p_degrees:Float, p_axis:GVector3D, p_pivotPoint:GVector3D):Void {	
 		var m = g2d_getAxisRotation(p_axis.x, p_axis.y, p_axis.z, p_degrees);
 		
 		if (p_pivotPoint != null) {
@@ -105,8 +87,28 @@ class GMatrix3D {
 		this.append (m);	
 	}
 	
-	public function appendScale (p_xScale:Float, p_yScale:Float, p_zScale:Float):Void {	
-		this.append (new GMatrix3D ([p_xScale, 0.0, 0.0, 0.0, 0.0, p_yScale, 0.0, 0.0, 0.0, 0.0, p_zScale, 0.0, 0.0, 0.0, 0.0, 1.0]));
+	public function appendScale (p_xScale:Float, p_yScale:Float, p_zScale:Float):Void {
+		helperMatrix.rawData[0] = p_xScale;
+		helperMatrix.rawData[1] = 0.0;
+		helperMatrix.rawData[2] = 0.0;
+		helperMatrix.rawData[3] = 0.0;
+
+		helperMatrix.rawData[4] = 0.0;
+		helperMatrix.rawData[5] = p_yScale;
+		helperMatrix.rawData[6] = 0.0;
+		helperMatrix.rawData[7] = 0.0;
+
+		helperMatrix.rawData[8] = 0.0;
+		helperMatrix.rawData[9] = 0.0;
+		helperMatrix.rawData[10] = p_zScale;
+		helperMatrix.rawData[11] = 0.0;
+
+		helperMatrix.rawData[12] = 0.0;
+		helperMatrix.rawData[13] = 0.0;
+		helperMatrix.rawData[14] = 0.0;
+		helperMatrix.rawData[15] = 1.0;
+		
+		this.append (helperMatrix);
 	}
 	
 	
@@ -147,7 +149,7 @@ class GMatrix3D {
 		rawData[15] = m141 * m214 + m142 * m224 + m143 * m234 + m144 * m244;
 	}
 	
-	public function prependRotation (p_degrees:Float, p_axis:GVector3D, p_pivotPoint:GVector3D = null):Void {
+	public function prependRotation (p_degrees:Float, p_axis:GVector3D, p_pivotPoint:GVector3D):Void {
 		var m = g2d_getAxisRotation (p_axis.x, p_axis.y, p_axis.z, p_degrees);
 		
 		if (p_pivotPoint != null) {
@@ -160,39 +162,77 @@ class GMatrix3D {
 	
 	
 	public function prependScale(p_xScale:Float, p_yScale:Float, p_zScale:Float):Void {
-		this.prepend (new GMatrix3D ([p_xScale, 0.0, 0.0, 0.0, 0.0, p_yScale, 0.0, 0.0, 0.0, 0.0, p_zScale, 0.0, 0.0, 0.0, 0.0, 1.0]));
+		helperMatrix.rawData[0] = p_xScale;
+		helperMatrix.rawData[1] = 0.0;
+		helperMatrix.rawData[2] = 0.0;
+		helperMatrix.rawData[3] = 0.0;
+
+		helperMatrix.rawData[4] = 0.0;
+		helperMatrix.rawData[5] = p_yScale;
+		helperMatrix.rawData[6] = 0.0;
+		helperMatrix.rawData[7] = 0.0;
+
+		helperMatrix.rawData[8] = 0.0;
+		helperMatrix.rawData[9] = 0.0;
+		helperMatrix.rawData[10] = p_zScale;
+		helperMatrix.rawData[11] = 0.0;
+
+		helperMatrix.rawData[12] = 0.0;
+		helperMatrix.rawData[13] = 0.0;
+		helperMatrix.rawData[14] = 0.0;
+		helperMatrix.rawData[15] = 1.0;
+		
+		this.prepend (helperMatrix);
 	}
 	
 	
 	public function prependTranslation (p_x:Float, p_y:Float, p_z:Float):Void {
-		var m = new GMatrix3D ();
-		m.position = new GVector3D(p_x, p_y, p_z);
-		this.prepend (m);
+		helperMatrix.rawData[0] = 1.0;
+		helperMatrix.rawData[1] = 0.0;
+		helperMatrix.rawData[2] = 0.0;
+		helperMatrix.rawData[3] = 0.0;
+
+		helperMatrix.rawData[4] = 0.0;
+		helperMatrix.rawData[5] = 1.0;
+		helperMatrix.rawData[6] = 0.0;
+		helperMatrix.rawData[7] = 0.0;
+
+		helperMatrix.rawData[8] = 0.0;
+		helperMatrix.rawData[9] = 0.0;
+		helperMatrix.rawData[10] = 1.0;
+		helperMatrix.rawData[11] = 0.0;
+
+		helperMatrix.rawData[12] = p_x;
+		helperMatrix.rawData[13] = p_y;
+		helperMatrix.rawData[14] = p_z;
+		helperMatrix.rawData[15] = 1.0;
+		
+		this.prepend (helperMatrix);
 	}
-	
+
 	public function clone():GMatrix3D {
-		var newData:Array<Float> = new Array<Float>();
-		newData[0] = rawData[0];
-		newData[1] = rawData[1];
-		newData[2] = rawData[2];
-		newData[3] = rawData[3];
-		
-		newData[4] = rawData[4];
-		newData[5] = rawData[5];
-		newData[6] = rawData[6];
-		newData[7] = rawData[7];
-		
-		newData[8] = rawData[8];
-		newData[9] = rawData[9];
-		newData[10] = rawData[10];
-		newData[11] = rawData[11];
-		
-		newData[12] = rawData[12];
-		newData[13] = rawData[13];
-		newData[14] = rawData[14];
-		newData[15] = rawData[15];
-		
-		return new GMatrix3D(newData);
+		var clone:GMatrix3D = new GMatrix3D();
+		clone.rawData[0] = rawData[0];
+		clone.rawData[1] = rawData[1];
+		clone.rawData[2] = rawData[2];
+		clone.rawData[3] = rawData[3];
+
+		clone.rawData[4] = rawData[4];
+		clone.rawData[5] = rawData[5];
+		clone.rawData[6] = rawData[6];
+		clone.rawData[7] = rawData[7];
+
+		clone.rawData[8] = rawData[8];
+		clone.rawData[9] = rawData[9];
+		clone.rawData[10] = rawData[10];
+		clone.rawData[11] = rawData[11];
+
+		clone.rawData[12] = rawData[12];
+		clone.rawData[13] = rawData[13];
+		clone.rawData[14] = rawData[14];
+		clone.rawData[15] = rawData[15];
+
+		return clone;
 	}
 	
 	public function transpose ():Void {
@@ -260,32 +300,37 @@ class GMatrix3D {
 	}
 	
 	static private function g2d_getAxisRotation (p_x:Float, p_y:Float, p_z:Float, p_degrees:Float):GMatrix3D {
-		var m = new GMatrix3D();
-
-		var a1 = new GVector3D(p_x, p_y, p_z);
+		axisRotationMatrix.rawData[3] = 0;
+		axisRotationMatrix.rawData[7] = 0;
+		axisRotationMatrix.rawData[11] = 0;
+		axisRotationMatrix.rawData[12] = 0;
+		axisRotationMatrix.rawData[13] = 0;
+		axisRotationMatrix.rawData[14] = 0;
+		axisRotationMatrix.rawData[15] = 1;
+		
 		var rad = -p_degrees * (Math.PI / 180);
 		var c = Math.cos (rad);
 		var s = Math.sin (rad);
 		var t = 1.0 - c;
-		
-		m.rawData[0] = c + a1.x * a1.x * t;
-		m.rawData[5] = c + a1.y * a1.y * t;
-		m.rawData[10] = c + a1.z * a1.z * t;
-		
-		var tmp1 = a1.x * a1.y * t;
-		var tmp2 = a1.z * s;
-		m.rawData[4] = tmp1 + tmp2;
-		m.rawData[1] = tmp1 - tmp2;
-		tmp1 = a1.x * a1.z * t;
-		tmp2 = a1.y * s;
-		m.rawData[8] = tmp1 - tmp2;
-		m.rawData[2] = tmp1 + tmp2;
-		tmp1 = a1.y * a1.z * t;
-		tmp2 = a1.x*s;
-		m.rawData[9] = tmp1 + tmp2;
-		m.rawData[6] = tmp1 - tmp2;
 
-		return m;
+		axisRotationMatrix.rawData[0] = c + p_x * p_x * t;
+		axisRotationMatrix.rawData[5] = c + p_y * p_y * t;
+		axisRotationMatrix.rawData[10] = c + p_z * p_z * t;
+		
+		var tmp1 = p_x * p_y * t;
+		var tmp2 = p_z * s;
+		axisRotationMatrix.rawData[4] = tmp1 + tmp2;
+		axisRotationMatrix.rawData[1] = tmp1 - tmp2;
+		tmp1 = p_x * p_z * t;
+		tmp2 = p_y * s;
+		axisRotationMatrix.rawData[8] = tmp1 - tmp2;
+		axisRotationMatrix.rawData[2] = tmp1 + tmp2;
+		tmp1 = p_y * p_z * t;
+		tmp2 = p_x*s;
+		axisRotationMatrix.rawData[9] = tmp1 + tmp2;
+		axisRotationMatrix.rawData[6] = tmp1 - tmp2;
+		
+		return axisRotationMatrix;
 	}
 
 	public function transformVector(p_vector:GVector3D):GVector3D {

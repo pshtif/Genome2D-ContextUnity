@@ -48,7 +48,9 @@ class GUnityContext implements IGContext {
 
     private var g2d_renderTarget:GTexture;
 
-    private var g2d_projectionMatrix:GProjectionMatrix;
+    private var g2d_projectionMatrix:GProjectionMatrix = new GProjectionMatrix();
+    private var g2d_viewPortRect:Rect = new Rect(0, 0, 0, 0);
+    private var g2d_zAxisVector:GVector3D = GVector3D.Z_AXIS;
     private var g2d_cachedMatrix:GMatrix;
 
     private var g2d_currentDeltaTime:Float;
@@ -92,14 +94,15 @@ class GUnityContext implements IGContext {
             if (p_maskRect == null) {
                 g2d_activeMaskRect = null;
                 setActiveCamera(g2d_activeCamera);
-                GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
+                g2d_viewPortRect.Set(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height);
+                GL.Viewport(g2d_viewPortRect);
             } else {
                 flushRenderer();
 
                 g2d_activeMaskRect = g2d_activeViewRect.intersection(new GRectangle(p_maskRect.x + g2d_activeViewRect.x + g2d_activeViewRect.width * .5 - g2d_activeCamera.x * g2d_activeCamera.scaleX, p_maskRect.y + g2d_activeViewRect.y + g2d_activeViewRect.height * .5 - g2d_activeCamera.y * g2d_activeCamera.scaleY, p_maskRect.width, p_maskRect.height));
 
-                g2d_projectionMatrix = new GProjectionMatrix();
-                g2d_projectionMatrix.ortho(g2d_activeMaskRect.width, g2d_activeMaskRect.height);
+                g2d_projectionMatrix.reset();
+                g2d_projectionMatrix.ortho(g2d_activeMaskRect.width, g2d_activeMaskRect.height, null);
 
                 g2d_projectionMatrix.prependTranslation(-g2d_activeMaskRect.x+g2d_defaultCamera.x-g2d_activeCamera.x*g2d_activeCamera.scaleX, -g2d_activeMaskRect.y+g2d_defaultCamera.y-g2d_activeCamera.y*g2d_activeCamera.scaleX, 0);
                 g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
@@ -107,7 +110,8 @@ class GUnityContext implements IGContext {
                 GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);            
 
                 // TODO need to test as it's inverted in Unity
-                GL.Viewport(new Rect(g2d_activeMaskRect.x, g2d_activeViewRect.height-g2d_activeMaskRect.y-g2d_activeMaskRect.height, g2d_activeMaskRect.width, g2d_activeMaskRect.height));
+                g2d_viewPortRect.Set(g2d_activeMaskRect.x, g2d_activeViewRect.height-g2d_activeMaskRect.y-g2d_activeMaskRect.height, g2d_activeMaskRect.width, g2d_activeMaskRect.height);
+                GL.Viewport(g2d_viewPortRect);
             }
         }
     }
@@ -128,16 +132,17 @@ class GUnityContext implements IGContext {
         var vx:Float = (g2d_activeViewRect.width*.5)/g2d_activeCamera.normalizedViewWidth;//g2d_activeViewRect.width;
         var vy:Float = (g2d_activeViewRect.height*.5)/g2d_activeCamera.normalizedViewHeight;
 
-        g2d_projectionMatrix = new GProjectionMatrix();
-        g2d_projectionMatrix.ortho(g2d_stageViewRect.width, g2d_stageViewRect.height);
+        g2d_projectionMatrix.reset();
+        g2d_projectionMatrix.ortho(g2d_stageViewRect.width, g2d_stageViewRect.height, null);
 
         g2d_projectionMatrix.prependTranslation(vx, vy, 0);
-        g2d_projectionMatrix.prependRotation(g2d_activeCamera.rotation*180/Math.PI, GVector3D.Z_AXIS, new GVector3D());
+        g2d_projectionMatrix.prependRotation(g2d_activeCamera.rotation*180/Math.PI, g2d_zAxisVector, null);
         g2d_projectionMatrix.prependScale(g2d_activeCamera.scaleX, g2d_activeCamera.scaleY, 1);
         g2d_projectionMatrix.prependTranslation(-g2d_activeCamera.x, -g2d_activeCamera.y, 0);
 
         GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);
-        GL.Viewport(new Rect(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height));
+        g2d_viewPortRect.Set(g2d_activeViewRect.x, g2d_activeViewRect.y, g2d_activeViewRect.width, g2d_activeViewRect.height);
+        GL.Viewport(g2d_viewPortRect);
 
 		return true;
 	}
@@ -169,7 +174,7 @@ class GUnityContext implements IGContext {
 	}
 
     public function init():Void {
-        g2d_currentTime = Date.now().getTime();
+        g2d_currentTime = unityengine.Time.time * 1000;
 
         g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage, g2d_enterFrame_handler);
         g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
@@ -178,7 +183,7 @@ class GUnityContext implements IGContext {
 	}
 
     private function g2d_enterFrame_handler():Void {
-        var currentTime:Float = Date.now().getTime();
+        var currentTime:Float = unityengine.Time.time * 1000;
         g2d_currentDeltaTime = currentTime - g2d_currentTime;
         g2d_currentTime = currentTime;
 
@@ -236,7 +241,7 @@ class GUnityContext implements IGContext {
     public function begin():Bool {
         g2d_stats.clear();
         setActiveCamera(g2d_defaultCamera);
-        GL.Clear(false, true, new Color(0,0,0,1), 1);
+        GL.Clear(false, true, Color.black, 1);
         g2d_nativeContext.Begin();
 		return true;
 	}
@@ -318,8 +323,8 @@ class GUnityContext implements IGContext {
                 GL.Clear(true, true, Color.clear);
             }
 
-            g2d_projectionMatrix = new GProjectionMatrix();
-            g2d_projectionMatrix.orthoRtt(p_texture.nativeWidth, p_texture.nativeHeight);
+            g2d_projectionMatrix.reset();
+            g2d_projectionMatrix.orthoRtt(p_texture.nativeWidth, p_texture.nativeHeight, null);
             GL.LoadProjectionMatrix(g2d_projectionMatrix.rawData);
         }
 
