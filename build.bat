@@ -1,1 +1,1 @@
-MSBuild.exe plugin\Genome2DNativePlugin.csproj
+"C:\Program Files\JetBrains\JetBrains Rider 2018.3.4\tools\MSBuild\Current\Bin\MSBuild.exe" plugin\Genome2DNativePlugin.csproj

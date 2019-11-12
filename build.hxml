@@ -1,6 +1,6 @@
 # Unity build file - sHTiF 01.03.2019
 
--cmd MSBuild.exe plugin\Genome2DNativePlugin.csproj 
+-cmd "C:\Program Files\JetBrains\JetBrains Rider 2018.3.4\tools\MSBuild\Current\Bin\MSBuild.exe" plugin\Genome2DNativePlugin.csproj 
 -cmd copy plugin\bin\Debug\Genome2DNativePlugin.dll TestBed\Assets\Plugins\Genome2D
 
 --next
