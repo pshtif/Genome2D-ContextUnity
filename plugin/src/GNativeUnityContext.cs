@@ -127,7 +127,6 @@ namespace Genome2DNativePlugin
         {
             _lastMaterialPass = null;
             _currentBatchIndex = 0;
-            _meshes[_currentBatchIndex].Clear();
         }
 
         public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
@@ -137,7 +136,6 @@ namespace Genome2DNativePlugin
             if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 1 || _lastFilter != p_filter)
             {
                 if (_lastTexture) FlushRenderer();
-                Mesh mesh = _meshes[_currentBatchIndex];
                 Material material = (p_filter == null) ? _defaultMaterial : p_filter.getMaterial();
                 _lastFilter = p_filter;
                 if (_lastFilter != null) _lastFilter.bind();
@@ -358,7 +356,6 @@ namespace Genome2DNativePlugin
             {
                 if (_lastTexture) FlushRenderer();
                 
-                Mesh mesh = _meshes[_currentBatchIndex];
                 Material material = (p_filter == null) ? _defaultMaterial : p_filter.getMaterial();
                 _lastFilter = p_filter;
                 if (_lastFilter != null) _lastFilter.bind();
@@ -490,6 +487,7 @@ namespace Genome2DNativePlugin
                 GNativeStats.drawCalls++;
                 
                 Mesh mesh = _meshes[_currentBatchIndex];
+                mesh.Clear();
 
                 if (_renderType == 1)
                 {
@@ -547,6 +545,7 @@ namespace Genome2DNativePlugin
                     _lastMaterialPass = material;
                 }
 
+                mesh.UploadMeshData(false);
                 Graphics.DrawMeshNow(mesh, Vector3.zero, Quaternion.identity);
                 
                 _quadIndex = 0;
@@ -555,7 +554,6 @@ namespace Genome2DNativePlugin
 
             _currentBatchIndex++;
             if (_currentBatchIndex >= MESH_COUNT) _currentBatchIndex = 0;
-            _meshes[_currentBatchIndex].Clear();
             _lastFilter = null;
             _lastTexture = null;
         }
