@@ -71,12 +71,12 @@ class GFileSystem {
 
     public static function isDirectory(p_path:String):Bool
     {
-        return FileSystem.isDirectory(p_path);
+        return Directory.Exists(p_path);
     }
 
     public static function createDirectory(p_path:String):Void
     {
-        FileSystem.createDirectory(p_path);
+        Directory.CreateDirectory(p_path);
     }
 
     public static function deleteDirectory(p_path:String, p_deleteContents:Bool):Void
@@ -86,7 +86,7 @@ class GFileSystem {
 
     public static function deleteFile(p_path:String):Void
     {
-        FileSystem.deleteFile(p_path);
+        File.Delete(p_path);
     }
 
     @:functionCode("
