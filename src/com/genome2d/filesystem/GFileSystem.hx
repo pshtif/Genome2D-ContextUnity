@@ -14,7 +14,7 @@ import cs.system.io.File;
 import sys.FileSystem;
 import unityengine.Application;
 import unityengine.RuntimePlatform;
-import unityengine.WWW;
+import unityengine.networking.UnityWebRequest;
 
 class GFileSystem {
 
@@ -60,12 +60,14 @@ class GFileSystem {
             if (p_skipExistingFiles && exists(applicationDirectory + "/" + file)) {
                 continue;
             }
-            var www:WWW = new WWW(Application.streamingAssetsPath + "/" + file);
+            var www:UnityWebRequest = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + file);
+
+            www.SendWebRequest();
             while (!www.isDone) {
 
             }
             GFileSystem.createDirectory(getParent(applicationDirectory + "/" + file));
-            File.WriteAllBytes(applicationDirectory + "/" + file, www.bytes);
+            File.WriteAllBytes(applicationDirectory + "/" + file, www.downloadHandler.data);
         }
     }
 
