@@ -23,6 +23,7 @@ class GFileInput {
     public function new(p_path:String):Void
     {
         _fileInput = File.read(p_path, true);
+        _fileInput.bigEndian = true;
         _fileInput.seek(0, FileSeek.SeekEnd);
         _length = _fileInput.tell();
         _fileInput.seek(0, FileSeek.SeekBegin);
@@ -33,6 +34,20 @@ class GFileInput {
     private function get_length():UInt
     {
         return _length;
+    }
+
+    public var bigEndian(get, set):Bool;
+
+    private function get_bigEndian():Bool
+    {
+        return _fileInput.bigEndian;
+    }
+
+    private function set_bigEndian(value:Bool):Bool
+    {
+        _fileInput.bigEndian = value;
+        
+        return value;
     }
 
     public function close():Void

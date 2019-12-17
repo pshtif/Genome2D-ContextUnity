@@ -21,8 +21,23 @@ class GFileOutput {
     public function new(p_path:String):Void
     {
         _fileOutput = File.write(p_path, true);
+        _fileOutput.bigEndian = true;
+    }
+    
+    public var bigEndian(get, set):Bool;
+
+    private function get_bigEndian():Bool
+    {
+        return _fileOutput.bigEndian;
     }
 
+    private function set_bigEndian(value:Bool):Bool
+    {
+        _fileOutput.bigEndian = value;
+
+        return value;
+    }
+    
     public function close():Void
     {
         if (_fileOutput != null) {
