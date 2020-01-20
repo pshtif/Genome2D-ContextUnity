@@ -47,6 +47,7 @@ class GUnityContext implements IGContext {
 	public var g2d_onMouseInputInternal:GMouseInput->Void;
 
     private var g2d_renderTarget:GTexture;
+    private var g2d_backgroundColor:Color;
 
     private var g2d_projectionMatrix:GProjectionMatrix = new GProjectionMatrix();
     private var g2d_viewPortRect:Rect = new Rect(0, 0, 0, 0);
@@ -175,6 +176,7 @@ class GUnityContext implements IGContext {
 
     public function init():Void {
         g2d_currentTime = unityengine.Time.time * 1000;
+        g2d_backgroundColor = Color.black;
 
         g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage, g2d_enterFrame_handler);
         g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
@@ -237,11 +239,18 @@ class GUnityContext implements IGContext {
 
 	}
 
-    public function setBackgroundColor(p_color:Int, p_alpha:Float = 1):Void {}
+    public function setBackgroundColor(p_color:Int, p_alpha:Float = 1):Void {
+        var red = Std.int(p_color >> 16 & 0xFF) / 0xFF;
+        var green = Std.int(p_color >> 8 & 0xFF) / 0xFF;
+        var blue = Std.int(p_color & 0xFF) / 0xFF;
+
+        g2d_backgroundColor = new Color(red, green, blue, p_alpha);
+    }
+
     public function begin():Bool {
         g2d_stats.clear();
         setActiveCamera(g2d_defaultCamera);
-        GL.Clear(false, true, Color.black, 1);
+        GL.Clear(false, true, g2d_backgroundColor, 1);
         g2d_nativeContext.Begin();
 		return true;
 	}
