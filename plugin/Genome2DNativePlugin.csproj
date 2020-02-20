@@ -7,7 +7,7 @@
     <ProjectGuid>{0B63E5A7-73B9-4897-BD94-9A8AF1DF55EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnityTestLibrary</RootNamespace>
+    <RootNamespace>Genome2DNativePlugin</RootNamespace>
     <AssemblyName>Genome2DNativePlugin</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
