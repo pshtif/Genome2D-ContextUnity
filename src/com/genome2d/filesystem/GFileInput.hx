@@ -175,16 +175,20 @@ class GFileInput {
         }
     }
 
-    public function readBytes(offset:UInt, length:UInt):Bytes
+    public function readBytes(length:UInt):Bytes
     {
-        return this._bytes.sub(offset, length);
+        if (_position == 0 && length == _bytes.length) {
+            _position = length;
+            return _bytes;
+        }
+        _position += length;
+        return _bytes.sub(_position - length, length);
     }
 
     public function readUTFBytes(length:UInt):String
     {
-        this._position += length;
-
-        return this._bytes.getString(this._position - length, length);
+        _position += length;
+        return _bytes.getString(_position - length, length);
     }
 
     public function readUTF():String
