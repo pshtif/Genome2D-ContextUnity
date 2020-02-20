@@ -49,6 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GMath.cs" />
     <Compile Include="src\GMatrix.cs" />
+    <Compile Include="src\GNativeFileReader.cs" />
+    <Compile Include="src\GNativeFileWriter.cs" />
+    <Compile Include="src\GNativeHttpRequest.cs" />
     <Compile Include="src\GNativeStats.cs" />
     <Compile Include="src\GNativeUnity3DRenderer.cs" />
     <Compile Include="src\GNativeUnityAudioAsset.cs" />

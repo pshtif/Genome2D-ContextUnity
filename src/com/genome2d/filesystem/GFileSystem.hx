@@ -151,7 +151,12 @@ class GFileSystem {
 
     public static function openFileForRead(p_path:String):GFileInput
     {
-        return new GFileInput(p_path);
+        return new GFileInput(p_path, false, null, null);
+    }
+
+    public static function openFileForReadAsync(p_path:String, onReady:Void -> Void, onError:String -> Void):GFileInput
+    {
+        return new GFileInput(p_path, true, onReady, onError);
     }
 
     public static function openFileForWrite(p_path:String, p_createPath:Bool):GFileOutput
@@ -163,6 +168,18 @@ class GFileSystem {
             }
         }
 
-        return new GFileOutput(p_path);
+        return new GFileOutput(p_path, false, null, null);
+    }
+
+    public static function openFileForWriteAsync(p_path:String, p_createPath:Bool, onFlush:Void -> Void, onError:String -> Void):GFileOutput
+    {
+        if (p_createPath) {
+            var parentPath:String = getParent(p_path);
+            if (!GFileSystem.exists(parentPath)) {
+                GFileSystem.createDirectory(parentPath);
+            }
+        }
+
+        return new GFileOutput(p_path, true, onFlush, onError);
     }
 }
