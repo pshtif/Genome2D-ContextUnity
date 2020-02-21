@@ -9,6 +9,7 @@
 
 package com.genome2d.filesystem;
 
+import haxe.io.BytesData;
 import haxe.io.BytesBuffer;
 import haxe.io.Bytes;
 import haxe.io.Encoding;
@@ -80,13 +81,14 @@ class GFileOutput {
     
     public function flush():Void
     {
-        var bytes:Bytes = _bytesBuffer.getBytes();
+        var bytesCount:Int = _bytesBuffer.length;
+        var bytesData:BytesData = _bytesBuffer.getBytes().getData();
         _bytesBuffer = null;
 
         if (_async) {
-            _nativeWriter = GNativeFileWriter.WriteAsync(_path, bytes.getData(), onNativeFlush, onNativeError);
+            _nativeWriter = GNativeFileWriter.WriteAsync(_path, bytesData, bytesCount, onNativeFlush, onNativeError);
         } else {
-            GNativeFileWriter.WriteSync(_path, bytes.getData());
+            GNativeFileWriter.WriteSync(_path, bytesData, bytesCount);
         }
     }
     
