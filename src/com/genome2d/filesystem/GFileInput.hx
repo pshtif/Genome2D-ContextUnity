@@ -10,72 +10,141 @@
 package com.genome2d.filesystem;
 
 import haxe.io.Bytes;
-import haxe.io.Encoding;
-import sys.io.File;
-import sys.io.FileInput;
-import sys.io.FileSeek;
+import genome2dnativeplugin.GNativeFileReader;
 
 class GFileInput {
 
-    private var _fileInput:FileInput;
-    private var _length:UInt;
+    private var _bytes:Bytes;
+    private var _bigEndian:Bool;
+    private var _position:Int;
 
-    public function new(p_path:String):Void
+    private var _nativeLoader:GNativeFileReader;
+    private var _onReady:Void -> Void;
+    private var _onError:String -> Void;
+    
+    public function new(p_path:String, p_async:Bool, p_onReady:Void -> Void, p_onError:String -> Void):Void
     {
-        _fileInput = File.read(p_path, true);
-        _fileInput.bigEndian = true;
-        _fileInput.seek(0, FileSeek.SeekEnd);
-        _length = _fileInput.tell();
-        _fileInput.seek(0, FileSeek.SeekBegin);
+        _onReady = p_onReady;
+        _onError = p_onError;
+        
+        _bigEndian = true;
+        _position = 0;
+        
+        if (p_async) {
+            _nativeLoader = GNativeFileReader.ReadAsync(p_path, onNativeReady, onNativeError);
+        } else {
+            _bytes = Bytes.ofData(GNativeFileReader.ReadSync(p_path));
+        }
+    }
+    
+    private function onNativeReady(reader:GNativeFileReader):Void
+    {
+        _bytes = Bytes.ofData(reader.Result);
+        
+        if (_nativeLoader != null) {
+            _nativeLoader.Close();
+            _nativeLoader = null;
+        }
+        
+        if (_onReady != null) {
+            _onReady();
+        }
+    }
+
+    private function onNativeError(reader:GNativeFileReader):Void
+    {
+        _bytes = null;
+
+        if (_nativeLoader != null) {
+            _nativeLoader.Close();
+            _nativeLoader = null;
+        }
+
+        if (_onError != null) {
+            _onError(reader.Error);
+        }
     }
 
     public var length(get, never):UInt;
 
     private function get_length():UInt
     {
-        return _length;
+        return _bytes.length;
     }
 
     public var bigEndian(get, set):Bool;
 
     private function get_bigEndian():Bool
     {
-        return _fileInput.bigEndian;
+        return _bigEndian;
     }
 
     private function set_bigEndian(value:Bool):Bool
     {
-        _fileInput.bigEndian = value;
+        _bigEndian = value;
         
         return value;
     }
 
     public function close():Void
     {
-        if (_fileInput != null) {
-            _fileInput.close();
-            _fileInput = null;
+        _onReady = null;
+        _onError = null;
+        
+        if (_nativeLoader != null) {
+            _nativeLoader.Close();
+            _nativeLoader = null;
         }
+        
+        _bytes = null;
     }
 
     public function readUInt8():UInt
     {
-        return _fileInput.readByte();
+        return _bytes.get(_position++);
     }
 
     public function readInt8():Int
     {
-        return _fileInput.readInt8();
+        var value = _bytes.get(_position++);
+        
+        if (value & 0x80 != 0) {
+            return value - 0x100;
+        } else {
+            return value;
+        }
     }
 
     public function readUInt16():UInt
     {
-        return _fileInput.readUInt16();
+        var ch1 = readUInt8();
+        var ch2 = readUInt8();
+
+        if (_bigEndian) {
+            return (ch1 << 8) | ch2;
+        } else {
+            return (ch2 << 8) + ch1;
+        }
     }
 
     public function readInt16():Int
     {
-        return _fileInput.readInt16();
+        var ch1 = readUInt8();
+        var ch2 = readUInt8();
+
+        var value;
+
+        if (_bigEndian) {
+            value = ((ch1 << 8) | ch2);
+        } else {
+            value = ((ch2 << 8) | ch1);
+        }
+
+        if ((value & 0x8000) != 0) {
+            return value - 0x10000;
+        } else {
+            return value;
+        }
     }
 
     public function readUInt32():UInt
@@ -85,7 +154,7 @@ class GFileInput {
         var ch3 = readUInt8();
         var ch4 = readUInt8();
 
-        if (_fileInput.bigEndian) {
+        if (_bigEndian) {
             return (ch1 << 24) | (ch2 << 16) | (ch3 << 8) | ch4;
         } else {
             return (ch4 << 24) | (ch3 << 16) | (ch2 << 8) | ch1;
@@ -94,23 +163,36 @@ class GFileInput {
 
     public function readInt32():Int
     {
-        return _fileInput.readInt32();
+        var ch1 = readUInt8();
+        var ch2 = readUInt8();
+        var ch3 = readUInt8();
+        var ch4 = readUInt8();
+
+        if (_bigEndian) {
+            return (ch1 << 24) | (ch2 << 16) | (ch3 << 8) | ch4;
+        } else {
+            return (ch4 << 24) | (ch3 << 16) | (ch2 << 8) | ch1;
+        }
     }
 
-    public function readBytes(offset:UInt, length:UInt):Bytes
+    public function readBytes(length:UInt):Bytes
     {
-        var result:Bytes = Bytes.alloc(length);
-        _fileInput.readBytes(result, offset, length);
-        return result;
+        if (_position == 0 && length == _bytes.length) {
+            _position = length;
+            return _bytes;
+        }
+        _position += length;
+        return _bytes.sub(_position - length, length);
     }
 
     public function readUTFBytes(length:UInt):String
     {
-        return _fileInput.readString(length, Encoding.UTF8);
+        _position += length;
+        return _bytes.getString(_position - length, length);
     }
 
     public function readUTF():String
     {
-        return readUTFBytes(_fileInput.readUInt16());
+        return readUTFBytes(readUInt16());
     }
 }

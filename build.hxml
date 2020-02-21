@@ -33,7 +33,7 @@
 -lib box2d
 
 -D no-root
--D net-ver=40
+-D net-ver=45
 #-D real-position
 #-D erase-generics
 #-D no-inline
