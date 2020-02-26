@@ -13,7 +13,10 @@ import haxe.io.Bytes;
 import genome2dnativeplugin.GNativeFileReader;
 
 class GFileInput {
-
+    
+    private var _path:String;
+    private var _async:Bool;
+    
     private var _bytes:Bytes;
     private var _bigEndian:Bool;
     private var _position:Int;
@@ -24,16 +27,22 @@ class GFileInput {
     
     public function new(p_path:String, p_async:Bool, p_onReady:Void -> Void, p_onError:String -> Void):Void
     {
+        _path = p_path;
+        _async = p_async;
+        
         _onReady = p_onReady;
         _onError = p_onError;
         
         _bigEndian = true;
         _position = 0;
-        
-        if (p_async) {
-            _nativeLoader = GNativeFileReader.ReadAsync(p_path, onNativeReady, onNativeError);
+    }
+    
+    public function begin():Void
+    {
+        if (_async) {
+            _nativeLoader = GNativeFileReader.ReadAsync(_path, onNativeReady, onNativeError);
         } else {
-            _bytes = Bytes.ofData(GNativeFileReader.ReadSync(p_path));
+            _bytes = Bytes.ofData(GNativeFileReader.ReadSync(_path));
         }
     }
     
