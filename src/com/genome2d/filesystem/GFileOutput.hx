@@ -17,11 +17,12 @@ import genome2dnativeplugin.GNativeFileWriter;
 
 class GFileOutput {
 
+    private var _path:String;
+    private var _async:Bool;
+    
     private var _bigEndian:Bool;
     private var _onFlush:Void -> Void;
     private var _onError:String -> Void;
-    private var _path:String;
-    private var _async:Bool;
     
     private var _bytesBuffer:BytesBuffer;
     private var _nativeWriter:GNativeFileWriter;
@@ -30,10 +31,15 @@ class GFileOutput {
     {
         _path = p_path;
         _async = p_async;
+        
         _onFlush = p_onFlush;
         _onError = p_onError;
         
         _bigEndian = true;
+    }
+
+    public function begin():Void
+    {
         _bytesBuffer = new BytesBuffer();
     }
     
