@@ -59,8 +59,7 @@ namespace Genome2DNativePlugin
             {
                 _fileStream = File.Open(p_filePath, FileMode.Create);
                 await _fileStream.WriteAsync(p_bytes, 0, p_count);
-                
-                _fileStream.Flush();
+                await _fileStream.FlushAsync();
                 
                 if (_onFlush != null) {
                     _onFlush(this);
