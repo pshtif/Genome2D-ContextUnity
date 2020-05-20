@@ -61,7 +61,7 @@ namespace Genome2DNativePlugin
         {
             try
             {
-                _fileStream = File.Open(p_filePath, FileMode.Open, FileAccess.Read);
+                _fileStream = File.Open(p_filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                 
                 var bytesCount = (int)_fileStream.Length;
                 _result = new byte[bytesCount];
