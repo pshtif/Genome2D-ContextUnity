@@ -74,7 +74,12 @@ namespace Genome2DNativePlugin
         {
             get { return (int) _uwr.responseCode; }
         }
-        
+
+        public string GetResponseHeader(string p_name)
+        {
+            return _uwr.GetResponseHeader(p_name);
+        }
+
         public string Error
         {
             get { return _uwr.error; }
