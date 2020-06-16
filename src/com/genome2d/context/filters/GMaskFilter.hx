@@ -7,19 +7,19 @@ import com.genome2d.geom.GFloat;
 
 class GMaskFilter extends GFilter {
 
-    private var _uRatio:Float;
-    private var _vRatio:Float;
+    private var _uRatio:GFloat;
+    private var _vRatio:GFloat;
 
-    private var _u1:Float;
-    private var _v1:Float;
+    private var _u1:GFloat;
+    private var _v1:GFloat;
 
-    private var _u2:Float;
-    private var _v2:Float;
+    private var _u2:GFloat;
+    private var _v2:GFloat;
 
     public var maskTexture:GTexture;
 
 
-    public function new(p_uRatio:Float = 1, p_vRatio:Float = 1, p_u1:Float = 0, p_v1:Float, p_u2:Float, p_v2:Float) {
+    public function new(p_uRatio:GFloat = 1, p_vRatio:GFloat = 1, p_u1:GFloat = 0, p_v1:GFloat, p_u2:GFloat, p_v2:GFloat) {
 
         super();
 
@@ -37,8 +37,8 @@ class GMaskFilter extends GFilter {
 
     override public function bind():Void {
 
-        g2d_material.SetVector("_UVRatio", untyped __cs__("new Vector4({0},{1},0.0,0.0);", _uRatio, _vRatio));
-        g2d_material.SetVector("_UVS", untyped __cs__("new Vector4({0},{1},{2},{3});", _u1, _v1, _u2, _v2));
+        g2d_material.SetVector("_UVRatio", untyped __cs__("new UnityEngine.Vector4({0},{1},0.0f,0.0f)", _uRatio, _vRatio));
+        g2d_material.SetVector("_UVS", untyped __cs__("new UnityEngine.Vector4({0},{1},{2},{3})", _u1, _v1, _u2, _v2));
         g2d_material.SetTexture("_MaskTex", maskTexture.nativeTexture);
     }
 }
