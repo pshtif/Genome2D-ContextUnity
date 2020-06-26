@@ -1,4 +1,4 @@
-﻿Shader "Genome2D/DisplacementShader"
+﻿Shader "Genome2D/MaskShader"
 {
     Properties
     {
