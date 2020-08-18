@@ -11,6 +11,7 @@ package com.genome2d.filesystem;
 
 import cs.system.io.Directory;
 import cs.system.io.File;
+import cs.system.io.FileInfo;
 import sys.FileSystem;
 import unityengine.Application;
 import unityengine.RuntimePlatform;
@@ -113,6 +114,11 @@ class GFileSystem {
     public static function exists(p_path:String):Bool
     {
         return FileSystem.exists(p_path);
+    }
+
+    public static function isReadOnly(p_path:String):Bool
+    {
+        return (new FileInfo(p_path)).IsReadOnly;
     }
 
     public static function getParent(p_path:String):String
