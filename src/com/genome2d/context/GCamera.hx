@@ -54,7 +54,8 @@ class GCamera
 
         if (_nativeCamera == null) {
             var gameObject:GameObject = p_context.getNativeStage().gameObject;
-            /**/
+            /*
+            */
             _nativeCamera = untyped __cs__("{0}.AddComponent<UnityEngine.Camera>()", gameObject);
 
             // Clear nothing Genome2D will handle direct GL call

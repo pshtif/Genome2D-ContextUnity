@@ -9,7 +9,8 @@
 
 package com.genome2d.geom;
 
-/**/
+/*
+*/
 extern class GMatrix {
     var a:Float;
     var b:Float;
@@ -237,4 +238,5 @@ class GMatrix {
         ty += p_y;
     }
 }
-/**/
+/*
+*/

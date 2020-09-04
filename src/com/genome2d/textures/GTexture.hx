@@ -89,7 +89,8 @@ class GTexture extends GTextureBase
 		if (g2d_sourceType == GTextureSourceType.RENDER_TARGET) {
 			cast (g2d_nativeTexture, RenderTexture).Release();
 		}
-		/**/
+		/*
+		*/
 		g2d_nativeTexture = null;
 
 		super.dispose(p_disposeSource);
