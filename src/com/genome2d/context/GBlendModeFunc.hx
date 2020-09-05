@@ -37,7 +37,8 @@ class GBlendModeFunc
 		
 		return blendFactors[0].length;
 	}
-	/**/
+	/*
+	*/
 	inline static public function getSrcBlendMode(p_mode:GBlendMode, p_premultiplied:Bool):BlendMode {
 		var p:Int = (p_premultiplied) ? 1 : 0;
 		var blendMode:BlendMode = BlendMode.SrcAlpha;
