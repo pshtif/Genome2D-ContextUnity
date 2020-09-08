@@ -33,9 +33,9 @@ namespace Genome2DNativePlugin
             RenderPipelineManager.beginFrameRendering -= _instance.OnRender;
         }
         /* */
-        public const int MAX_BATCH_SIZE = 10000;
+        private readonly int _maxBatchSize;
         // @deprecated removed in next updates
-        public const int MESH_COUNT = 200;
+        private readonly int _meshCount;
 
         protected int _renderType = 1;
 
@@ -61,17 +61,20 @@ namespace Genome2DNativePlugin
 
         protected Action _onRenderCallback;
 
-        public GNativeUnityContext(MonoBehaviour p_wrapper, Action p_onRenderCallback)
+        public GNativeUnityContext(MonoBehaviour p_wrapper, Action p_onRenderCallback, int p_maxBatchSize, int p_meshCount)
         {
+            _maxBatchSize = p_maxBatchSize;
+            _meshCount = p_meshCount;
+
             _wrapper = p_wrapper;
             _meshes = new List<Mesh>();
 
-            _vertices = new Vector3[4 * MAX_BATCH_SIZE];
-            _uvs = new Vector2[4 * MAX_BATCH_SIZE];
-            _quadIndices = new int[6 * MAX_BATCH_SIZE];
-            _polyIndices = new int[6 * MAX_BATCH_SIZE];
-            _colors = new Color[4 * MAX_BATCH_SIZE];
-            for (int i = 0; i < MAX_BATCH_SIZE; i++)
+            _vertices = new Vector3[4 * _maxBatchSize];
+            _uvs = new Vector2[4 * _maxBatchSize];
+            _quadIndices = new int[6 * _maxBatchSize];
+            _polyIndices = new int[6 * _maxBatchSize];
+            _colors = new Color[4 * _maxBatchSize];
+            for (int i = 0; i < _maxBatchSize; i++)
             {
                 _vertices[i * 4] = new Vector3(0, 1, 0);
                 _vertices[i * 4 + 1] = new Vector3(0, 0, 0);
@@ -97,7 +100,7 @@ namespace Genome2DNativePlugin
                 _colors[i * 4 + 3] = new Color32(1, 1, 1, 1);
             }
             
-            for (int mi = 0; mi < MESH_COUNT ; mi++)
+            for (int mi = 0; mi < _meshCount ; mi++)
             {
                 Mesh mesh = new Mesh();
                 mesh.MarkDynamic();
@@ -257,7 +260,7 @@ namespace Genome2DNativePlugin
 
             _quadIndex++;
             
-            if (_quadIndex >= MAX_BATCH_SIZE) FlushRenderer();
+            if (_quadIndex >= _maxBatchSize) FlushRenderer();
         }
         
         public void DrawMatrix(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
@@ -346,13 +349,13 @@ namespace Genome2DNativePlugin
 
             _quadIndex++;
             
-            if (_quadIndex >= MAX_BATCH_SIZE) FlushRenderer();
+            if (_quadIndex >= _maxBatchSize) FlushRenderer();
         }
 
         public void DrawPoly(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
             float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, IGNativeUnityFilter p_filter)
         {
-            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * MAX_BATCH_SIZE || _lastFilter != p_filter)
+            if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * _maxBatchSize || _lastFilter != p_filter)
             {
                 if (_lastTexture) FlushRenderer();
                 
@@ -553,7 +556,7 @@ namespace Genome2DNativePlugin
             }
 
             _currentBatchIndex++;
-            if (_currentBatchIndex >= MESH_COUNT) _currentBatchIndex = 0;
+            if (_currentBatchIndex >= _meshCount) _currentBatchIndex = 0;
             _lastFilter = null;
             _lastTexture = null;
         }
