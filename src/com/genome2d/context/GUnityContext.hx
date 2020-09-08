@@ -59,6 +59,9 @@ class GUnityContext implements IGContext {
 
     private var g2d_stats:IGStats;
 
+    private var g2d_maxBatchSize:Int;
+    private var g2d_meshCount:Int;
+
     private var g2d_nextFrameCallback:Void->Void;
     public function callNextFrame(p_callback:Void->Void):Void {
         g2d_nextFrameCallback = p_callback;
@@ -156,6 +159,8 @@ class GUnityContext implements IGContext {
 
 		g2d_nativeStage = p_config.nativeStage;
 		g2d_stageViewRect = p_config.viewRect;
+        g2d_maxBatchSize = p_config.maxBatchSize;
+        g2d_meshCount = p_config.meshCount;
         g2d_activeViewRect = new GRectangle(0, 0, 0, 0);
 
 		g2d_defaultCamera = new GCamera(this);
@@ -178,7 +183,7 @@ class GUnityContext implements IGContext {
         g2d_currentTime = unityengine.Time.time * 1000;
         g2d_backgroundColor = Color.black;
 
-        g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage, g2d_enterFrame_handler);
+        g2d_nativeContext = new GNativeUnityContext(g2d_nativeStage, g2d_enterFrame_handler, g2d_maxBatchSize, g2d_meshCount);
         g2d_nativeStage.onFrame.add(g2d_enterFrame_handler);
         g2d_nativeStage.onMouse.add(g2d_mouse_handler);
 		onInitialized.dispatch();
