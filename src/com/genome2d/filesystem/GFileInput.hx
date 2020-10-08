@@ -74,6 +74,13 @@ class GFileInput {
         }
     }
 
+    public var bytesAvailable(get, never):UInt;
+
+    private function get_bytesAvailable():UInt
+    {
+        return _bytes.length - _position;
+    }
+
     public var length(get, never):UInt;
 
     private function get_length():UInt
