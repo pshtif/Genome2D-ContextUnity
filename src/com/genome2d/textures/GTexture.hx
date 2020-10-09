@@ -67,6 +67,20 @@ class GTexture extends GTextureBase
 				g2d_nativeTexture = new RenderTexture(g2d_nativeWidth, g2d_nativeHeight, 16);
 			}
 		}
+
+		if (g2d_nativeTexture != null) {
+			if (repeatable) {
+				g2d_nativeTexture.wrapMode = TextureWrapMode.Repeat;
+			} else {
+				g2d_nativeTexture.wrapMode = TextureWrapMode.Clamp;
+			}
+
+			if (filteringType == GTextureFilteringType.LINEAR) {
+				g2d_nativeTexture.filterMode = FilterMode.Point;
+			} else {
+				g2d_nativeTexture.filterMode = FilteringMode.Bilinear;	
+			}
+		}
     }
 
 	override public function getAlphaAtUV(p_u:Float, p_v:Float):Int {
