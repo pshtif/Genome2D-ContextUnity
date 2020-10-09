@@ -44,6 +44,8 @@ class G3DRenderer implements IGRenderer
 	public function invalidateGeometry(p_vertices:Array<Float>, p_uvs:Array<Float>, p_indices:Array<UInt>, p_normals:Array<Float>):Void {
 		if (nativeRenderer == null) {
 			nativeRenderer = new GNativeUnity3DRenderer(cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), cs.Lib.nativeArray(p_indices,false), cs.Lib.nativeArray(p_normals,false));
+		} else {
+			nativeRenderer.InvalidateGeometry(cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), cs.Lib.nativeArray(p_indices,false), cs.Lib.nativeArray(p_normals,false));
 		}
 	}
 	
