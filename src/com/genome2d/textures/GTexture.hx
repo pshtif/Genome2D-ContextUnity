@@ -34,11 +34,12 @@ class GTexture extends GTextureBase
 				g2d_nativeTexture = g2d_source;
                 g2d_gpuWidth = g2d_nativeWidth = g2d_nativeTexture.width;
                 g2d_gpuHeight = g2d_nativeHeight = g2d_nativeTexture.height;
-                premultiplied = true;
+                premultiplied = false;
             } else if (Std.is(g2d_source,GRectangle)) {
                 g2d_sourceType = GTextureSourceType.RENDER_TARGET;
                 g2d_nativeWidth = p_value.width;
-                g2d_nativeHeight = p_value.height;
+				g2d_nativeHeight = p_value.height;
+				premultiplied = false;
             } else if (Std.is(g2d_source, GTexture)) {
 				var parent:GTexture = cast g2d_source;
 				parent.onInvalidated.add(parentInvalidated_handler);
