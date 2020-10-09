@@ -132,7 +132,7 @@ namespace Genome2DNativePlugin
             _currentBatchIndex = 0;
         }
 
-        public void Draw(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
+        public void Draw(Texture p_texture, bool p_premultiplied, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, float p_x, float p_y, float p_scaleX, float p_scaleY,
             float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,
             float p_vScale, float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, IGNativeUnityFilter p_filter)
         {
@@ -152,6 +152,12 @@ namespace Genome2DNativePlugin
                 
                 _renderType = 1;
             }
+
+            if (p_premultiplied) {
+                p_red*=p_alpha;
+                p_green*=p_alpha;
+                p_blue*=p_alpha;
+    		}
 
             float tx;
             float rtx;
@@ -263,7 +269,7 @@ namespace Genome2DNativePlugin
             if (_quadIndex >= _maxBatchSize) FlushRenderer();
         }
         
-        public void DrawMatrix(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
+        public void DrawMatrix(Texture p_texture, bool p_premultiplied, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, GMatrix p_matrix,
             float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale,float p_vScale,
             float p_textureWidth, float p_textureHeight, float p_texturePivotX, float p_texturePivotY, IGNativeUnityFilter p_filter)
         {
@@ -283,6 +289,12 @@ namespace Genome2DNativePlugin
                 
                 _renderType = 1;
             }
+
+            if (p_premultiplied) {
+                p_red*=p_alpha;
+                p_green*=p_alpha;
+                p_blue*=p_alpha;
+    		}
 
             float tx;
             float ty;
@@ -352,7 +364,7 @@ namespace Genome2DNativePlugin
             if (_quadIndex >= _maxBatchSize) FlushRenderer();
         }
 
-        public void DrawPoly(Texture p_texture, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
+        public void DrawPoly(Texture p_texture, bool p_premultiplied, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
             float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, IGNativeUnityFilter p_filter)
         {
             if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * _maxBatchSize || _lastFilter != p_filter)
@@ -378,6 +390,12 @@ namespace Genome2DNativePlugin
             float rty;
             float cos = 1;
             float sin = 0;
+
+            if (p_premultiplied) {
+                p_red*=p_alpha;
+                p_green*=p_alpha;
+                p_blue*=p_alpha;
+    		}
 
             if (p_rotation != 0)
             {

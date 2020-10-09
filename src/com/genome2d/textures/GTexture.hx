@@ -78,7 +78,7 @@ class GTexture extends GTextureBase
 			if (filteringType == GTextureFilteringType.LINEAR) {
 				g2d_nativeTexture.filterMode = FilterMode.Point;
 			} else {
-				g2d_nativeTexture.filterMode = FilteringMode.Bilinear;	
+				g2d_nativeTexture.filterMode = FilterMode.Bilinear;	
 			}
 		}
     }
