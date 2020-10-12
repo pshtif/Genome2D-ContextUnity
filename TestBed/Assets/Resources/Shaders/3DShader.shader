@@ -14,7 +14,7 @@ Shader "Genome2D/3DShader"
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" }
         LOD 100
 
         ZTest Less
@@ -81,7 +81,7 @@ Shader "Genome2D/3DShader"
 				float3 directionColor = col.xyz * light * _LightColor;
 				float3 ambientColor = col.xyz * _AmbientColor.xyz;
 
-				col = half4(directionColor + ambientColor, 1);
+				col = half4(directionColor + ambientColor, col.w);
 
                 return col * _TintColor;// * i.color;
             }
