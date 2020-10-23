@@ -108,7 +108,7 @@ namespace Genome2DNativePlugin
                 _meshes.Add(mesh);
             }
             
-            _defaultMaterial = new Material(Shader.Find("Genome2D/UnlitShader"));
+            _defaultMaterial = new Material(Shader.Find("Genome2D/UnlitShaderPremultiplied"));
             _defaultMaterial.SetInt("BlendSrcMode", (int)BlendMode.SrcAlpha);
             _defaultMaterial.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
 
@@ -365,7 +365,7 @@ namespace Genome2DNativePlugin
         }
 
         public void DrawPoly(Texture p_texture, bool p_premultiplied, BlendMode p_srcBlendMode, BlendMode p_dstBlendMode, double[] p_vertices, double[] p_uvs,
-            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, IGNativeUnityFilter p_filter)
+            float p_x, float p_y, float p_scaleX, float p_scaleY, float p_rotation, float p_red, float p_green, float p_blue, float p_alpha, float p_u, float p_v, float p_uScale, float p_vScale, IGNativeUnityFilter p_filter)
         {
             if (!Object.ReferenceEquals(_lastTexture, p_texture) || p_srcBlendMode != _lastSrcBlendMode || p_dstBlendMode != _lastDstBlendMode || _renderType != 2 || p_vertices.Length/2+_polyIndex > 6 * _maxBatchSize || _lastFilter != p_filter)
             {
@@ -420,8 +420,8 @@ namespace Genome2DNativePlugin
                 _vertices[_polyIndex].x = p_x + tx;
                 _vertices[_polyIndex].y = p_y + ty;
 
-                _uvs[_polyIndex].x = (float)p_uvs[i * 2];
-                _uvs[_polyIndex].y = 1-(float)p_uvs[i * 2 + 1];
+                _uvs[_polyIndex].x = p_u + (float)p_uvs[i * 2]*p_uScale;
+                _uvs[_polyIndex].y = 1 - p_v - (float)p_uvs[i * 2 + 1]*p_vScale;
             
                 _colors[_polyIndex].r = p_red;
                 _colors[_polyIndex].g = p_green;

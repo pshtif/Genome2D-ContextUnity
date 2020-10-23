@@ -291,7 +291,7 @@ class GUnityContext implements IGContext {
     public function drawPoly(p_texture:GTexture, p_blendMode:GBlendMode, p_vertices:Array<Float>, p_uvs:Array<Float>, p_x:Float, p_y:Float, p_scaleX:Float, p_scaleY:Float, p_rotation:Float, p_red:Float, p_green:Float, p_blue:Float, p_alpha:Float, p_filter:GFilter):Void {
         var srcBlendMode = GBlendModeFunc.getSrcBlendMode(p_blendMode, p_texture.premultiplied);
         var dstBlendMode = GBlendModeFunc.getDstBlendMode(p_blendMode, p_texture.premultiplied);
-        g2d_nativeContext.DrawPoly(p_texture.nativeTexture, p_texture.premultiplied, srcBlendMode, dstBlendMode, cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_filter);
+        g2d_nativeContext.DrawPoly(p_texture.nativeTexture, p_texture.premultiplied, srcBlendMode, dstBlendMode, cs.Lib.nativeArray(p_vertices, false), cs.Lib.nativeArray(p_uvs, false), p_x, p_y, p_scaleX, p_scaleY, p_rotation, p_red, p_green, p_blue, p_alpha, p_texture.u, p_texture.v, p_texture.uScale, p_texture.vScale, p_filter);
     }
 
     public function setBlendMode(p_blendMode:GBlendMode, p_premultiplied:Bool):Void {}
