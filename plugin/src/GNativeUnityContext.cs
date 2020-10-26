@@ -108,7 +108,7 @@ namespace Genome2DNativePlugin
                 _meshes.Add(mesh);
             }
             
-            _defaultMaterial = new Material(Shader.Find("Genome2D/UnlitShaderPremultiplied"));
+            _defaultMaterial = new Material(Shader.Find("Genome2D/UnlitShader"));
             _defaultMaterial.SetInt("BlendSrcMode", (int)BlendMode.SrcAlpha);
             _defaultMaterial.SetInt("BlendDstMode", (int)BlendMode.OneMinusSrcAlpha);
 
