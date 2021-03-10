@@ -65,14 +65,26 @@ class G3DRenderer implements IGRenderer
     public function bind(p_context:IGContext, p_reinitialize:Int):Void {
 		
     }
-	
-	public function draw(p_cull:Int = 0, p_renderType:Int):Void {
-		nativeRenderer.lightDirection = new Vector3(lightDirection.x, lightDirection.y, lightDirection.z);
-		nativeRenderer.lightColor = new Color(lightColor.x, lightColor.y, lightColor.z);
-		nativeRenderer.ambientColor = new Color(ambientColor.x, ambientColor.y, ambientColor.z);
-		nativeRenderer.tintColor = new Color(tintColor.x, tintColor.y, tintColor.z, tintColor.w);
+
+	private var _lightDirection = new Vector3(0, 0, 0);
+	private var _lightColor = new Color(0, 0, 0);
+	private var _ambientColor = new Color(0, 0, 0);
+	private var _tintColor = new Color(0, 0, 0);
+	public function draw(p_cull:Int, p_renderType:Int):Void {
+		_lightDirection.x = lightDirection.x; _lightDirection.y = lightDirection.y; _lightDirection.z = lightDirection.z;
+		nativeRenderer.lightDirection = _lightDirection;
+
+		_lightColor.r = lightColor.x; _lightColor.g = lightColor.y; _lightColor.b = lightColor.z;
+		nativeRenderer.lightColor = _lightColor;
+
+		_ambientColor.r = ambientColor.x; _ambientColor.g = ambientColor.y; _ambientColor.b = ambientColor.z;
+		nativeRenderer.ambientColor = _ambientColor;
+
+		_tintColor.r = tintColor.x; _tintColor.g = tintColor.y; _tintColor.b = tintColor.z; _tintColor.a = tintColor.w;
+		nativeRenderer.tintColor = _tintColor;
+
 		nativeRenderer.Draw(texture.nativeTexture, modelMatrix.rawData, cameraMatrix.rawData);
-    }
+	}
 	
 	public function push():Void {
 		
