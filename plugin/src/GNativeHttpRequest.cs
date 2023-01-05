@@ -13,12 +13,16 @@ namespace Genome2DNativePlugin
         protected Action<GNativeHttpRequest> _onError;
         
         private UnityWebRequest _uwr;
+
+        private int _timeoutSeconds;
         
         public GNativeHttpRequest(MonoBehaviour p_wrapper, Action<GNativeHttpRequest> p_onLoad, Action<GNativeHttpRequest> p_onError)
         {
             _wrapper = p_wrapper;
             _onLoad = p_onLoad;
             _onError = p_onError;
+
+            _timeoutSeconds = -1;
         }
         
         private string GetUrlWithQueryParams(string p_url, string[][] p_queryParams)
@@ -104,6 +108,10 @@ namespace Genome2DNativePlugin
         private IEnumerator SendRequest(UnityWebRequest p_uwr, string[][] p_headers)
         {
             _uwr = p_uwr;
+
+            if (_timeoutSeconds != -1) {
+                _uwr.timeout = _timeoutSeconds;
+            }
             
             for (int i = 0; i < p_headers.Length; i++) 
             {
@@ -125,6 +133,11 @@ namespace Genome2DNativePlugin
             }
             
             Close();
+        }
+
+        public void SetTimeoutSeconds(int p_timeoutSeconds)
+        {
+            _timeoutSeconds = p_timeoutSeconds;
         }
     }
 }
