@@ -8,6 +8,7 @@
  */
 package com.genome2d.context;
 
+import com.genome2d.input.GUnityInputType;
 import com.genome2d.geom.GRectangle;
 import com.genome2d.context.stats.IGStats;
 import com.genome2d.project.GProject;
@@ -20,9 +21,10 @@ class GContextConfig
     public var viewRect:GRectangle;
     public var maxBatchSize:Int = 10000;
     public var meshCount:Int = 200;
+    public var unityInputType:GUnityInputType = GUnityInputType.OLD;
 
     public function new(p_stage:GProject, p_viewRect:GRectangle = null) {
-		nativeStage = p_stage;
+        nativeStage = p_stage;
         viewRect = p_viewRect;
         contextClass = GUnityContext;
         statsClass = null;
