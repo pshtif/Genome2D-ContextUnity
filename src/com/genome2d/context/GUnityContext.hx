@@ -9,7 +9,7 @@
 package com.genome2d.context;
 
 import com.genome2d.input.Exception.NotImplementedException;
-//import com.genome2d.input.GOverridableUnityInput;
+import com.genome2d.input.GOverridableUnityInput;
 import com.genome2d.input.GOldUnityInput;
 import com.genome2d.input.GUnityInputType;
 import com.genome2d.input.IGUnityInput;
@@ -314,8 +314,8 @@ class GUnityContext implements IGContext {
             case GUnityInputType.OLD:
                 input = new GOldUnityInput();
 
-//            case GUnityInputType.OVERRIDABLE:
-//                input = new GOverridableUnityInput();
+            case GUnityInputType.OVERRIDABLE:
+                input = new GOverridableUnityInput();
 
             default:
                 throw new NotImplementedException("Create $inputType input handler isn't supported (yet)");

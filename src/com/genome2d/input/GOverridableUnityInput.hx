@@ -1,16 +1,13 @@
-/*
 package com.genome2d.input;
 
 import com.genome2d.input.Exception;
 import cs.NativeArray;
+import genome2dnativeplugin.*;
 import unityengine.*;
 
 class GOverridableUnityInput implements IGUnityInput {
 
-    private var inputModule:StandaloneInputModule;
-
     public function new() {
-        inputModule = EventSystem.current.GetComponent(StandaloneInputModule);
     }
 
     public function getDeviceOrientation():DeviceOrientation {
@@ -18,35 +15,40 @@ class GOverridableUnityInput implements IGUnityInput {
     }
 
     public function getTouchCount():Int {
-        return inputModule.input.touchCount;
+        return GNativeUnityOverridableInput.BaseInput.touchCount;
     }
 
     public function getTouch(index:Int):Touch {
-        return inputModule.input.GetTouch(index);
+        return GNativeUnityOverridableInput.BaseInput.GetTouch(index);
     }
 
     public function getTouches():NativeArray<Touch> {
-        throw createNotSupportedException("getTouches");
+        var touches = new NativeArray<Touch>(getTouchCount());
+        for (i in 0...touches.length) {
+            touches[i] = getTouch(i);
+        }
+
+        return touches;
     }
 
     public function getMouseButtonDown(button:Int):Bool {
-        return inputModule.input.GetMouseButtonDown(button);
+        return GNativeUnityOverridableInput.BaseInput.GetMouseButtonDown(button);
     }
 
     public function getMouseButtonUp(button:Int):Bool {
-        return inputModule.input.GetMouseButtonUp(button);
+        return GNativeUnityOverridableInput.BaseInput.GetMouseButtonUp(button);
     }
 
     public function getMouseButton(button:Int):Bool {
-        return inputModule.input.GetMouseButton(button);
+        return GNativeUnityOverridableInput.BaseInput.GetMouseButton(button);
     }
 
-    public function getMousePosition():Vector3 {
-        return inputModule.input.mousePosition;
+    public function getMousePosition():Vector2 {
+        return GNativeUnityOverridableInput.BaseInput.mousePosition;
     }
 
     public function getMouseScrollDelta():Vector2 {
-        return inputModule.input.mouseScrollDelta;
+        return GNativeUnityOverridableInput.BaseInput.mouseScrollDelta;
     }
 
     public function getKeyDown(name:String):Bool {
@@ -65,5 +67,3 @@ class GOverridableUnityInput implements IGUnityInput {
         return new NotSupportedException("Unity (overridable) input doesn't supporte");
     }
 }
-
- */
