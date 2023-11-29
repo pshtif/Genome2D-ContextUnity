@@ -13,7 +13,7 @@ interface IGUnityInput {
     public function getMouseButtonDown(button:Int):Bool;
     public function getMouseButtonUp(button:Int):Bool;
     public function getMouseButton(button:Int):Bool;
-    public function getMousePosition():Vector3;
+    public function getMousePosition():Vector2;
     public function getMouseScrollDelta():Vector2;
 
     public function getKeyDown(name:String):Bool;

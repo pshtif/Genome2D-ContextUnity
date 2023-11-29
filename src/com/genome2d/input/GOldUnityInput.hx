@@ -36,8 +36,10 @@ class GOldUnityInput implements IGUnityInput {
         return Input.GetMouseButton(button);
     }
 
-    public function getMousePosition():Vector3 {
-        return Input.mousePosition;
+    public function getMousePosition():Vector2 {
+        var mousePosition = Input.mousePosition;
+
+        return new Vector2(mousePosition.x, mousePosition.y);
     }
 
     public function getMouseScrollDelta():Vector2 {
