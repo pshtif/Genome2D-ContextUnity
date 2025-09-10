@@ -21,7 +21,7 @@ class GContextConfig
     public var viewRect:GRectangle;
     public var maxBatchSize:Int = 10000;
     public var meshCount:Int = 200;
-    public var unityInputType:GUnityInputType = GUnityInputType.OLD;
+    public var unityInputType:GUnityInputType = GUnityInputType.OVERRIDABLE;
 
     public function new(p_stage:GProject, p_viewRect:GRectangle = null) {
         nativeStage = p_stage;
