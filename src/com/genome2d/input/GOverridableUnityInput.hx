@@ -11,6 +11,8 @@ class GOverridableUnityInput implements IGUnityInput {
     // Simulate Input Logic is manipulated via reflection, don't change signatures
     public static var simulatedTouches:List<Touch> = new List<Touch>();
 
+    public static var touches(get, null):Array<Touch>;
+
     static function get_touch_count():Int {
         if (simulatedTouches.isEmpty()) {
             return GNativeUnityOverridableInput.BaseInput.touchCount;
@@ -22,7 +24,7 @@ class GOverridableUnityInput implements IGUnityInput {
         var touchCount = get_touch_count();
         var tempTouches = new Array<Touch>();
         for (i in 0...touchCount) {
-            tempTouches.push(get_touch(i, false));
+            tempTouches.push(get_touch(i));
         }
         return tempTouches;
     }
@@ -60,7 +62,7 @@ class GOverridableUnityInput implements IGUnityInput {
     }
 
     public function getTouches():NativeArray<Touch> {
-        var arr = get_touches();
+        var arr = touches;
         var nativeArr = new NativeArray<Touch>(arr.length);
         for (i in 0...arr.length) {
             nativeArr[i] = arr[i];
