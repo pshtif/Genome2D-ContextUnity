@@ -59,34 +59,44 @@ namespace Genome2DNativePlugin
         
         private async void ReadFile(string p_filePath)
         {
+            Exception readException = null;
+
             try
             {
-                _fileStream = File.Open(p_filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-                
+                _fileStream = File.Open(
+                    p_filePath,
+                    FileMode.Open,
+                    FileAccess.Read,
+                    FileShare.Read
+                );
+
                 var bytesCount = (int)_fileStream.Length;
                 _result = new byte[bytesCount];
-                
+
                 await _fileStream.ReadAsync(_result, 0, bytesCount);
-                
-                if (_onRead != null) {
-                    _onRead(this);
-                }
             }
             catch (Exception exception)
             {
+                readException = exception;
                 _error = exception.Message;
                 _result = null;
-                
-                if (_onError != null) {
-                    _onError(this);
+            }
+            finally
+            {
+                if (_fileStream != null)
+                {
+                    _fileStream.Dispose();
+                    _fileStream = null;
                 }
             }
 
-            if (_fileStream != null)
+            if (readException != null)
             {
-                _fileStream.Dispose();
-                _fileStream = null;
+                _onError?.Invoke(this);
+                return;
             }
+
+            _onRead?.Invoke(this);
         }
     }
 }

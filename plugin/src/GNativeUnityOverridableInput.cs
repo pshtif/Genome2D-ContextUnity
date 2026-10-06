@@ -8,8 +8,12 @@ namespace Genome2DNativePlugin
 
         public static BaseInput BaseInput
         {
-            get {
-                _inputModule ??= EventSystem.current.GetComponent<StandaloneInputModule>();
+            get
+            {
+                if (_inputModule == null)
+                {
+                    _inputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
+                }
 
                 return _inputModule.input;
             }
